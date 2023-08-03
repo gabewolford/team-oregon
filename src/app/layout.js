@@ -1,6 +1,7 @@
 import './globals.css'
 import { exo } from './styles/fonts'
 import Navbar from './components/Navbar'
+import Footer from './components/Footer'
 
 export const metadata = {
   title: 'Team Oregon | PNW Bike Racing',
@@ -13,9 +14,11 @@ export default function RootLayout({ children }) {
       <body className={exo.className}>
         <Navbar />
         <div className='pt-[55px] md:pt-[68px]'>
-        {children}
+          {children}
         </div>
+        <Footer />
       </body>
+
     </html>
   )
 }
