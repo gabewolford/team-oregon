@@ -12,7 +12,7 @@ export default function Footer() {
                     <WhiteLogo />
                     <PresentedBy color={'text-white-500'} display={'flex flex-row'}/>
                 </div>
-                <div className={`${sailorsRegular.className} text-white-500 justify-between flex flex-col md:flex-row lg:w-[660px]`}>
+                <div className={`${sailorsRegular.className} text-white-500 justify-between flex flex-col md:flex-row md:w-[660px]`}>
                     <Link href="/">About</Link>
                     <Link href="/sponsors">Sponsors</Link>
                     <Link href="/team">Team</Link>
