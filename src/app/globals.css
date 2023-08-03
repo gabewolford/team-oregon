@@ -3,10 +3,14 @@
 @tailwind utilities;
 
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
+  color: #32221E;
 }
 
 body {
-  color: #32221E;
+  position: relative;
+  min-height: 100dvh;
   background-color: #CAD9E0;
 }
