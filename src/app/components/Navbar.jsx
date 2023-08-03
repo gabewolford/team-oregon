@@ -4,7 +4,7 @@ import Link from "next/link"
 import Image from "next/image";
 import { useLayoutEffect, useEffect, useState } from "react"
 import { usePathname } from 'next/navigation';
-import { sailorsRegular, sneakoutRegular } from "../styles/fonts"
+import { sailorsRegular } from "../styles/fonts"
 
 export default function Navbar() {
 
@@ -16,7 +16,7 @@ export default function Navbar() {
         const [isSmallScreen, setisSmallScreen] = useState(false);
   
         const location = usePathname();
-        const inactiveColorClass = 'text-grey-500';
+        const inactiveColorClass = 'text-gray-500';
         const contactExcludedPaths = ['/', '/contact', '/contact/confirmation'];
 
         useLayoutEffect(() => {
@@ -36,8 +36,9 @@ export default function Navbar() {
         <header className="fixed flex flex-wrap sm:justify-start sm:flex-nowrap z-50 w-full bg-lightblue-500 text-sm py-3 sm:py-0">
             <nav className={`${sailorsRegular.className} relative w-full mx-auto px-4 sm:flex sm:items-center sm:justify-between sm:px-6 lg:px-8`} aria-label="Global">
 
-                <div className="sm:hidden flex items-center justify-between border border-red-500">
+                <div className="sm:hidden flex items-center justify-between">
                     <div className=''>
+                        <h1 className="hidden">Team Oregon</h1>
                         <Link className="" href="/">
                             <Image 
                                 src="/images/team-oregon-logo.png"
@@ -63,7 +64,7 @@ export default function Navbar() {
                 </div>
 
                 <div id="navbar-collapse-with-animation" className="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow sm:block">
-                    <div className="border border-green-400 flex flex-col gap-y-4 gap-x-0 mt-5 sm:flex-row sm:items-center  sm:gap-y-0 sm:gap-x-7 sm:mt-0">
+                    <div className="flex flex-col gap-y-4 gap-x-0 mt-5 sm:flex-row sm:items-center  sm:gap-y-0 sm:gap-x-7 sm:mt-0">
                         <Link 
                         className={`hover:text-cyan-420 ${(location !== '/') && inactiveColorClass}`}
                         href="/"
@@ -99,8 +100,9 @@ export default function Navbar() {
                     </div>
                 </div>
             
-                <div className="hidden sm:block items-center justify-between border border-red-500">
-                    <div className='flex sm:w-[250px] md:w-[368px]'>
+                <div className="hidden sm:block items-center justify-between">
+                    <div className='flex sm:w-[250px] lg:w-[368px]'>
+                        <h1 className="hidden">Team Oregon</h1>
                         <Link className="" href="/">
                             <Image 
                                 src="/images/team-oregon-logo.png"
@@ -126,7 +128,7 @@ export default function Navbar() {
                 </div>
 
                 <div id="navbar-collapse-with-animation" className="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow sm:block">
-                    <div className="border border-green-400 flex flex-col gap-y-4 gap-x-0 mt-3 sm:flex-row sm:items-center sm:justify-end sm:gap-y-0 sm:gap-x-7 sm:mt-0 sm:pl-7">
+                    <div className="flex flex-col gap-y-4 gap-x-0 mt-3 sm:flex-row sm:items-center sm:justify-end sm:gap-y-0 sm:gap-x-7 sm:mt-0 sm:pl-7">
                         <Link 
                             className={`hover:text-cyan-420 sm:py-6 ${(location !== '/join' && location !== '/') && inactiveColorClass}`}
                             href="/join"
@@ -146,18 +148,7 @@ export default function Navbar() {
                                 'aria-controls': 'navbar-collapse-with-animation',
                                 'aria-label': 'Toggle navigation'
                             })}>
-                            Contact
-                        </Link>
-                        
-                        <Link 
-                            className={`hover:text-cyan-420 sm:py-6 ${!contactExcludedPaths.includes(location) && inactiveColorClass}`}
-                            href="/contact" 
-                            {...(isSmallScreen && {
-                                'data-hs-collapse': '#navbar-collapse-with-animation',
-                                'aria-controls': 'navbar-collapse-with-animation',
-                                'aria-label': 'Toggle navigation'
-                            })}>
-                            Log In
+                            Contact Us
                         </Link>
                     </div>
                 </div>

@@ -12,7 +12,9 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={exo.className}>
         <Navbar />
+        <div className='pt-[68px]'>
         {children}
+        </div>
       </body>
     </html>
   )

@@ -3,7 +3,7 @@ import Hero from "./components/Hero"
 
 export default function HomePage() {
   return (
-    <main className="pt-[68px]">
+    <main>
 
       {/* <div className="flex flex-row justify-center mt-2 mb-6">
         <div className="flex flex-col justify-center">
