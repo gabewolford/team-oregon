@@ -1,10 +1,10 @@
 import Image from "next/image"
 
-export default function PresentedBy() {
+export default function PresentedBy({ color, display }) {
   return (
-    <div className="hidden md:flex md:flex-row justify-center -mt-1 mb-6">
+    <div className={`${display} justify-center -mt-1`}>
         <div className="flex flex-col justify-center">
-          <p className="text-sm mb-1 text-center">presented by</p>
+          <p className={`text-sm mb-1 text-center ${color}`}>presented by</p>
           <Image 
             src="/images/rodda-paint-logo.png"
             width={100}
