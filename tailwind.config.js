@@ -14,7 +14,7 @@ module.exports = {
         },
         blue: {
           500: '#0163AA',
-          'hover': '#'
+          'hover': '#0083E1'
         },
         lightblue: {
           500: '#CAD9E0'
