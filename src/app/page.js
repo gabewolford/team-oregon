@@ -3,8 +3,9 @@ import Hero from "./components/Hero"
 
 export default function HomePage() {
   return (
-    <main>
-      <div className="flex flex-row justify-center mt-2 mb-6">
+    <main className="pt-[68px]">
+
+      {/* <div className="flex flex-row justify-center mt-2 mb-6">
         <div className="flex flex-col justify-center">
           <p className="text-sm mb-1 text-center">presented by</p>
           <Image 
@@ -15,7 +16,7 @@ export default function HomePage() {
           >
           </Image>
         </div>
-      </div>
+      </div> */}
       <Hero />
     </main>
   )
