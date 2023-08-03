@@ -35,7 +35,7 @@ export default function Hero() {
                     </div>
                 </section>
 
-                <div className="flex px-4 md:hidden">
+                <div className="flex px-4 md:hidden pb-10 md:pb-0">
                     <div className="flex flex-col items-start gap-2 w-full">
                         <div className="flex flex-col gap-2">
                             <div className="flex flex-row items-baseline gap-2">
@@ -43,7 +43,7 @@ export default function Hero() {
                                 <h6 className={`text-xs lg:text-base text-brown-500 ${exo.className}`}>est. 1987</h6>
                             </div>
                             <div>
-                                <h2 className="text-brown-500 text-md lg:text-2xl">Helping our members achieve their cycling goals and developing the sport of competive cycling in the Pacific Northwest for over three decades.</h2>
+                                <h2 className="text-brown-500 text-md lg:text-2xl font-medium">Helping our members achieve their cycling goals and developing the sport of competive cycling in the Pacific Northwest for over three decades.</h2>
                             </div>
                         </div>
                         <Button text={'Ride with us'} linkTo={'/join'}/>
