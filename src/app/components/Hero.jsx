@@ -13,12 +13,13 @@ export default function Hero({ text, buttonText, buttonLink }) {
                     width={2800}
                     alt="Hero image"
                     priority={true}
+                    className="hidden md:block"
                 >
                 </Image>
                 <div className="flex flex-row w-full h-full absolute">
                     <div className="w-1/2 h-full"></div>
                     <div className="flex items-center w-1/2">
-                        <div className="hidden md:block md:flex md:flex-col items-start gap-6 w-[543px]">
+                        <div className="hidden md:block md:flex md:flex-col items-start gap-4 w-[543px]">
                             <div className="flex flex-col gap-2">
                                 <div className="flex flex-row items-baseline gap-2">
                                     <h1 className={`${sneakoutRegular.className} text-white-500 text-[36px] lg:text-[56px] leading-[120%]`}>Team Oregon</h1>
@@ -34,18 +35,30 @@ export default function Hero({ text, buttonText, buttonLink }) {
                 </div>
             </section>
 
-            <div className="flex px-4 md:hidden pb-10 md:pb-0">
+            <div className="flex md:hidden pb-10 md:pb-0">
                 <div className="flex flex-col items-start gap-2 w-full">
-                    <div className="flex flex-col gap-2">
-                        <div className="flex flex-row items-baseline gap-2">
-                            <h1 className={`${sneakoutRegular.className} text-brown-500 text-[36px] lg:text-[56px] leading-[120%]`}>Team Oregon</h1>
-                            <h6 className={`text-xs lg:text-base text-brown-500 ${exo.className}`}>est. 1987</h6>
+                    <Image
+                        src="/images/hero-image-mobile.png"
+                        sizes="100vw"
+                        height={798}
+                        width={543}
+                        alt="Hero image"
+                        priority={true}
+                        className="w-full"
+                    >
+                    </Image>
+                    <div className="flex flex-col px-4 gap-4">
+                        <div className="flex flex-col gap-2">
+                            <div className="flex flex-row items-baseline gap-2">
+                                <h1 className={`${sneakoutRegular.className} text-brown-500 text-[36px] lg:text-[56px] leading-[120%]`}>Team Oregon</h1>
+                                <h6 className={`text-xs lg:text-base text-brown-500 ${exo.className}`}>est. 1987</h6>
+                            </div>
+                            <div>
+                                <h3 className="text-md leading-[160%] font-medium lg:text-2xl">{text}</h3>
+                            </div>
                         </div>
-                        <div>
-                            <h3 className="text-md leading-[160%] font-medium lg:text-2xl">{text}</h3>
-                        </div>
+                        <Button text={buttonText} linkTo={buttonLink}/>
                     </div>
-                    <Button text={buttonText} linkTo={buttonLink}/>
                 </div>
             </div>
         </div>
