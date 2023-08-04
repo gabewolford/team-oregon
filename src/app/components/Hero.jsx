@@ -5,7 +5,7 @@ import Button from "./Button"
 export default function Hero({ text, buttonText, buttonLink }) {
     return (
         <div className="flex flex-col gap-4">
-            <section className="flex relative w-full mt-6 md:pb-20">
+            <section className="flex relative w-full -mt-4 md:mt-6 md:pb-20">
                 <Image
                     src="/images/hero-image.png"
                     sizes="100vw"
