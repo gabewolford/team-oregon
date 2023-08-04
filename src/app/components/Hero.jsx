@@ -36,7 +36,7 @@ export default function Hero({ text, buttonText, buttonLink }) {
             </section>
 
             <div className="flex md:hidden pb-10 md:pb-0">
-                <div className="flex flex-col items-start gap-2 w-full">
+                <div className="flex relative items-start gap-2 w-full">
                     <Image
                         src="/images/hero-image-mobile.png"
                         sizes="100vw"
@@ -47,14 +47,14 @@ export default function Hero({ text, buttonText, buttonLink }) {
                         className="w-full"
                     >
                     </Image>
-                    <div className="flex flex-col px-4 gap-4">
-                        <div className="flex flex-col gap-2">
+                    <div className="absolute bottom-0 py-4 flex-col px-4 gap-4 backdrop-blur-sm ">
+                        <div className="flex flex-col gap-2 mb-4">
                             <div className="flex flex-row items-baseline gap-2">
-                                <h1 className={`${sneakoutRegular.className} text-brown-500 text-[36px] lg:text-[56px] leading-[120%]`}>Team Oregon</h1>
-                                <h6 className={`text-xs lg:text-base text-brown-500 ${exo.className}`}>est. 1987</h6>
+                                <h1 className={`${sneakoutRegular.className} text-white-500 text-[36px] lg:text-[56px] leading-[120%]`}>Team Oregon</h1>
+                                <h6 className={`text-xs lg:text-base text-white-500 ${exo.className}`}>est. 1987</h6>
                             </div>
                             <div>
-                                <h3 className="text-md leading-[160%] font-medium lg:text-2xl">{text}</h3>
+                                <h3 className="text-md text-white-500 leading-[160%] font-medium lg:text-2xl">{text}</h3>
                             </div>
                         </div>
                         <Button text={buttonText} linkTo={buttonLink}/>
