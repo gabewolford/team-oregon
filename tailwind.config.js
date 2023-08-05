@@ -11,7 +11,7 @@ module.exports = {
       colors: {
         darkbrown: {
           500: '#32221E',
-          'hover': '#'
+          'hover': '#433936'
         },
         blue: {
           500: '#0163AA',
