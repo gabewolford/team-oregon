@@ -6,17 +6,17 @@ import Facebook from "../components/Socials/Facebook"
 export default function TitleSponsorCard() {
   return (
     <section className="flex flex-col mt-6 md:mt-10 gap-6 md:gap-10">
-        <div>
-          <h2 className='text-center text-2xl md:text-3xl text-blue-500 font-semibold uppercase'>2023 Presenting Sponsor</h2>
+        <div className="px-10">
+          <h2 className='text-center text-xl md:text-3xl text-blue-500 font-semibold uppercase'>2023 Presenting Sponsor</h2>
           <Image
           src={'/images/rodda-paint-logo-large.png'}
           alt="Rodda Paint"
           height={315}
           width={650}
-          className="px-10 pt-6 pb-4 mx-auto"
+          className="pt-6 pb-4 mx-auto"
           >
           </Image>
-          <h5 className="text-center text-xl font-medium uppercase">Commerical | Industrial | Residential</h5>
+          <h5 className="text-center text-sm md:text-xl font-medium uppercase">Commerical | Industrial | Residential</h5>
         </div>
         <div className="flex flex-col max-w-[650px] mx-auto px-10 gap-2">
           <div className="flex flex-row gap-4">

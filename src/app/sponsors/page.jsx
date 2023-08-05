@@ -14,7 +14,7 @@ export default function SponsorsPage() {
       </section>
       <section className="mt-10 mb-20">
         <CTA
-          header={'Interest in sponsoring Team Oregon?'}
+          header={'Interest in becoming a team sponsor?'}
           buttonText={'Get in touch'}
           linkTo={'/contact'}
         >
