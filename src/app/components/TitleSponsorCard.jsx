@@ -28,7 +28,7 @@ export default function TitleSponsorCard() {
             </div>
           </div>
           <div className="flex flex-col gap-2">
-            <p>Rodda's family roots are strong and deep in the Pacific Northwest as our traditions date back to the 1930's. We are dedicated to developing and maintaining partnerships with our professional customers and strong allegiances in our communities.</p>
+            <p>Rodda&apos;s family roots are strong and deep in the Pacific Northwest as our traditions date back to the 1930&apos;s. We are dedicated to developing and maintaining partnerships with our professional customers and strong allegiances in our communities.</p>
             <h5 className="mt-2">We have been guided by our core values since 1932.</h5>
             <div className="flex flex-col pl-8 md:pl-0 md:flex-row justify-around text-sm md:text-base">
               <div className="flex flex-col">
