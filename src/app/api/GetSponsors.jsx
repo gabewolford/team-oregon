@@ -38,7 +38,7 @@ export default function GetSponsors() {
   return (
     <>
       {sponsors.length > 0 ? (
-        <div className="grid grid-cols-1 lg:grid-cols-2">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 mx-10">
           {sponsors.map((sponsor, i) => (
             <div key={i}>
               <SponsorCard key={i} sponsorData={sponsor} />

@@ -13,33 +13,35 @@ export default function SponsorCard({ sponsorData }) {
                          height={193}
                          width={193}
                          alt={sponsorData.name}
-                         className="w-full"
+                         className="w-full md:w-fit md:h-fit"
                        >
                        </Image>
 
-        website = <a href={sponsorData.website}>
+        website = <a href={sponsorData.website} className="">
                        <Website color={'#0163AA'} />
                   </a>
-        
 
-        instagramLink = <a href={sponsorData.instagram}>
-                            <Instagram color={'#0163AA'} />
-                        </a>
+        if (sponsorData.instagram) {
+            instagramLink = <a href={sponsorData.instagram}>
+                                <Instagram color={'#0163AA'} />
+                             </a>
+        }
         
+        if(sponsorData.facebook) {
         facebookLink = <a href={sponsorData.facebook}>
                             <Facebook color={'#0163AA'} />
                         </a>
+        }
 
-        description = <p>{sponsorData.description}</p>
+        description = <p className="text-sm">{sponsorData.description}</p>
     }
 
     return (
-        <div className="flex flex-col md:flex-row gap-4 max-w-[540px]">
+        <div className="flex flex-col md:flex-row gap-4 md:min-w-500 max-w-[650px] items-center">
             {sponsorImage}
-
             <div className="flex flex-col gap-2">
                 {sponsorName}
-                <div className="flex flex-row">
+                <div className="flex flex-row space-x-2">
                     {website}
                     {instagramLink}
                     {facebookLink}
