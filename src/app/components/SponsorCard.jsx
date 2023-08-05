@@ -17,20 +17,16 @@ export default function SponsorCard({ sponsorData }) {
                        >
                        </Image>
 
-        website = <a href={sponsorData.website} className="">
-                       <Website color={'#0163AA'} />
-                  </a>
+        website = <Website color={'#0163AA'} linkTo={sponsorData.website}/>
+    
 
         if (sponsorData.instagram) {
-            instagramLink = <a href={sponsorData.instagram}>
-                                <Instagram color={'#0163AA'} />
-                             </a>
+            instagramLink = <Instagram color={'#0163AA'} linkTo={sponsorData.instagram}/>
         }
         
         if(sponsorData.facebook) {
-        facebookLink = <a href={sponsorData.facebook}>
-                            <Facebook color={'#0163AA'} />
-                        </a>
+        facebookLink = <Facebook color={'#0163AA'} linkTo={sponsorData.facebook}/>
+ 
         }
 
         description = <p className="text-sm">{sponsorData.description}</p>
