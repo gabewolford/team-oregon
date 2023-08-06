@@ -5,7 +5,7 @@ import PresentedBy from "./PresentedBy"
 
 export default function Footer() {
     return (
-        <footer className={`${exo.className} flex flex-col w-full mx-auto px-10 py-5 md:py-10 bg-blue-500 absolute bottom-0`}>
+        <footer className={`${exo.className} flex flex-col w-full mx-auto px-10 py-5 md:py-10 sm:px-6 lg:px-8 bg-blue-500 absolute bottom-0`}>
             <div className="flex flex-col lg:flex-row items-center justify-between gap-4">
                 <div className="flex flex-col gap-4">
                     <WhiteLogo />

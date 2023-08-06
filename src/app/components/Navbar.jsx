@@ -66,7 +66,7 @@ export default function Navbar() {
                 <div id="navbar-collapse-with-animation" className="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow sm:block">
                     <div className="flex flex-col gap-y-4 gap-x-0 mt-5 sm:flex-row sm:items-center  sm:gap-y-0 sm:gap-x-7 sm:mt-0">
                         <Link 
-                        className={`hover:text-darkbrown-hover text-xl md:text-sm ${(location !== '/') && inactiveColorClass}`}
+                        className={`hover:text-blue-500 text-xl md:text-sm ${(location !== '/') && inactiveColorClass}`}
                         href="/"
                         {...(isSmallScreen && {
                             'data-hs-collapse': '#navbar-collapse-with-animation',
@@ -77,7 +77,7 @@ export default function Navbar() {
                         </Link>
 
                         <Link 
-                        className={`hover:text-darkbrown-hover sm:py-6 text-xl md:text-sm ${(location !== '/sponsors' && location !== '/') && inactiveColorClass}`}
+                        className={`hover:text-blue-500 sm:py-6 text-xl md:text-sm ${(location !== '/sponsors' && location !== '/') && inactiveColorClass}`}
                         href="/sponsors"
                         {...(isSmallScreen && {
                             'data-hs-collapse': '#navbar-collapse-with-animation',
@@ -88,7 +88,7 @@ export default function Navbar() {
                         </Link>
 
                         <Link 
-                        className={`hover:text-darkbrown-hover sm:py-6 text-xl md:text-sm ${(location !== '/team' && location !== '/') && inactiveColorClass}`}
+                        className={`hover:text-blue-500 sm:py-6 text-xl md:text-sm ${(location !== '/team' && location !== '/') && inactiveColorClass}`}
                         href="/team"
                         {...(isSmallScreen && {
                             'data-hs-collapse': '#navbar-collapse-with-animation',
@@ -130,7 +130,7 @@ export default function Navbar() {
                 <div id="navbar-collapse-with-animation" className="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow sm:block">
                     <div className="flex flex-col gap-y-4 gap-x-0 mt-4 sm:flex-row sm:items-center sm:justify-end sm:gap-y-0 sm:gap-x-7 sm:mt-0 sm:pl-7">
                         <Link 
-                            className={`hover:text-darkbrown-hover sm:py-6 text-xl md:text-sm ${(location !== '/join' && location !== '/') && inactiveColorClass}`}
+                            className={`hover:text-blue-500 sm:py-6 text-xl md:text-sm ${(location !== '/join' && location !== '/') && inactiveColorClass}`}
                             href="/join"
                             {...(isSmallScreen && {
                                 'data-hs-collapse': '#navbar-collapse-with-animation',
@@ -141,7 +141,7 @@ export default function Navbar() {
                         </Link>
 
                         <Link 
-                            className={`hover:text-darkbrown-hover sm:py-6 text-xl md:text-sm ${!contactExcludedPaths.includes(location) && inactiveColorClass}`}
+                            className={`hover:text-blue-500 sm:py-6 text-xl md:text-sm ${!contactExcludedPaths.includes(location) && inactiveColorClass}`}
                             href="/contact" 
                             {...(isSmallScreen && {
                                 'data-hs-collapse': '#navbar-collapse-with-animation',

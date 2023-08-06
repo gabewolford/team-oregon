@@ -47,7 +47,7 @@ export default function Hero({ text, buttonText, buttonLink }) {
                         className="w-full"
                     >
                     </Image>
-                    <div className="absolute bottom-0 py-4 flex-col px-4 gap-4 backdrop-blur-sm ">
+                    <div className="absolute bottom-0 py-4 flex-col px-4 gap-4 backdrop-blur-sm">
                         <div className="flex flex-col gap-2 mb-4">
                             <div className="flex flex-row items-baseline gap-2">
                                 <h1 className={`${sneakoutRegular.className} text-white-500 text-[36px] lg:text-[56px] leading-[120%]`}>Team Oregon</h1>
