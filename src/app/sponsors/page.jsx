@@ -2,6 +2,11 @@ import GetSponsors from "../api/GetSponsors"
 import CTA from "../components/CTA"
 import TitleSponsorCard from "../components/TitleSponsorCard"
 
+export const metadata = {
+  title: 'Team Oregon | Sponsors',
+  description: 'Helping our members achieve their cycling goals and developing the sport of competive cycling in the Pacific Northwest for over three decades.',
+}
+
 export default function SponsorsPage() {
   return (
     <main className="flex flex-col gap-10 md:gap-20">
