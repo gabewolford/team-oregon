@@ -5,7 +5,14 @@ export const metadata = {
 
 export default function JoinPage() {
     return (
-      <div>Join Page</div>
+      <>
+          <main className="flex flex-col gap-10 md:gap-20">
+              <div className="mx-6 lg:mx-20 my-4 md:my-10">
+                  <h2 className='text-center text-xl md:text-3xl text-blue-500 font-semibold uppercase mb-2'>Join The Team</h2>
+
+              </div>
+          </main>
+      </>
     )
   }
   
