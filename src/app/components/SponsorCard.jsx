@@ -37,7 +37,7 @@ export default function SponsorCard({ sponsorData }) {
             {sponsorImage}
             <div className="flex flex-col gap-2">
                 {sponsorName}
-                <div className="flex flex-row space-x-2">
+                <div className="flex flex-row space-x-2 mb-1">
                     {website}
                     {instagramLink}
                     {facebookLink}
