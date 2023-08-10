@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emailjs/browser": "^3.11.0",
     "@sanity/image-url": "^1.0.2",
     "@sanity/vision": "^3.14.5",
     "@typeform/embed-react": "^2.30.0",
