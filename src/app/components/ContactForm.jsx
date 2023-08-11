@@ -4,7 +4,6 @@ import { useRef, useState } from "react";
 import { useRouter } from 'next/navigation';
 import Spinner from "./Spinner";
 import emailjs from "@emailjs/browser";
-import Button from "./Button";
 
 export default function ContactForm() { 
     const [isLoading, setIsLoading] = useState(false);
@@ -37,12 +36,12 @@ export default function ContactForm() {
                     <h6 className="flex justify-end text-xs">* required</h6>
                     <form ref={form} onSubmit={sendEmail} className="grid gap-6 grid-cols-1 md:grid-cols-2 bg-blue500">
                         <div className="col-span-2">
-                            <label className="text-xs">Name <span>*</span></label>
+                            <label className="text-xs">Full Name <span>*</span></label>
                             <input 
                                 type="text"
-                                placeholder="First and last name"
+                                placeholder="Your name"
                                 name="user_name" 
-                                className="border-2 border-blue-500 rounded p-2 w-full"
+                                className="border-2 border-blue-500 rounded-lg p-2 w-full"
                                 required
                             />
                         </div>
@@ -53,7 +52,7 @@ export default function ContactForm() {
                                 type="email"
                                 placeholder="Email address"
                                 name="user_email"
-                                className="border-2 border-blue-500 rounded p-2 w-full"
+                                className="border-2 border-blue-500 rounded-lg p-2 w-full"
                                 required
                             />
                         </div>
@@ -62,7 +61,7 @@ export default function ContactForm() {
                             <label className="text-xs">Inquiry Type <span>*</span></label><br/>
                             <select 
                                 name="inquiry_type" 
-                                className="border-2 border-blue-500 rounded p-2 w-full"
+                                className="border-2 border-blue-500 rounded-lg p-2 w-full"
                                 required>
                                     <option value="Select One">Select One</option>
                                     <option value="Membership">Membership</option>
@@ -75,7 +74,7 @@ export default function ContactForm() {
                             <label className="text-xs">Message <span>*</span></label>
                             <textarea 
                                 name="user_message" 
-                                className="border-2 border-blue-500 rounded p-1 min-h-[150px] h-max w-full mt-1"
+                                className="border-2 border-blue-500 rounded-lg p-1 min-h-[150px] h-max w-full mt-1"
                                 maxLength={500}
                                 placeholder="Your message here"
                                 required
