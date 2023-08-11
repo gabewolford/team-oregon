@@ -150,6 +150,17 @@ export default function Navbar() {
                             })}>
                             Contact Us
                         </Link>
+
+                        <Link 
+                            className={`hover:text-blue-500 sm:py-6 text-xl md:text-sm ${(location !== '/login' && location !== '/') && inactiveColorClass}`}
+                            href="/login" 
+                            {...(isSmallScreen && {
+                                'data-hs-collapse': '#navbar-collapse-with-animation',
+                                'aria-controls': 'navbar-collapse-with-animation',
+                                'aria-label': 'Toggle navigation'
+                            })}>
+                            Log In
+                        </Link>
                     </div>
                 </div>
             </nav>
