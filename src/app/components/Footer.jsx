@@ -24,7 +24,7 @@ export default function Footer() {
                     <PresentedBy color={'text-white-500'} display={'flex flex-row'}/>
                 </div>
                 {!isAuthenticated ? (
-                    <div className={`${sailorsRegular.className} text-white-500 text-center justify-between flex flex-col md:flex-row md:w-[660px]`}>
+                    <div className={`${sailorsRegular.className} text-white-500 text-lg md:text-sm text-center justify-between flex flex-col md:flex-row md:w-[660px]`}>
                         <Link href="/">About</Link>
                         <Link href="/sponsors">Sponsors</Link>
                         <Link href="/team">Team</Link>
@@ -33,7 +33,7 @@ export default function Footer() {
                         <Link href="/login">Log In</Link>
                     </div>
                 ) : (
-                    <div className={`${sailorsRegular.className} text-white-500 text-center justify-between flex flex-col md:flex-row md:w-[660px]`}>
+                    <div className={`${sailorsRegular.className} text-white-500 text-lg md:text-sm text-center justify-between flex flex-col md:flex-row md:w-[660px]`}>
                         <Link href="/">About</Link>
                         <Link href="/sponsors">Sponsors</Link>
                         <Link href="/team">Team</Link>
