@@ -1,3 +1,5 @@
+import LoginForm from "../components/LoginForm"
+
 export const metadata = {
     title: 'Team Oregon | Log In',
     description: 'Helping our members achieve their cycling goals and developing the sport of competive cycling in the Pacific Northwest for over three decades.',
@@ -5,6 +7,11 @@ export const metadata = {
 
 export default function LogInPage() {
   return (
-    <div>Log In</div>
+    <main className="flex flex-col gap-10 md:gap-20">
+        <div className="mx-6 lg:mx-20 my-4 md:my-10">
+            <h2 className='text-center text-xl md:text-3xl text-blue-500 font-semibold uppercase mb-2'>LOG IN TO YOUR ACCOUNT</h2>
+            <LoginForm />
+        </div>
+    </main>
   )
 }

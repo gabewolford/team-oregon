@@ -5,8 +5,11 @@ import Image from "next/image";
 import { useLayoutEffect, useEffect, useState } from "react"
 import { usePathname } from 'next/navigation';
 import { sailorsRegular } from "../styles/fonts"
+import { useSession } from 'next-auth/react'
 
 export default function Navbar() {
+    const { data: session } = useSession()
+    const isAuthenticated = session?.user
 
     useEffect(() => {
         import('preline')
@@ -129,38 +132,67 @@ export default function Navbar() {
 
                 <div id="navbar-collapse-with-animation" className="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow sm:block">
                     <div className="flex flex-col gap-y-4 gap-x-0 mt-4 sm:flex-row sm:items-center sm:justify-end sm:gap-y-0 sm:gap-x-7 sm:mt-0 sm:pl-7">
-                        <Link 
-                            className={`hover:text-blue-500 sm:py-6 text-xl md:text-sm ${(location !== '/join' && location !== '/') && inactiveColorClass}`}
-                            href="/join"
-                            {...(isSmallScreen && {
-                                'data-hs-collapse': '#navbar-collapse-with-animation',
-                                'aria-controls': 'navbar-collapse-with-animation',
-                                'aria-label': 'Toggle navigation'
-                            })}>
-                            Join The Team
-                        </Link>
+                        {!isAuthenticated ? (
+                            <>
+                                <Link 
+                                className={`hover:text-blue-500 sm:py-6 text-xl md:text-sm ${(location !== '/join' && location !== '/') && inactiveColorClass}`}
+                                href="/join"
+                                {...(isSmallScreen && {
+                                    'data-hs-collapse': '#navbar-collapse-with-animation',
+                                    'aria-controls': 'navbar-collapse-with-animation',
+                                    'aria-label': 'Toggle navigation'
+                                })}>
+                                Join The Team
+                                </Link>
 
-                        <Link 
-                            className={`hover:text-blue-500 sm:py-6 text-xl md:text-sm ${!contactExcludedPaths.includes(location) && inactiveColorClass}`}
-                            href="/contact" 
-                            {...(isSmallScreen && {
-                                'data-hs-collapse': '#navbar-collapse-with-animation',
-                                'aria-controls': 'navbar-collapse-with-animation',
-                                'aria-label': 'Toggle navigation'
-                            })}>
-                            Contact Us
-                        </Link>
+                                <Link 
+                                    className={`hover:text-blue-500 sm:py-6 text-xl md:text-sm ${!contactExcludedPaths.includes(location) && inactiveColorClass}`}
+                                    href="/contact" 
+                                    {...(isSmallScreen && {
+                                        'data-hs-collapse': '#navbar-collapse-with-animation',
+                                        'aria-controls': 'navbar-collapse-with-animation',
+                                        'aria-label': 'Toggle navigation'
+                                    })}>
+                                    Contact Us
+                                </Link>
 
-                        <Link 
-                            className={`hover:text-blue-500 sm:py-6 text-xl md:text-sm ${(location !== '/login' && location !== '/') && inactiveColorClass}`}
-                            href="/login" 
-                            {...(isSmallScreen && {
-                                'data-hs-collapse': '#navbar-collapse-with-animation',
-                                'aria-controls': 'navbar-collapse-with-animation',
-                                'aria-label': 'Toggle navigation'
-                            })}>
-                            Log In
-                        </Link>
+                                <Link 
+                                    className={`hover:text-blue-500 sm:py-6 text-xl md:text-sm ${(location !== '/login' && location !== '/') && inactiveColorClass}`}
+                                    href="/login" 
+                                    {...(isSmallScreen && {
+                                        'data-hs-collapse': '#navbar-collapse-with-animation',
+                                        'aria-controls': 'navbar-collapse-with-animation',
+                                        'aria-label': 'Toggle navigation'
+                                    })}>
+                                    Log In
+                                </Link>
+                            </>
+                        ) : (
+                            <>
+                                <Link 
+                                    className={`hover:text-blue-500 sm:py-6 text-xl md:text-sm ${!contactExcludedPaths.includes(location) && inactiveColorClass}`}
+                                    href="/contact" 
+                                    {...(isSmallScreen && {
+                                        'data-hs-collapse': '#navbar-collapse-with-animation',
+                                        'aria-controls': 'navbar-collapse-with-animation',
+                                        'aria-label': 'Toggle navigation'
+                                    })}>
+                                    Contact Us
+                                </Link>
+
+                                <Link 
+                                    className={`hover:text-blue-500 sm:py-6 text-xl md:text-sm ${(location !== '/account' && location !== '/') && inactiveColorClass}`}
+                                    href="/account" 
+                                    {...(isSmallScreen && {
+                                        'data-hs-collapse': '#navbar-collapse-with-animation',
+                                        'aria-controls': 'navbar-collapse-with-animation',
+                                        'aria-label': 'Toggle navigation'
+                                    })}>
+                                    Account
+                                </Link>
+                            </>
+                        )}
+
                     </div>
                 </div>
             </nav>
