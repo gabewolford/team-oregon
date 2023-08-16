@@ -44,7 +44,7 @@ export default function Navbar() {
                         <h1 className="hidden">Team Oregon</h1>
                         <Link className="" href="/">
                             <Image 
-                                src="/images/team-oregon-logo.png"
+                                src="/images/team-oregon-logo-blue.png"
                                 width={250}
                                 height={48}
                                 alt='Team Oregon logo'
@@ -108,7 +108,7 @@ export default function Navbar() {
                         <h1 className="hidden">Team Oregon</h1>
                         <Link className="" href="/">
                             <Image 
-                                src="/images/team-oregon-logo.png"
+                                src="/images/team-oregon-logo-blue.png"
                                 width={368}
                                 height={48}
                                 alt='Team Oregon logo'
