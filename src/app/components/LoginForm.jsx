@@ -67,7 +67,7 @@ export default function LoginForm() {
                     </div>
                 </div>
 
-                <p className="flex justify-end col-span-2 mt-8">Don&apost;t have an account yet?&nbsp;
+                <p className="flex justify-end col-span-2 mt-8">Don't have an account yet?&nbsp;
                     <span>
                         <Link
                             href="/join"
