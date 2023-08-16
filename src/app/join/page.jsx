@@ -1,14 +1,19 @@
-'use client'
+import JoinForm from "../components/JoinForm"
+import { getServerSession } from "next-auth"
+import { redirect } from "next/navigation"
+import { authOptions } from "../api/auth/[...nextauth]/route"
 
-import { PayPalScriptProvider } from "@paypal/react-paypal-js";
+export const metadata = {
+  title: 'Team Oregon | Join The Team',
+  description: 'Helping our members achieve their cycling goals and developing the sport of competive cycling in the Pacific Northwest for over three decades.',
+}
 
-// export const metadata = {
-//   title: 'Team Oregon | Join The Team',
-//   description: 'Helping our members achieve their cycling goals and developing the sport of competive cycling in the Pacific Northwest for over three decades.',
-// }
+export default async function JoinPage() {
+  const session = await getServerSession(authOptions);
 
-export default function JoinPage() {
-    return (
+  if (session) redirect('/account')
+
+  return (
       <>
           <main className="flex flex-col gap-10 md:gap-20">
               <div className="mx-6 lg:mx-20 my-4 md:my-10">
@@ -23,10 +28,11 @@ export default function JoinPage() {
                         <li>Awesome teammates who show up to race (we won the OBRA Team BAR competition in 2015, 2016, and 2017!)</li>
                       </ul>
                   </div>
+                  <JoinForm />
 
               </div>
           </main>
-          <PayPalScriptProvider options={{ "client-id": 'sb', "locale": 'en', "enableFunding": 'venmo' }}/>
+
       </>
     )
   }
