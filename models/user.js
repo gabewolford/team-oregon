@@ -18,6 +18,15 @@ const userSchema = new Schema({
             type: String,
             required: true
         },
+        activeMember: {
+            type: Boolean,
+        },
+        startDate: {
+            type: Date,
+        },
+        endDate: {
+            type: Date,
+        },
     }, 
         {timestamps: true}
 );
