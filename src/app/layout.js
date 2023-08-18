@@ -2,7 +2,7 @@ import './globals.css'
 import { exo } from './styles/fonts'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
-import { AuthProvider } from './components/Providers'
+import { AuthProvider } from './utils/providers/Providers'
 
 export const metadata = {
   title: 'Team Oregon | PNW Bike Racing',

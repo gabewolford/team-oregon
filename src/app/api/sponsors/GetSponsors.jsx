@@ -1,10 +1,10 @@
 'use client'
 
 import { createClient } from "next-sanity";
-import { projectId, dataset, apiVersion, useCdn } from "../../../sanity/env";
+import { projectId, dataset, apiVersion, useCdn } from "../../../../sanity/env";
 import { useState, useEffect } from "react";
-import SponsorCard from "../components/SponsorCard";
-import Spinner from "../components/Spinner";
+import SponsorCard from "../../components/SponsorCard";
+import Spinner from "../../components/Spinner";
 
 const client = createClient({
   projectId: projectId,

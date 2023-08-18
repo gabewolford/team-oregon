@@ -1,4 +1,4 @@
-import GetSponsors from "../api/GetSponsors"
+import GetSponsors from "../api/sponsors/GetSponsors"
 import CTA from "../components/CTA"
 import TitleSponsorCard from "../components/TitleSponsorCard"
 
