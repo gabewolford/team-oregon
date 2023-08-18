@@ -38,6 +38,7 @@ export default function Footer() {
                         <Link href="/sponsors">Sponsors</Link>
                         <Link href="/team">Team</Link>
                         <Link href="/contact">Contact Us</Link>
+                        <Link href="https://biciclista.us/collections/team-oregon" target="_blank">Team Store</Link>
                         <Link href="/account">Account</Link>
                     </div>
                 )}
