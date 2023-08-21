@@ -29,7 +29,6 @@ export default async function JoinPage() {
                       </ul>
                   </div>
                   <JoinForm />
-
               </div>
           </main>
 
