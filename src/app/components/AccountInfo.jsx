@@ -20,7 +20,7 @@ export default function AccountInfo() {
 
     return (
         <>
-            <div className="flex flex-col gap-4 md:w-1/2 mx-auto">
+            <div className="flex flex-col gap-4 md:w-1/2 mx-auto my-10">
                 <p>First Name: <span className="font-semibold">{session?.user?.firstName}</span></p>
                 <p>Last Name: <span className="font-semibold">{session?.user?.lastName}</span></p>
                 <p>Email: <span className="font-semibold">{session?.user?.email}</span></p>
@@ -30,6 +30,10 @@ export default function AccountInfo() {
                     className="w-fit flex h-10 px-4 py-2 items-center rounded-full bg-red-500 hover:bg-red-hover text-white-500 font-medium"
                 >Log out
                 </button>
+            </div>
+
+            <div className="flex flex-col gap-4 md:w-1/2 mx-auto">
+                <p>Looking to order a new kit? Visit the official <span><a className="font-semibold" href="https://biciclista.us/collections/team-oregon" target="_blank">Team Store</a></span> by Biciclista!</p>
             </div>
 
         </>
