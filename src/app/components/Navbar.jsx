@@ -171,17 +171,6 @@ export default function Navbar() {
                             <>
                                 <Link 
                                     className={`hover:text-blue-500 sm:py-6 text-xl md:text-sm ${!contactExcludedPaths.includes(location) && inactiveColorClass}`}
-                                    href="https://biciclista.us/collections/team-oregon" target="_blank"
-                                    {...(isSmallScreen && {
-                                        'data-hs-collapse': '#navbar-collapse-with-animation',
-                                        'aria-controls': 'navbar-collapse-with-animation',
-                                        'aria-label': 'Toggle navigation'
-                                    })}>
-                                    Team Store
-                                </Link>
-                        
-                                <Link 
-                                    className={`hover:text-blue-500 sm:py-6 text-xl md:text-sm ${!contactExcludedPaths.includes(location) && inactiveColorClass}`}
                                     href="/contact" 
                                     {...(isSmallScreen && {
                                         'data-hs-collapse': '#navbar-collapse-with-animation',
