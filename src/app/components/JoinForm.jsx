@@ -59,7 +59,7 @@ export default function JoinForm() {
                 const form = e.target;
                 form.reset();
                 setError("");
-                router.push("/login");
+                router.push("/join/pay");
             } else {
                 console.log("User registration failed.");
             }
