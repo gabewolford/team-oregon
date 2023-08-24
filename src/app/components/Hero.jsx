@@ -1,4 +1,5 @@
 import Image from "next/image"
+import Link from "next/link"
 import { exo, sneakoutRegular } from "../styles/fonts"
 import Button from "./Button"
 
@@ -19,7 +20,7 @@ export default function Hero({ text, buttonText, buttonLink }) {
                 <div className="flex flex-row w-full h-full absolute">
                     <div className="w-1/2 h-full"></div>
                     <div className="flex items-center w-1/2">
-                        <div className="hidden md:block md:flex md:flex-col items-start gap-4 w-[543px]">
+                        <div className="hidden md:flex md:flex-col items-start gap-4 w-[543px]">
                             <div className="flex flex-col gap-2">
                                 <div className="flex flex-row items-baseline gap-2">
                                     <h1 className={`${sneakoutRegular.className} text-white-500 text-[36px] lg:text-[56px] leading-[120%]`}>Team Oregon</h1>
@@ -29,7 +30,9 @@ export default function Hero({ text, buttonText, buttonLink }) {
                                     <h2 className="text-white-500 text-md lg:text-2xl">{text}</h2>
                                 </div>
                             </div>
-                            <Button text={buttonText} linkTo={buttonLink}/>
+                            <Link href={buttonLink}>
+                                <Button text={buttonText}/>
+                            </Link>
                         </div>
                     </div>
                 </div>
@@ -57,7 +60,9 @@ export default function Hero({ text, buttonText, buttonLink }) {
                                 <h3 className="text-md text-white-500 leading-[160%] font-medium lg:text-2xl">{text}</h3>
                             </div>
                         </div>
-                        <Button text={buttonText} linkTo={buttonLink}/>
+                        <Link href={buttonLink}>
+                            <Button text={buttonText}/>
+                        </Link>
                     </div>
                 </div>
             </div>

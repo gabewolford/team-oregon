@@ -3,6 +3,7 @@
 import {  useState } from "react"
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import Button from "./Button";
 
 export default function JoinForm() {
     const [firstName, setFirstName] = useState('')
@@ -59,7 +60,7 @@ export default function JoinForm() {
                 const form = e.target;
                 form.reset();
                 setError("");
-                router.push("/login");
+                router.push("/join/pay");
             } else {
                 console.log("User registration failed.");
             }
@@ -129,11 +130,11 @@ export default function JoinForm() {
                     <div className="bg-red-500 text-white-500 px-2 py-1 flex justify-start items-center rounded-lg font-medium absolute left-0">{error}</div>
                     )}
                     <div className="absolute right-0 col-span-2">
-                        <button 
-                            className="flex h-10 px-4 py-2 items-center rounded-full bg-blue-500 hover:bg-blue-hover text-white-500 font-medium"
-                            type="submit" 
-                        >Sign Up
-                        </button>
+                        <Button
+                            text="Continue"
+                            type="submit"
+                        >
+                        </Button>
                     </div>
                 </div>
 
