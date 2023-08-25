@@ -19,12 +19,18 @@ export default function Hero({ text, buttonText, buttonLink }) {
                 </Image>
                 <div className="flex flex-row w-full h-full absolute">
                     <div className="w-1/2 h-full"></div>
-                    <div className="flex items-center w-1/2">
+                    <div className="flex items-center w-1/2 pr-2">
                         <div className="hidden md:flex md:flex-col items-start gap-4 w-[543px]">
                             <div className="flex flex-col gap-2">
-                                <div className="flex flex-row items-baseline gap-2">
-                                    <h1 className={`${sneakoutRegular.className} text-white-500 text-[36px] lg:text-[56px] leading-[120%]`}>Team Oregon</h1>
-                                    <h6 className={`text-xs lg:text-base text-white-500 ${exo.className}`}>est. 1987</h6>
+                                <div className="flex flex-row">
+                                    <Image
+                                        src="/images/team-oregon-logo-year.png"
+                                        height={110}
+                                        width={946}
+                                        alt="Team Oregon est. 1987"
+                                    >
+                                    </Image>
+                                    <h3 className="hidden">Team Oregon est. 1987</h3>
                                 </div>
                                 <div>
                                     <h2 className="text-white-500 text-md lg:text-2xl">{text}</h2>
@@ -52,9 +58,15 @@ export default function Hero({ text, buttonText, buttonLink }) {
                     </Image>
                     <div className="absolute bottom-0 py-4 flex-col px-4 gap-4 backdrop-blur-sm">
                         <div className="flex flex-col gap-2 mb-4">
-                            <div className="flex flex-row items-baseline gap-2">
-                                <h1 className={`${sneakoutRegular.className} text-white-500 text-[36px] lg:text-[56px] leading-[120%]`}>Team Oregon</h1>
-                                <h6 className={`text-xs lg:text-base text-white-500 ${exo.className}`}>est. 1987</h6>
+                            <div className="flex flex-row">
+                                <Image
+                                    src="/images/team-oregon-logo-year.png"
+                                    height={55}
+                                    width={473}
+                                    alt="Team Oregon est. 1987"
+                                >
+                                </Image>
+                                <h3 className="hidden">Team Oregon est. 1987</h3>
                             </div>
                             <div>
                                 <h3 className="text-md text-white-500 leading-[160%] font-medium lg:text-2xl">{text}</h3>
