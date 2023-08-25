@@ -42,7 +42,7 @@ export default function Navbar() {
                 <div className="sm:hidden flex items-center justify-between">
                     <div className=''>
                         <h1 className="hidden">Team Oregon</h1>
-                        <Link className="" href="/">
+                        <Link href="/">
                             <Image 
                                 src="/images/team-oregon-logo-blue.png"
                                 width={250}
@@ -67,9 +67,9 @@ export default function Navbar() {
                 </div>
 
                 <div id="navbar-collapse-with-animation" className="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow sm:block">
-                    <div className="flex flex-col gap-y-4 gap-x-0 mt-5 sm:flex-row sm:items-center  sm:gap-y-0 sm:gap-x-7 sm:mt-0">
+                    <div className="flex flex-col gap-y-4 gap-x-0 mt-5 sm:flex-row sm:items-center sm:gap-y-0 sm:gap-x-7 md:gap-x-5 lg:gap-x-7 sm:mt-0">
                         <Link 
-                        className={`hover:text-blue-500 text-xl md:text-sm ${(location !== '/') && inactiveColorClass}`}
+                        className={`hover:text-blue-500 text-xl md:text-xs lg:text-sm ${(location !== '/') && inactiveColorClass}`}
                         href="/"
                         {...(isSmallScreen && {
                             'data-hs-collapse': '#navbar-collapse-with-animation',
@@ -80,7 +80,7 @@ export default function Navbar() {
                         </Link>
 
                         <Link 
-                        className={`hover:text-blue-500 sm:py-6 text-xl md:text-sm ${(location !== '/sponsors' && location !== '/') && inactiveColorClass}`}
+                        className={`hover:text-blue-500 sm:py-6 text-xl md:text-xs lg:text-sm ${(location !== '/sponsors' && location !== '/') && inactiveColorClass}`}
                         href="/sponsors"
                         {...(isSmallScreen && {
                             'data-hs-collapse': '#navbar-collapse-with-animation',
@@ -91,7 +91,7 @@ export default function Navbar() {
                         </Link>
 
                         <Link 
-                        className={`hover:text-blue-500 sm:py-6 text-xl md:text-sm ${(location !== '/team' && location !== '/') && inactiveColorClass}`}
+                        className={`hover:text-blue-500 sm:py-6 text-xl md:text-xs lg:text-sm ${(location !== '/team' && location !== '/') && inactiveColorClass}`}
                         href="/team"
                         {...(isSmallScreen && {
                             'data-hs-collapse': '#navbar-collapse-with-animation',
@@ -131,11 +131,11 @@ export default function Navbar() {
                 </div>
 
                 <div id="navbar-collapse-with-animation" className="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow sm:block">
-                    <div className="flex flex-col gap-y-4 gap-x-0 mt-4 sm:flex-row sm:items-center sm:justify-end sm:gap-y-0 sm:gap-x-7 sm:mt-0 sm:pl-7">
+                    <div className="flex flex-col gap-y-4 gap-x-0 mt-4 sm:flex-row sm:items-center sm:justify-end sm:gap-y-0 sm:gap-x-7 md:gap-x-4 lg:gap-x-7 sm:mt-0 sm:pl-7">
                         {!isAuthenticated ? (
                             <>
                                 <Link 
-                                className={`hover:text-blue-500 sm:py-6 text-xl md:text-sm ${(location !== '/join' && location !== '/') && inactiveColorClass}`}
+                                className={`hover:text-blue-500 sm:py-6 text-xl md:text-xs lg:text-sm ${(location !== '/join' && location !== '/') && inactiveColorClass}`}
                                 href="/join"
                                 {...(isSmallScreen && {
                                     'data-hs-collapse': '#navbar-collapse-with-animation',
@@ -146,7 +146,7 @@ export default function Navbar() {
                                 </Link>
 
                                 <Link 
-                                    className={`hover:text-blue-500 sm:py-6 text-xl md:text-sm ${!contactExcludedPaths.includes(location) && inactiveColorClass}`}
+                                    className={`hover:text-blue-500 sm:py-6 text-xl md:text-xs lg:text-sm ${!contactExcludedPaths.includes(location) && inactiveColorClass}`}
                                     href="/contact" 
                                     {...(isSmallScreen && {
                                         'data-hs-collapse': '#navbar-collapse-with-animation',
@@ -157,7 +157,7 @@ export default function Navbar() {
                                 </Link>
 
                                 <Link 
-                                    className={`hover:text-blue-500 sm:py-6 text-xl md:text-sm ${(location !== '/login' && location !== '/') && inactiveColorClass}`}
+                                    className={`hover:text-blue-500 sm:py-6 text-xl md:text-xs lg:text-sm ${(location !== '/login' && location !== '/') && inactiveColorClass}`}
                                     href="/login" 
                                     {...(isSmallScreen && {
                                         'data-hs-collapse': '#navbar-collapse-with-animation',
@@ -170,7 +170,7 @@ export default function Navbar() {
                         ) : (
                             <>
                                 <Link 
-                                    className={`hover:text-blue-500 sm:py-6 text-xl md:text-sm ${!contactExcludedPaths.includes(location) && inactiveColorClass}`}
+                                    className={`hover:text-blue-500 sm:py-6 text-xl md:text-xs lg:text-sm ${!contactExcludedPaths.includes(location) && inactiveColorClass}`}
                                     href="/contact" 
                                     {...(isSmallScreen && {
                                         'data-hs-collapse': '#navbar-collapse-with-animation',
@@ -181,7 +181,7 @@ export default function Navbar() {
                                 </Link>
 
                                 <Link 
-                                    className={`hover:text-blue-500 sm:py-6 text-xl md:text-sm ${(location !== '/account' && location !== '/') && inactiveColorClass}`}
+                                    className={`hover:text-blue-500 sm:py-6 text-xl md:text-xs lg:text-sm ${(location !== '/account' && location !== '/') && inactiveColorClass}`}
                                     href="/account" 
                                     {...(isSmallScreen && {
                                         'data-hs-collapse': '#navbar-collapse-with-animation',
