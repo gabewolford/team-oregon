@@ -13,6 +13,7 @@ export default function JoinForm() {
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
     const [error, setError] = useState('')
+    const [isLoading, setLoading] = useState(false);
 
     const router = useRouter();
 
@@ -26,7 +27,7 @@ export default function JoinForm() {
         }
     
         try {
-            
+            setLoading(true);
             const resUserExists = await fetch("api/userExists", {
                 method: "POST",
                 headers: {
@@ -65,7 +66,10 @@ export default function JoinForm() {
                 console.log("User registration failed.");
             }
         } catch (error) {
+            setLoading(false);
             console.log("Error during registration: ", error);
+        } finally {
+            setLoading(false); 
         }
     };
 
@@ -130,11 +134,21 @@ export default function JoinForm() {
                     <div className="bg-red-500 text-white-500 px-2 py-1 flex justify-start items-center rounded-lg font-medium absolute left-0">{error}</div>
                     )}
                     <div className="absolute right-0 col-span-2">
-                        <Button
-                            text="Continue"
-                            type="submit"
-                        >
-                        </Button>
+                        {isLoading ?
+                            <Button
+                                text="Loading..."
+                                type="submit"
+                                disabled={isLoading}
+                            >
+                            </Button> 
+                            : 
+                            <Button
+                                text="Continue"
+                                type="submit"
+                                disabled={isLoading}
+                            >
+                            </Button> 
+                        }
                     </div>
                 </div>
 
