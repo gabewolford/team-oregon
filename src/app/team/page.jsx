@@ -10,7 +10,7 @@ export default function TeamPage() {
     return (
       <main className="flex flex-col gap-10 md:gap-20 mt-6">
         <section className="flex flex-col gap-6 mx-auto">
-          <h3 className={'text-center text-xl md:text-2xl text-blue-500 font-semibold uppercase'}>2023 Team Leadership</h3>
+          <h3 className={'text-center text-xl md:text-3xl text-blue-500 font-semibold uppercase'}>2023 Team Leadership</h3>
           <GetBoardmembers />
         </section>
         <section className="mt-10 mb-20">
