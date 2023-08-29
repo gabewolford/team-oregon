@@ -8,7 +8,7 @@ export const metadata = {
 export default function LogInPage() {
   return (
     <main className="flex flex-col gap-10 md:gap-20">
-        <div className="mx-6 lg:mx-20 my-4 md:my-10">
+          <div className="mx-6 lg:mx-20 mt-4 mb-16 md:mt-10 md:mb-0">
             <h2 className='text-center text-xl md:text-3xl text-blue-500 font-semibold uppercase mb-2'>LOG IN TO YOUR ACCOUNT</h2>
             <LoginForm />
         </div>
