@@ -16,7 +16,7 @@ export default async function JoinPage() {
   return (
       <>
           <main className="flex flex-col gap-10 md:gap-20">
-              <div className="mx-6 lg:mx-20 my-4 md:my-10">
+              <div className="mx-6 lg:mx-20 mt-4 mb-16 md:mt-10 md:mb-0 lg:mb-4">
                   <h2 className='text-center text-xl md:text-3xl text-blue-500 font-semibold uppercase mb-2'>Join The Team</h2>
                   <div className="mb-6 w-full lg:w-1/2 mx-auto">
                     <p className="mb-6 text-center font-semibold italic">Thank you for your interest in Team Oregon!</p>

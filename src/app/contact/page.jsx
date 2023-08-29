@@ -10,7 +10,7 @@ export default function ContactPage() {
     return (
         <>
             <main className="flex flex-col gap-10 md:gap-20">
-                <div className="mx-6 lg:mx-20 my-4 md:my-10">
+                <div className="mx-6 lg:mx-20 mt-4 mb-16 md:mt-10 md:mb-0 lg:mb-4">
                     <h2 className='text-center text-xl md:text-3xl text-blue-500 font-semibold uppercase mb-2'>Contact Us</h2>
                     <ContactForm />
                 </div>
