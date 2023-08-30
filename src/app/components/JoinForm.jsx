@@ -14,16 +14,28 @@ export default function JoinForm() {
     const [confirmPassword, setConfirmPassword] = useState('')
     const [error, setError] = useState('')
     const [isLoading, setLoading] = useState(false);
+    const [passwordMatch, setPasswordMatch] = useState(true);
 
     const router = useRouter();
+
+    const handleConfirmPasswordChange = (e) => {
+        const confirmPasswordValue = e.target.value;
+        setConfirmPassword(confirmPasswordValue);
+        setPasswordMatch(password === confirmPasswordValue);
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         setName(firstName + " " + lastName)
     
         if (!firstName || !lastName || !email || !password || !confirmPassword) {
-          setError("All fields are required");
-          return;
+            setError("All fields are required");
+            return;
+        }
+    
+        if (!passwordMatch) {
+            setError("Passwords do not match");
+            return;
         }
     
         try {
@@ -61,7 +73,7 @@ export default function JoinForm() {
                 const form = e.target;
                 form.reset();
                 setError("");
-                router.push("/join/pay");
+                router.push("/login");
             } else {
                 console.log("User registration failed.");
             }
@@ -123,9 +135,9 @@ export default function JoinForm() {
                     <label className="text-xs">Confirm password <span>*</span></label>
                     <input 
                         type="password"
-                        placeholder="Password"
-                        className="border-2 border-blue-500 rounded-lg p-2 w-full"
-                        onChange={e => setConfirmPassword(e.target.value)}
+                        placeholder="Confirm password"
+                        className={`border-2 border-blue-500 rounded-lg p-2 w-full ${passwordMatch ? '' : 'border-red-500'}`}
+                        onChange={handleConfirmPasswordChange}
                     />
                 </div>
 
@@ -134,21 +146,11 @@ export default function JoinForm() {
                     <div className="bg-red-500 text-white-500 px-2 py-1 flex justify-start items-center rounded-lg font-medium absolute left-0">{error}</div>
                     )}
                     <div className="absolute right-0 col-span-2">
-                        {isLoading ?
-                            <Button
-                                text="Loading..."
-                                type="submit"
-                                disabled={isLoading}
-                            >
-                            </Button> 
-                            : 
-                            <Button
-                                text="Continue"
-                                type="submit"
-                                disabled={isLoading}
-                            >
-                            </Button> 
-                        }
+                    <Button
+                        text={isLoading ? "Loading..." : "Continue"}
+                        type="submit"
+                        disabled={isLoading || !passwordMatch}
+                    />
                     </div>
                 </div>
 
