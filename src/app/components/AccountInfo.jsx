@@ -24,7 +24,7 @@ export default function AccountInfo() {
                 <p>First Name: <span className="font-semibold">{session?.user?.firstName}</span></p>
                 <p>Last Name: <span className="font-semibold">{session?.user?.lastName}</span></p>
                 <p>Email: <span className="font-semibold">{session?.user?.email}</span></p>
-                <p>Member Since: <span className="font-semibold">{formattedDate}</span></p>
+                <p>Account created: <span className="font-semibold">{formattedDate}</span></p>
                 <button 
                     onClick={() => signOut()}
                     className="w-fit flex h-10 px-4 py-2 items-center rounded-full bg-red-500 hover:bg-red-hover text-white-500 font-medium"
