@@ -1,4 +1,5 @@
 import LoginForm from "../components/LoginForm"
+import Image from "next/image"
 
 export const metadata = {
     title: 'Team Oregon | Log In',
@@ -7,11 +8,22 @@ export const metadata = {
 
 export default function LogInPage() {
   return (
-    <main className="flex flex-col gap-10 md:gap-20">
-          <div className="mx-6 lg:mx-20 mt-4 mb-16 md:mt-10 md:mb-0">
-            <h2 className='text-center text-xl md:text-3xl text-blue-500 font-semibold uppercase mb-2'>LOG IN TO YOUR ACCOUNT</h2>
-            <LoginForm />
+    <main className="flex flex-col">
+      <div className="mx-auto md:mx-auto md:max-w-[80vw] mt-4 mb-16 md:mt-10 md:mb-0 lg:mb-8 flex flex-row items-center">
+        <div className="lg:w-3/5 h-fit">
+          <Image
+            height={1200}
+            width={900}
+            alt="side angle photo"
+            src="/images/side-angle.png"
+            className="hidden lg:block w-auto h-full object-cover flex-1"
+          >
+          </Image>
         </div>
+        <div className="lg:w-2/5 h-full">
+          <LoginForm />
+        </div>
+      </div>
     </main>
   )
 }

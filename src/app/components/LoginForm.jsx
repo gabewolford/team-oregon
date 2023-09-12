@@ -39,15 +39,21 @@ export default function LoginForm() {
     };
 
     return (
-        <div className="mx-auto w-full md:w-3/4 lg:w-1/2">
-            <form onSubmit={handleSubmit} className="grid gap-6 grid-cols-1 md:grid-cols-2 bg-blue500">
+        <div className="mx-auto w-full h-full flex flex-col">
+            <div className="flex flex-col gap-6">
+                <div className="lg:pl-10">
+                    <h2 className='text-center text-2xl lg:text-3xl text-blue-500 font-semibold uppercase mb-2'>Member Log In</h2>
+                </div>
+            </div>
+
+            <form onSubmit={handleSubmit} className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:pl-10">
                 <div className="col-span-2">
                     <label className="text-xs">Email <span>*</span></label>
                     <input 
                         onChange={(e) => setEmail(e.target.value)}
                         type="text"
                         placeholder="Email"
-                        className="border-2 border-blue-500 rounded-lg p-2 w-full"
+                        className="border-2 border-blue-500 rounded-lg p-1 w-full"
                     />
                 </div>
 
@@ -57,7 +63,7 @@ export default function LoginForm() {
                         onChange={(e) => setPassword(e.target.value)}
                         type="password"
                         placeholder="Password"
-                        className="border-2 border-blue-500 rounded-lg p-2 w-full"
+                        className="border-2 border-blue-500 rounded-lg p-1 w-full"
                     />
                 </div>
 
@@ -93,7 +99,6 @@ export default function LoginForm() {
                         </Link>
                     </span>
                 </p>
-
             </form>
         </div>
   )
