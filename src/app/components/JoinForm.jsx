@@ -179,7 +179,7 @@ export default function JoinForm() {
             </div>
             
 
-            <div className="bg-yellow-500 px-6 md:px-10 py-6 flex flex-col gap-4 flex-1 justify-center">
+            <div className="bg-yellow-500 border-2 border-yellow-500 px-6 md:px-10 py-6 flex flex-col gap-4 flex-1 justify-center">
                 <h4 className="font-semibold text-lg text-darkbrown-500">Benefits</h4>
                 <div className="flex flex-col gap-2">
                     <div className="flex flex-row gap-4 h-fit w-auto items-center">
