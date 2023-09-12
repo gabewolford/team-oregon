@@ -20,7 +20,7 @@ export default async function JoinPage() {
             <div className="lg:w-1/2">
               <Image
                 height={722}
-                width={500}
+                width={550}
                 alt="thumbs up photo"
                 src="/images/thumbsup.png"
                 className="hidden lg:block w-auto h-full object-cover flex-1"
