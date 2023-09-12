@@ -163,7 +163,7 @@ export default function JoinForm() {
                         </div>
                     </div>
 
-                    <div className="flex col-span-2 mt-6 md:mt-8 justify-end">
+                    <div className="flex col-span-2 mt-6 justify-end">
                         <p className="flex justify-end col-span-2">Already have an account?&nbsp;
                             <span>
                             <Link

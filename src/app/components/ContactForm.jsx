@@ -3,9 +3,7 @@
 import { useRef, useState } from "react";
 import { useRouter } from 'next/navigation';
 import Image from "next/image";
-import Link from "next/link";
 import emailjs from "@emailjs/browser";
-import Button from "./Button";
 
 export default function ContactForm() { 
     const [isLoading, setIsLoading] = useState(false);
@@ -117,12 +115,6 @@ export default function ContactForm() {
                         <Image height={24} width={24} alt="dollar sign" src="/images/heart-multiple-outline.png" className="w-fit h-fit"/>
                         <p className="text-darkbrown-500">Awesome teammates who show up to race & support!</p>
                     </div>
-                </div>
-                <div className="w-fit mx-auto">
-                    <Link href="/join">
-                        <Button text="Join today"/>
-                    </Link>
-
                 </div>
             </div>
         </div>
