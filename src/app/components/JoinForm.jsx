@@ -90,9 +90,9 @@ export default function JoinForm() {
         <div className="mx-auto w-full h-full flex flex-col gap-6">
             <div className="lg:pt-6 flex flex-col gap-6">
                 <div className="md:pl-10">
-                    <h2 className='text-center text-xl lg:text-3xl text-blue-500 font-semibold uppercase mb-2'>Join Today!</h2>
+                    <h2 className='text-center text-2xl lg:text-3xl text-blue-500 font-semibold uppercase mb-2'>Join Today!</h2>
                     <div className="w-full mx-auto">
-                        <p className="text-xs lg:text-sm">Team Oregon is proud to welcome cyclists of ALL backgrounds, disciplines, and abilities. Whether you are an experienced racer or are thinking of pinning on a race number for the first time this season, we would love to support your goals as a member of our team.</p>
+                        <p className="text-sm">Team Oregon is proud to welcome cyclists of ALL backgrounds, disciplines, and abilities. Whether you are an experienced racer or are thinking of pinning on a race number for the first time this season, we would love to support your goals as a member of our team.</p>
                     </div>
                 </div>
                 
@@ -105,7 +105,7 @@ export default function JoinForm() {
                         <input 
                             type="text"
                             placeholder="First name"
-                            className="border-2 border-blue-500 rounded-lg p-1 w-full text-sm"
+                            className="border-2 border-blue-500 rounded-lg p-1 w-full"
                             onChange={e => setFirstName(e.target.value)}
                         />
                     </div>
@@ -115,7 +115,7 @@ export default function JoinForm() {
                         <input 
                             type="text"
                             placeholder="Last name"
-                            className="border-2 border-blue-500 rounded-lg p-1 w-full text-sm"
+                            className="border-2 border-blue-500 rounded-lg p-1 w-full"
                             onChange={e => setLastName(e.target.value)}
                         />
                     </div>
@@ -125,7 +125,7 @@ export default function JoinForm() {
                         <input 
                             type="text"
                             placeholder="Email"
-                            className="border-2 border-blue-500 rounded-lg p-1 w-full text-sm"
+                            className="border-2 border-blue-500 rounded-lg p-1 w-full"
                             onChange={e => setEmail(e.target.value)}
                         />
                     </div>
@@ -135,7 +135,7 @@ export default function JoinForm() {
                         <input 
                             type="password"
                             placeholder="Password"
-                            className="border-2 border-blue-500 rounded-lg p-1 w-full text-sm"
+                            className="border-2 border-blue-500 rounded-lg p-1 w-full"
                             onChange={e => setPassword(e.target.value)}
                         />
                     </div>
@@ -145,7 +145,7 @@ export default function JoinForm() {
                         <input 
                             type="password"
                             placeholder="Confirm password"
-                            className={`border-2 border-blue-500 rounded-lg p-1 w-full text-sm ${passwordMatch ? '' : 'border-red-500'}`}
+                            className={`border-2 border-blue-500 rounded-lg p-1 w-full ${passwordMatch ? '' : 'border-red-500'}`}
                             onChange={handleConfirmPasswordChange}
                         />
                     </div>
@@ -164,7 +164,7 @@ export default function JoinForm() {
                     </div>
 
                     <div className="flex col-span-2 mt-8 justify-end">
-                        <p className="flex justify-end col-span-2 text-sm">Already have an account?&nbsp;
+                        <p className="flex justify-end col-span-2">Already have an account?&nbsp;
                             <span>
                             <Link
                                 href="/login"
@@ -184,15 +184,15 @@ export default function JoinForm() {
                 <div className="flex flex-col gap-2">
                     <div className="flex flex-row gap-4 h-fit w-auto items-center">
                         <Image height={16} width={16} alt="dollar sign" src="/images/percent-outline.png" className="w-fit h-fit"/>
-                        <p className="text-sm text-darkbrown-500">Discounted products & services from our sponsors</p>
+                        <p className="text-darkbrown-500">Discounted products & services from our sponsors</p>
                     </div>
                     <div className="flex flex-row gap-4 h-fit w-auto items-center">
                         <Image height={16} width={16} alt="dollar sign" src="/images/currency-usd.png" className="w-fit h-fit"/>
-                        <p className="text-sm text-darkbrown-500">Reimbursement on entry fees for select races</p>
+                        <p className="text-darkbrown-500">Reimbursement on entry fees for select races</p>
                     </div>
                     <div className="flex flex-row gap-4 h-fit w-auto items-center">
                         <Image height={16} width={16} alt="dollar sign" src="/images/heart-multiple-outline.png" className="w-fit h-fit"/>
-                        <p className="text-sm text-darkbrown-500">Awesome teammates who show up to race & support!</p>
+                        <p className="text-darkbrown-500">Awesome teammates who show up to race & support!</p>
                     </div>
                 </div>
             </div>

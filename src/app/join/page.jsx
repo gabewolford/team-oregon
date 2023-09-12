@@ -16,7 +16,7 @@ export default async function JoinPage() {
 
   return (
       <main className="flex flex-col">
-          <div className="mx-6 lg:mx-auto lg:max-w-[70vw] mt-4 mb-16 md:mt-10 md:mb-0 lg:mb-8 flex flex-row">
+          <div className="mx-6 lg:mx-auto lg:max-w-[80vw] mt-4 mb-16 md:mt-10 md:mb-0 lg:mb-8 flex flex-row">
             <div className="lg:w-1/2">
               <Image
                 height={722}
