@@ -21,7 +21,7 @@ export default {
         name: 'position',
         title: 'Position',
         type: 'string',
-        description: 'The position held on the board. ',
+        description: 'The position held on the board.',
         validation: Rule => Rule.required()
       },
       {
