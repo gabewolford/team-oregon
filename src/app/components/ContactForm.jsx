@@ -2,8 +2,10 @@
 
 import { useRef, useState } from "react";
 import { useRouter } from 'next/navigation';
-import Spinner from "./Spinner";
+import Image from "next/image";
+import Link from "next/link";
 import emailjs from "@emailjs/browser";
+import Button from "./Button";
 
 export default function ContactForm() { 
     const [isLoading, setIsLoading] = useState(false);
@@ -29,19 +31,26 @@ export default function ContactForm() {
       };
 
     return (
-        <>
+        <div className="mx-auto w-full h-full flex flex-col gap-6">
+            <div className="lg:pt-6 flex flex-col gap-6">
+                <div className="lg:pl-10">
+                    <h2 className='text-center text-2xl lg:text-3xl text-blue-500 font-semibold uppercase mb-2'>Get In Touch</h2>
+                    <div className="w-full mx-auto">
+                        <p className="text-sm md:text-base text-center">Please fill out the form below.</p>
+                    </div>
+                </div>
+            </div>
+
             {!isLoading && (
-            <div className="mx-auto w-full md:w-3/4 lg:w-1/2">
-                <p className="mb-6 text-center">Please fill out the form below.</p>
-                    <h6 className="flex justify-end text-xs">* required</h6>
-                    <form ref={form} onSubmit={sendEmail} className="grid gap-6 grid-cols-1 md:grid-cols-2 bg-blue500">
+            <div className="mx-auto w-full lg:pl-10">
+                    <form ref={form} onSubmit={sendEmail} className="grid gap-4 grid-cols-1 md:grid-cols-2 bg-blue500">
                         <div className="col-span-2">
                             <label className="text-xs">Full Name <span>*</span></label>
                             <input 
                                 type="text"
                                 placeholder="Your name"
                                 name="user_name" 
-                                className="border-2 border-blue-500 rounded-lg p-2 w-full"
+                                className="border-2 border-blue-500 rounded-lg p-1 w-full"
                                 required
                             />
                         </div>
@@ -52,7 +61,7 @@ export default function ContactForm() {
                                 type="email"
                                 placeholder="Email address"
                                 name="user_email"
-                                className="border-2 border-blue-500 rounded-lg p-2 w-full"
+                                className="border-2 border-blue-500 rounded-lg p-1 w-full"
                                 required
                             />
                         </div>
@@ -61,7 +70,7 @@ export default function ContactForm() {
                             <label className="text-xs">Inquiry Type <span>*</span></label><br/>
                             <select 
                                 name="inquiry_type" 
-                                className="border-2 border-blue-500 rounded-lg p-2 w-full"
+                                className="border-2 border-blue-500 rounded-lg p-1 w-full"
                                 required>
                                     <option value="Select One">Select One</option>
                                     <option value="Membership">Membership</option>
@@ -93,7 +102,29 @@ export default function ContactForm() {
             </div>
             )}
 
-            {isLoading && <div className="flex mx-auto w-full justify-center py-8"><Spinner/></div>}
-        </>
+            <div className="bg-yellow-500 border-2 border-yellow-500 px-6 md:px-10 py-6 flex flex-col gap-4 flex-1 justify-center">
+                <h4 className="font-semibold text-lg lg:text-2xl text-darkbrown-500">Membership benefits</h4>
+                <div className="flex flex-col gap-2">
+                    <div className="flex flex-row gap-4 h-fit w-auto items-center">
+                        <Image height={24} width={24} alt="dollar sign" src="/images/percent-outline.png" className="w-fit h-fit"/>
+                        <p className="text-darkbrown-500">Discounted products & services from our sponsors</p>
+                    </div>
+                    <div className="flex flex-row gap-4 h-fit w-auto items-center">
+                        <Image height={24} width={24} alt="dollar sign" src="/images/currency-usd.png" className="w-fit h-fit"/>
+                        <p className="text-darkbrown-500">Reimbursement on entry fees for select races</p>
+                    </div>
+                    <div className="flex flex-row gap-4 h-fit w-auto items-center">
+                        <Image height={24} width={24} alt="dollar sign" src="/images/heart-multiple-outline.png" className="w-fit h-fit"/>
+                        <p className="text-darkbrown-500">Awesome teammates who show up to race & support!</p>
+                    </div>
+                </div>
+                <div className="w-fit mx-auto">
+                    <Link href="/join">
+                        <Button text="Join today"/>
+                    </Link>
+
+                </div>
+            </div>
+        </div>
     )
 }
