@@ -73,6 +73,7 @@ export default function ContactForm() {
                                     <option value="Select One">Select One</option>
                                     <option value="Membership">Membership</option>
                                     <option value="Sponsorship">Sponsorship</option>
+                                    <option value="Sponsorship">My Account</option>
                                     <option value="Other">Other</option>
                             </select>
                         </div>
