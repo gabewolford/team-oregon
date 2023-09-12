@@ -25,7 +25,7 @@ export default function Footer() {
                 </div>
                 {!isAuthenticated ? (
                     <div className={`${sailorsRegular.className} text-white-500 text-lg md:text-sm text-center justify-between flex flex-col md:flex-row md:w-[660px]`}>
-                        <Link href="/">About</Link>
+                        <Link href="/">Home</Link>
                         <Link href="/sponsors">Sponsors</Link>
                         <Link href="/team">Team</Link>
                         <Link href="/join">Join The Team</Link>
@@ -34,11 +34,11 @@ export default function Footer() {
                     </div>
                 ) : (
                     <div className={`${sailorsRegular.className} text-white-500 text-lg md:text-sm text-center justify-between flex flex-col md:flex-row md:w-[660px]`}>
-                        <Link href="/">About</Link>
+                        <Link href="/">Home</Link>
                         <Link href="/sponsors">Sponsors</Link>
                         <Link href="/team">Team</Link>
                         <Link href="/contact">Contact Us</Link>
-                        <Link href="/account">Account</Link>
+                        <Link href="/account">My Account</Link>
                     </div>
                 )}
 

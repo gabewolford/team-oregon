@@ -76,7 +76,7 @@ export default function Navbar() {
                             'aria-controls': 'navbar-collapse-with-animation',
                             'aria-label': 'Toggle navigation'
                         })}>
-                        About
+                        Home
                         </Link>
 
                         <Link 
@@ -188,7 +188,7 @@ export default function Navbar() {
                                         'aria-controls': 'navbar-collapse-with-animation',
                                         'aria-label': 'Toggle navigation'
                                     })}>
-                                    Account
+                                    My Account
                                 </Link>
                             </>
                         )}
