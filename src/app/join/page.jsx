@@ -2,6 +2,7 @@ import JoinForm from "../components/JoinForm"
 import { getServerSession } from "next-auth"
 import { redirect } from "next/navigation"
 import { authOptions } from "../api/auth/[...nextauth]/route"
+import Image from "next/image"
 
 export const metadata = {
   title: 'Team Oregon | Join The Team',
@@ -14,24 +15,23 @@ export default async function JoinPage() {
   if (session) redirect('/account')
 
   return (
-      <>
-          <main className="flex flex-col gap-10 md:gap-20">
-              <div className="mx-6 lg:mx-20 mt-4 mb-16 md:mt-10 md:mb-0 lg:mb-4">
-                  <h2 className='text-center text-xl md:text-3xl text-blue-500 font-semibold uppercase mb-2'>Join The Team</h2>
-                  <div className="mb-6 w-full lg:w-1/2 mx-auto">
-                    <p className="mb-6 text-center font-semibold italic">Thank you for your interest in Team Oregon!</p>
-                    <p className="mb-2">Team Oregon welcomes cyclists of all backgrounds, disciplines, and abilities. Whether you are an experienced racer or are thinking of pinning on a race number for the first time this season, we would love to support your goals as a member of our team.</p>
-                    <p className="mb-2">Benefits of team membership include:</p>
-                      <ul className="list-disc pl-8">
-                        <li>Discounted products or services from many of our sponsors</li>
-                        <li>Discounts on certain race entry fees (these can easily add up to more than what your membership costs over the course of a single season.)</li>
-                        <li>Awesome teammates who show up to race (we won the OBRA Team BAR competition in 2015, 2016, and 2017!)</li>
-                      </ul>
-                  </div>
-                  <JoinForm />
-              </div>
-          </main>
-      </>
+      <main className="flex flex-col">
+          <div className="mx-6 lg:mx-auto lg:max-w-[70vw] mt-4 mb-16 md:mt-10 md:mb-0 lg:mb-8 flex flex-row">
+            <div className="lg:w-1/2">
+              <Image
+                height={722}
+                width={500}
+                alt="thumbs up photo"
+                src="/images/thumbsup.png"
+                className="hidden lg:block w-auto h-full object-cover flex-1"
+              >
+              </Image>
+            </div>
+            <div className="lg:w-1/2">
+              <JoinForm />
+            </div>
+          </div>
+      </main>
     )
   }
   
