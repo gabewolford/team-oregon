@@ -39,7 +39,7 @@ export default {
       {
         name: 'description',
         title: 'Description',
-        type: 'string',
+        type: 'text',
         description: 'A short description of the sponsor.',
         validation: Rule => Rule.required().min(25).max(350)
       },
