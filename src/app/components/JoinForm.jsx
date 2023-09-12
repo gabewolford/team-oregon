@@ -92,7 +92,7 @@ export default function JoinForm() {
                 <div className="md:pl-10">
                     <h2 className='text-center text-2xl lg:text-3xl text-blue-500 font-semibold uppercase mb-2'>Join Today!</h2>
                     <div className="w-full mx-auto">
-                        <p className="text-sm">Team Oregon is proud to welcome cyclists of ALL backgrounds, disciplines, and abilities. Whether you are an experienced racer or are thinking of pinning on a race number for the first time this season, we would love to support your goals as a member of our team.</p>
+                        <p className="text-sm md:text-base">Team Oregon is proud to welcome cyclists of ALL backgrounds, disciplines, and abilities. Whether you are an experienced racer or are thinking of pinning on a race number for the first time this season, we would love to support your goals as a member of our team.</p>
                     </div>
                 </div>
                 
@@ -180,19 +180,19 @@ export default function JoinForm() {
             
 
             <div className="bg-yellow-500 border-2 border-yellow-500 px-6 md:px-10 py-6 flex flex-col gap-4 flex-1 justify-center">
-                <h4 className="font-semibold text-lg text-darkbrown-500">Benefits</h4>
+                <h4 className="font-semibold text-lg lg:text-2xl text-darkbrown-500">Benefits</h4>
                 <div className="flex flex-col gap-2">
                     <div className="flex flex-row gap-4 h-fit w-auto items-center">
-                        <Image height={16} width={16} alt="dollar sign" src="/images/percent-outline.png" className="w-fit h-fit"/>
-                        <p className="text-darkbrown-500">Discounted products & services from our sponsors</p>
+                        <Image height={24} width={24} alt="dollar sign" src="/images/percent-outline.png" className="w-fit h-fit"/>
+                        <p className="lg:text-lg text-darkbrown-500">Discounted products & services from our sponsors</p>
                     </div>
                     <div className="flex flex-row gap-4 h-fit w-auto items-center">
-                        <Image height={16} width={16} alt="dollar sign" src="/images/currency-usd.png" className="w-fit h-fit"/>
-                        <p className="text-darkbrown-500">Reimbursement on entry fees for select races</p>
+                        <Image height={24} width={24} alt="dollar sign" src="/images/currency-usd.png" className="w-fit h-fit"/>
+                        <p className="lg:text-lg text-darkbrown-500">Reimbursement on entry fees for select races</p>
                     </div>
                     <div className="flex flex-row gap-4 h-fit w-auto items-center">
-                        <Image height={16} width={16} alt="dollar sign" src="/images/heart-multiple-outline.png" className="w-fit h-fit"/>
-                        <p className="text-darkbrown-500">Awesome teammates who show up to race & support!</p>
+                        <Image height={24} width={24} alt="dollar sign" src="/images/heart-multiple-outline.png" className="w-fit h-fit"/>
+                        <p className="lg:text-lg text-darkbrown-500">Awesome teammates who show up to race & support!</p>
                     </div>
                 </div>
             </div>
