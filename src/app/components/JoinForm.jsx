@@ -183,15 +183,15 @@ export default function JoinForm() {
                 <h4 className="font-semibold text-lg text-darkbrown-500">Benefits</h4>
                 <div className="flex flex-col gap-2">
                     <div className="flex flex-row gap-4 h-fit w-auto items-center">
-                        <Image height={24} width={24} alt="dollar sign" src="/images/percent-outline.png" className="w-fit h-fit"/>
+                        <Image height={16} width={16} alt="dollar sign" src="/images/percent-outline.png" className="w-fit h-fit"/>
                         <p className="text-sm text-darkbrown-500">Discounted products & services from our sponsors</p>
                     </div>
                     <div className="flex flex-row gap-4 h-fit w-auto items-center">
-                        <Image height={24} width={24} alt="dollar sign" src="/images/currency-usd.png" className="w-fit h-fit"/>
+                        <Image height={16} width={16} alt="dollar sign" src="/images/currency-usd.png" className="w-fit h-fit"/>
                         <p className="text-sm text-darkbrown-500">Reimbursement on entry fees for select races</p>
                     </div>
                     <div className="flex flex-row gap-4 h-fit w-auto items-center">
-                        <Image height={24} width={24} alt="dollar sign" src="/images/heart-multiple-outline.png" className="w-fit h-fit"/>
+                        <Image height={16} width={16} alt="dollar sign" src="/images/heart-multiple-outline.png" className="w-fit h-fit"/>
                         <p className="text-sm text-darkbrown-500">Awesome teammates who show up to race & support!</p>
                     </div>
                 </div>
