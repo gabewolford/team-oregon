@@ -21,12 +21,12 @@ const userSchema = new Schema({
         activeMember: {
             type: Boolean,
         },
-        startDate: {
-            type: Date,
+        membershipPurchaseDate: {
+            type: Date
         },
-        endDate: {
-            type: Date,
-        },
+        membershipExpirationDate: {
+            type: Date
+        }
     }, 
         {timestamps: true}
 );
