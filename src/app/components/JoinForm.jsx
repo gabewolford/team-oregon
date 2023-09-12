@@ -184,15 +184,15 @@ export default function JoinForm() {
                 <div className="flex flex-col gap-2">
                     <div className="flex flex-row gap-4 h-fit w-auto items-center">
                         <Image height={24} width={24} alt="dollar sign" src="/images/percent-outline.png" className="w-fit h-fit"/>
-                        <p className="lg:text-lg text-darkbrown-500">Discounted products & services from our sponsors</p>
+                        <p className="text-darkbrown-500">Discounted products & services from our sponsors</p>
                     </div>
                     <div className="flex flex-row gap-4 h-fit w-auto items-center">
                         <Image height={24} width={24} alt="dollar sign" src="/images/currency-usd.png" className="w-fit h-fit"/>
-                        <p className="lg:text-lg text-darkbrown-500">Reimbursement on entry fees for select races</p>
+                        <p className="text-darkbrown-500">Reimbursement on entry fees for select races</p>
                     </div>
                     <div className="flex flex-row gap-4 h-fit w-auto items-center">
                         <Image height={24} width={24} alt="dollar sign" src="/images/heart-multiple-outline.png" className="w-fit h-fit"/>
-                        <p className="lg:text-lg text-darkbrown-500">Awesome teammates who show up to race & support!</p>
+                        <p className="text-darkbrown-500">Awesome teammates who show up to race & support!</p>
                     </div>
                 </div>
             </div>
