@@ -9,10 +9,13 @@ import Image from "next/image";
 export default function JoinForm() {
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
-    const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
+    const [activeMember, setActiveMember] = useState(false)
+    const [membershipPurchaseDate, setMembershipPurchaseDate] = useState(null)
+    const [membershipExpirationDate, setMembershipExpirationDate] = useState(null)
+
     const [error, setError] = useState('')
     const [isLoading, setLoading] = useState(false);
     const [passwordMatch, setPasswordMatch] = useState(true);
@@ -27,7 +30,6 @@ export default function JoinForm() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setName(firstName + " " + lastName)
     
         if (!firstName || !lastName || !email || !password || !confirmPassword) {
             setError("All fields are required");
@@ -66,7 +68,10 @@ export default function JoinForm() {
                 lastName,
                 email,
                 password,
-                confirmPassword
+                confirmPassword,
+                activeMember,
+                membershipPurchaseDate,
+                membershipExpirationDate,
             }),
             });
 
