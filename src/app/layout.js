@@ -17,7 +17,7 @@ export default function RootLayout({ children }) {
         <AuthProvider>
           <PayPalConfig>
             <Navbar />
-            <div className='pt-[55px] md:pt-[68px] pb-[350px] lg:pb-[250px]'>
+            <div className='pt-[55px] md:pt-[68px] pb-[375px] md:pb-[275px] lg:pb-[250px]'>
               {children}
             </div>
             <Footer />
