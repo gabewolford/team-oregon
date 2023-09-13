@@ -11,7 +11,6 @@ export default function BoardmemberCard({ boardmemberData }) {
                          width={193}
                          alt={boardmemberData.firstname + " " + boardmemberData.lastname}
                          className="w-full md:w-fit md:h-fit"
-                         placeholder="blur"
                        >
                        </Image>
 
