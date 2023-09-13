@@ -1,4 +1,5 @@
 import Image from "next/image"
+import submissionSuccess from "../../../../public/images/submission-successful.png"
 
 export default function ContactConfirmation() {
     return (
@@ -8,11 +9,10 @@ export default function ContactConfirmation() {
                     <h2 className='text-center text-xl md:text-3xl text-blue-500 font-semibold uppercase mb-2'>Submission Successful</h2>
                     <p className="mb-6 text-center w-full lg:w-1/2 mx-auto">Your inquiry has been recieved.</p>
                     <Image
-                        src={'/images/submission-successful.png'}
+                        src={submissionSuccess}
                         alt="thumbs up"
-                        height={450}
-                        width={600}
                         className="mx-auto"
+                        placeholder="blur"
                     >
                     </Image>
                 </div>

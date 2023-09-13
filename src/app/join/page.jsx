@@ -3,6 +3,7 @@ import { getServerSession } from "next-auth"
 import { redirect } from "next/navigation"
 import { authOptions } from "../api/auth/[...nextauth]/route"
 import Image from "next/image"
+import thumbsUp from "../../../public/images/thumbsup.png"
 
 export const metadata = {
   title: 'Team Oregon | Join The Team',
@@ -19,11 +20,10 @@ export default async function JoinPage() {
           <div className="mx-6 md:mx-auto md:max-w-[80vw] mt-4 mb-16 md:mt-10 md:mb-0 lg:mb-8 flex flex-row">
             <div className="lg:w-1/2">
               <Image
-                height={1200}
-                width={900}
                 alt="thumbs up photo"
-                src="/images/thumbsup.png"
+                src={thumbsUp}
                 className="hidden lg:block w-auto h-full object-cover flex-1"
+                placeholder="blur"
               >
               </Image>
             </div>

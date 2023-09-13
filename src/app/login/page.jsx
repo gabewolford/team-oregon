@@ -1,5 +1,6 @@
 import LoginForm from "../components/LoginForm"
 import Image from "next/image"
+import sideAngle from "../../../public/images/side-angle.png"
 
 export const metadata = {
     title: 'Team Oregon | Log In',
@@ -12,11 +13,10 @@ export default function LogInPage() {
       <div className="mx-auto md:mx-auto md:max-w-[80vw] mt-4 mb-16 md:mt-10 md:mb-0 lg:mb-8 flex flex-row items-center">
         <div className="lg:w-3/5 h-fit">
           <Image
-            height={1200}
-            width={900}
             alt="side angle photo"
-            src="/images/side-angle.png"
+            src={sideAngle}
             className="hidden lg:block w-auto h-full object-cover flex-1"
+            placeholder="blur"
           >
           </Image>
         </div>
