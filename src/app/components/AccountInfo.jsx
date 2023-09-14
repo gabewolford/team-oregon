@@ -10,40 +10,26 @@ export default function AccountInfo() {
 
     const { data: session } = useSession();
 
-    if (session) {
-        firstName = session.user.firstName
-        lastName = session.user.lastName
-        email = session.user.email
-
-        const parsedDate = new Date(session.user.createdAt);
+    const formatDate = (dateString) => {
+        if (!dateString) return '';
+    
+        const parsedDate = new Date(dateString);
         const year = parsedDate.getUTCFullYear();
         const month = String(parsedDate.getUTCMonth() + 1).padStart(2, "0");
         const day = String(parsedDate.getUTCDate()).padStart(2, "0");
-        accountCreatedDate = `${month}-${day}-${year}`;
+        return `${month}-${day}-${year}`;
+    };
 
-        if (session.user.membershipPurchaseDate) {
-            const parsedDate2 = new Date(session.user.membershipPurchaseDate);
-            const year2 = parsedDate2.getUTCFullYear();
-            const month2 = String(parsedDate2.getUTCMonth() + 1).padStart(2, "0");
-            const day2 = String(parsedDate2.getUTCDate()).padStart(2, "0");
-            membershipPurchaseDate = `${month2}-${day2}-${year2}`;
-        }
-
-        if (session.user.membershipExpirationDate) {
-            const parsedDate3 = new Date(session.user.membershipExpirationDate);
-            const year3 = parsedDate3.getUTCFullYear();
-            const month3 = String(parsedDate3.getUTCMonth() + 1).padStart(2, "0");
-            const day3 = String(parsedDate3.getUTCDate()).padStart(2, "0");
-            membershipExpirationDate = `${month3}-${day3}-${year3}`;
-        }
-
-        if (session.user.activeMember) {
-            memberStatus = 'Active'
-        } else {
-            memberStatus = 'Inactive'
-        }
+    if (session) {
+        const { user } = session;
+        firstName = user.firstName;
+        lastName = user.lastName;
+        email = user.email;
+        accountCreatedDate = formatDate(user.createdAt);
+        membershipPurchaseDate = formatDate(user.membershipPurchaseDate);
+        membershipExpirationDate = formatDate(user.membershipExpirationDate);
+        memberStatus = user.activeMember ? 'Active' : 'Inactive';
     }
-    
 
     return (
         <>
