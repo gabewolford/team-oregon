@@ -24,7 +24,7 @@ export default function Footer() {
                     <PresentedBy color={'text-white-500'} display={'flex flex-row'}/>
                 </div>
                 {!isAuthenticated ? (
-                    <div className={`${sailorsRegular.className} text-white-500 text-lg md:text-sm text-center justify-between flex flex-col md:flex-row md:w-[660px]`}>
+                    <div className={`${sailorsRegular.className} text-white-500 text-base text-center justify-between flex flex-col md:flex-row md:w-[660px]`}>
                         <Link href="/">Home</Link>
                         <Link href="/sponsors">Sponsors</Link>
                         <Link href="/team">Team</Link>
@@ -33,7 +33,7 @@ export default function Footer() {
                         <Link href="/login">Log In</Link>
                     </div>
                 ) : (
-                    <div className={`${sailorsRegular.className} text-white-500 text-lg md:text-sm text-center justify-between flex flex-col md:flex-row md:w-[660px]`}>
+                    <div className={`${sailorsRegular.className} text-white-500 text-base text-center justify-between flex flex-col md:flex-row md:w-[660px]`}>
                         <Link href="/">Home</Link>
                         <Link href="/sponsors">Sponsors</Link>
                         <Link href="/team">Team</Link>
@@ -43,8 +43,11 @@ export default function Footer() {
                 )}
 
             </div>
-            <div className="w-full mt-4" >
+            <div className="flex justify-center lg:justify-end w-full mt-4">
                 <h6 className="text-xs text-lightblue-500 text-center">© 2023 Team Oregon. All Rights Reserved.</h6>
+            </div>
+            <div className="flex justify-center lg:justify-end w-full mt-2">
+                <h6 className="text-xs text-lightblue-500 text-center">Designed and developed by <a href="https://biiigstretch.studio" target="_blank">Biiig Stretch Studio.</a></h6>
             </div>
         </footer>
     )
