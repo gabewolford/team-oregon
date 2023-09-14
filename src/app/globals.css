@@ -14,3 +14,20 @@ body {
   min-height: 100dvh;
   background-color: #CAD9E0;
 }
+
+th, td {
+  border: 1px solid #FFFFFF;
+  color: #FFFFFF;
+}
+
+tr:nth-child(odd) {
+  background-color: #32221E;
+}
+
+tr:nth-child(even) {
+  background-color: #433936;
+}
+
+td {
+  padding: 10px;
+}
