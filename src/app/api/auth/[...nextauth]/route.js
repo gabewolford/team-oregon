@@ -49,6 +49,9 @@ export const authOptions = {
         session.user.firstName = token.firstName
         session.user.lastName = token.lastName
         session.user.createdAt = token.createdAt 
+        session.user.activeMember = token.activeMember
+        session.user.membershipPurchaseDate = token.membershipPurchaseDate
+        session.user.membershipExpirationDate = token.membershipExpirationDate
         return Promise.resolve(session);
     },
     jwt: async ({ token, user }) => {
@@ -58,6 +61,9 @@ export const authOptions = {
             token.firstName = user.firstName 
             token.lastName = user.lastName 
             token.createdAt = user.createdAt 
+            token.activeMember = user.activeMember
+            token.membershipPurchaseDate = user.membershipPurchaseDate
+            token.membershipExpirationDate = user.membershipExpirationDate
         }
         return Promise.resolve(token);
     },
