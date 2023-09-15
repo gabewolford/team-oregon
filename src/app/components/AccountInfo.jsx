@@ -6,7 +6,7 @@ import Link from "next/link";
 import Button from "./Button";
 
 export default function AccountInfo() {
-    let firstName, lastName, email, accountCreatedDate, memberStatus, membershipPurchaseDate, membershipExpirationDate
+    let firstName, lastName, email, accountCreatedDate, memberStatus, memberStatusBadge, membershipPurchaseDate, membershipExpirationDate
 
     const { data: session } = useSession();
 
@@ -28,7 +28,12 @@ export default function AccountInfo() {
         accountCreatedDate = formatDate(user.createdAt);
         membershipPurchaseDate = formatDate(user.membershipPurchaseDate);
         membershipExpirationDate = formatDate(user.membershipExpirationDate);
-        memberStatus = user.activeMember ? 'Active' : 'Inactive';
+        memberStatus = user.activeMember
+        console.log(memberStatus)
+        memberStatusBadge = user.activeMember ? 
+            <span className="bg-green-600 text-white-500 px-3 py-1 rounded-full">Current</span> 
+            : 
+            <span className="bg-red-500 text-white-500 px-3 py-1 rounded-full ">Expired</span>;
     }
 
     return (
@@ -52,7 +57,7 @@ export default function AccountInfo() {
                 </tr>
                 <tr>
                     <td className="text-sm md:text-base font-semibold">Account status</td>
-                    <td className="text-sm md:text-base">{memberStatus}</td>
+                    <td className="text-sm md:text-base">{memberStatusBadge}</td>
                 </tr>
                 {membershipPurchaseDate && 
                     <tr>
@@ -66,7 +71,7 @@ export default function AccountInfo() {
                     </tr>
                 }
             </table>
-            {memberStatus === 'Active' ?             
+            {memberStatus ?             
             <div className="flex flex-col gap-4">
                 <p className="text-sm md:text-base">Looking to order a new kit? Visit the official <span><a className="font-semibold" href="https://biciclista.us/collections/team-oregon" target="_blank">Team Store</a></span> by Biciclista!</p>
                 <p className="text-sm md:text-base">Members-only deals from our sponsors <span><Link className="font-semibold" href="/account/sponsor-deals">HERE</Link></span>!</p>
