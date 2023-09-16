@@ -2,10 +2,23 @@
 
 import { signOut } from "next-auth/react";
 import { useSession } from "next-auth/react"
-import Link from "next/link";
 import Button from "./Button";
+import { useState } from "react";
+import PayPalButton from "./PayPal/PayPalButton";
+import Link from "next/link";
 
 export default function AccountInfo() {
+    const [showPaypalButtons, setShowPaypalButtons] = useState(false); 
+    const [selectedAmount, setSelectedAmount] = useState(65);
+
+    const handleActivateMembership = () => {
+        setShowPaypalButtons(true);
+    };
+
+    const handleAmountSelection = (amount) => {
+        setSelectedAmount(amount);
+      };
+
     let firstName, lastName, email, accountCreatedDate, memberStatus, memberStatusBadge, membershipPurchaseDate, membershipExpirationDate
 
     const { data: session } = useSession();
@@ -29,7 +42,6 @@ export default function AccountInfo() {
         membershipPurchaseDate = formatDate(user.membershipPurchaseDate);
         membershipExpirationDate = formatDate(user.membershipExpirationDate);
         memberStatus = user.activeMember
-        console.log(memberStatus)
         memberStatusBadge = user.activeMember ? 
             <span className="bg-green-600 text-white-500 px-3 py-1 rounded-full">Current</span> 
             : 
@@ -71,16 +83,70 @@ export default function AccountInfo() {
                     </tr>
                 }
             </table>
-            {memberStatus ?             
-            <div className="flex flex-col gap-4">
-                <p className="text-sm md:text-base">Looking to order a new kit? Visit the official <span><a className="font-semibold" href="https://biciclista.us/collections/team-oregon" target="_blank">Team Store</a></span> by Biciclista!</p>
-                <p className="text-sm md:text-base">Members-only deals from our sponsors <span><Link className="font-semibold" href="/account/sponsor-deals">HERE</Link></span>!</p>
-            </div>
-            :
-            <Link href="/account/pay">
-                <Button text="Activate membership" />
-            </Link>
-            }
+
+            {memberStatus ? (
+                <div className="flex flex-col gap-4">
+                <p className="text-sm md:text-base">
+                    Looking to order a new kit? Visit the official{' '}
+                    <span>
+                    <a className="font-semibold" href="https://biciclista.us/collections/team-oregon" target="_blank">
+                        Team Store
+                    </a>
+                    </span>{' '}
+                    by Biciclista!
+                </p>
+                <p className="text-sm md:text-base">
+                    Members-only deals from our sponsors{' '}
+                    <span>
+                    <a className="font-semibold" href="/account/sponsor-deals">
+                        HERE
+                    </a>
+                    </span>
+                    !
+                </p>
+                </div>
+            ) : (
+                <div>
+                    {showPaypalButtons ? (
+                        <div className="flex flex-col gap-4">
+                            <h3 className="text-xl">Please select your membership:</h3>
+                            <div className="flex flex-row gap-4">
+                                <label
+                                    className={`bg-blue-500 hover:bg-blue-hover h-[150px] w-1/2 p-4 rounded-xl cursor-pointer text-center flex justify-center items-center border-4 ${
+                                        selectedAmount === 65 ? 'border-green-500 bg-blue-hover' : 'border-white-500'
+                                    }`}
+                                    onClick={() => handleAmountSelection(65)}
+                                >
+                                    <div>
+                                    <p className="text-white-500 text-base md:text-xl pb-1 font-medium">Regular</p>
+                                    <p className="text-white-500 text-xl md:text-4xl font-bold">$65</p>
+                                    </div>
+                                </label>
+                            
+                                <label
+                                    className={`bg-blue-500 hover:bg-blue-hover h-[150px] w-1/2 p-4 rounded-xl cursor-pointer text-center flex justify-center items-center border-4 ${
+                                        selectedAmount === 10 ? 'border-green-500 bg-blue-hover' : 'border-white-500'
+                                    }`}
+                                    onClick={() => handleAmountSelection(10)}
+                                >
+                                    <div>
+                                    <p className="text-white-500 text-base md:text-xl pb-1 font-medium">Discounted</p>
+                                    <p className="text-white-500 text-xl md:text-4xl font-bold">$10</p>
+                                    </div>
+                                </label>
+                            </div>
+                        
+                            <PayPalButton amount={selectedAmount}/>
+                        </div>
+                    ) : (
+                        <Button
+                            text="Activate membership"
+                            className="text-sm md:text-base"
+                            onClick={handleActivateMembership}
+                        />
+                    )}
+                </div>
+            )}
 
             <button 
                 onClick={() => signOut()}
