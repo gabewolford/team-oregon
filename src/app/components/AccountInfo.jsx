@@ -5,19 +5,25 @@ import { useSession } from "next-auth/react"
 import Button from "./Button";
 import { useState } from "react";
 import PayPalButton from "./PayPal/PayPalButton";
-import Link from "next/link";
 
 export default function AccountInfo() {
-    const [showPaypalButtons, setShowPaypalButtons] = useState(false); 
+    const [showMembershipSelection, setShowMembershipSelection] = useState(false); 
     const [selectedAmount, setSelectedAmount] = useState(65);
+    const [showPaypalButtons, setShowPaypalButtons] = useState(false);
+    
 
-    const handleActivateMembership = () => {
-        setShowPaypalButtons(true);
-    };
+    const handleShowMembershipAmounts = () => {
+        setShowMembershipSelection(true);
+    }; 
 
     const handleAmountSelection = (amount) => {
         setSelectedAmount(amount);
-      };
+    };
+
+    const handleshowPaypalButtons = () => {
+        setShowPaypalButtons(true);
+        setShowMembershipSelection(false);
+    }
 
     let firstName, lastName, email, accountCreatedDate, memberStatus, memberStatusBadge, membershipPurchaseDate, membershipExpirationDate
 
@@ -107,43 +113,54 @@ export default function AccountInfo() {
                 </div>
             ) : (
                 <div>
-                    {showPaypalButtons ? (
+                    {showMembershipSelection && !showPaypalButtons ? (
                         <div className="flex flex-col gap-4">
                             <h3 className="text-xl">Please select your membership:</h3>
                             <div className="flex flex-row gap-4">
                                 <label
-                                    className={`bg-blue-500 hover:bg-blue-hover h-[150px] w-1/2 p-4 rounded-xl cursor-pointer text-center flex justify-center items-center border-4 ${
+                                    className={`bg-blue-500 hover.bg-blue-hover h-[150px] w-1/2 p-4 rounded-xl cursor-pointer text-center flex justify-center items-center border-4 ${
                                         selectedAmount === 65 ? 'border-green-500 bg-blue-hover' : 'border-white-500'
                                     }`}
                                     onClick={() => handleAmountSelection(65)}
                                 >
                                     <div>
-                                    <p className="text-white-500 text-base md:text-xl pb-1 font-medium">Regular</p>
-                                    <p className="text-white-500 text-xl md:text-4xl font-bold">$65</p>
+                                        <p className="text-white-500 text-base md:text-xl pb-1 font-medium">Regular</p>
+                                        <p className="text-white-500 text-xl md:text-4xl font-bold">$65</p>
                                     </div>
                                 </label>
                             
                                 <label
-                                    className={`bg-blue-500 hover:bg-blue-hover h-[150px] w-1/2 p-4 rounded-xl cursor-pointer text-center flex justify-center items-center border-4 ${
+                                    className={`bg-blue-500 hover.bg-blue-hover h-[150px] w-1/2 p-4 rounded-xl cursor-pointer text-center flex justify-center items-center border-4 ${
                                         selectedAmount === 10 ? 'border-green-500 bg-blue-hover' : 'border-white-500'
                                     }`}
                                     onClick={() => handleAmountSelection(10)}
                                 >
                                     <div>
-                                    <p className="text-white-500 text-base md:text-xl pb-1 font-medium">Discounted</p>
-                                    <p className="text-white-500 text-xl md:text-4xl font-bold">$10</p>
+                                        <p className="text-white-500 text-base md:text-xl pb-1 font-medium">Discounted</p>
+                                        <p className="text-white-500 text-xl md:text-4xl font-bold">$10</p>
                                     </div>
                                 </label>
                             </div>
-                        
-                            <PayPalButton amount={selectedAmount}/>
+
+                            <div className="flex justify-end">
+                                <Button text="Continue to payment" onClick={handleshowPaypalButtons} />
+                            </div>
                         </div>
                     ) : (
-                        <Button
-                            text="Activate membership"
-                            className="text-sm md:text-base"
-                            onClick={handleActivateMembership}
-                        />
+                        <div>
+                            {showPaypalButtons ? (
+                                <div className="flex flex-col gap-4">
+                                    <h3 className="text-xl">Please complete payment through PayPal:</h3>
+                                    <PayPalButton amount={selectedAmount} />
+                                </div>
+                            ) : (
+                                <Button
+                                    text="Activate membership"
+                                    className="text-sm md:text-base"
+                                    onClick={handleShowMembershipAmounts}
+                                />
+                            )}
+                        </div>
                     )}
                 </div>
             )}
