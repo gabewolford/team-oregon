@@ -8,9 +8,8 @@ export default function RightContentBlock({ header, text, buttonText, buttonLink
       <Image
         src={image}
         alt={altText}
-        width={543}
-        height={785}
         className="md:w-1/2 w-full"
+        placeholder="blur"
       >
       </Image>
       <div className="flex flex-col items-start gap-4 md:w-1/2">

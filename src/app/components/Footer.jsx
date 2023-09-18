@@ -5,6 +5,7 @@ import Image from "next/image"
 import { exo, sailorsRegular } from "../styles/fonts"
 import PresentedBy from "./PresentedBy"
 import { useSession } from 'next-auth/react'
+import whiteLogo from "../../../public/images/team-oregon-logo-white.png"
 
 export default function Footer() {
     const { data: session } = useSession()
@@ -15,9 +16,8 @@ export default function Footer() {
             <div className="flex flex-col lg:flex-row items-center justify-between gap-4">
                 <div className="flex flex-col gap-4">
                     <Image
-                     src={'/images/team-oregon-logo-white.png'}
-                     height={36}
-                     width={259}
+                     src={whiteLogo}
+                     className="w-[260px] h-auto"
                      alt="team oregon logo"
                     >
                     </Image>

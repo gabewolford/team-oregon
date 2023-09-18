@@ -2,6 +2,9 @@ import Hero from "./components/Hero"
 import PresentedBy from "./components/PresentedBy"
 import LeftContentBlock from "./components/LeftContentBlock"
 import RightContentBlock from "./components/RightContentBlock"
+import homePhoto1 from "../../public/images/home-photo-1.png"
+import homePhoto2 from "../../public/images/home-photo-2.png"
+import homePhoto3 from "../../public/images/home-photo-3.png"
 
 export default function HomePage() {
   return (
@@ -20,7 +23,7 @@ export default function HomePage() {
         text={'Our mission is to enhance the sport of cycling in Oregon by organizing an accessible team with resources to help all members reach their goals within the sport. Experienced riders share their knowledge with less experienced team members, enabling growth and skill development.'}
         buttonText={'Meet the team'}
         buttonLink={'/team'}
-        image={'/images/home-photo-1.png'}
+        image={homePhoto1}
         altText={'Tabor photo'}
         >
       </LeftContentBlock>
@@ -30,7 +33,7 @@ export default function HomePage() {
         text={'In addition to racing, members are encouraged to be active in the club and assist in the club’s operations and projects. Team Oregon actively promotes races, training rides, training camps, community cycling events, and coaching.'}
         buttonText={'Get involved'}
         buttonLink={'/join'}
-        image={'/images/home-photo-2.png'}
+        image={homePhoto2}
         altText={'Tabor photo'}
       >
       </RightContentBlock>
@@ -40,7 +43,7 @@ export default function HomePage() {
         text={'Team Oregon is proud to be supported by some of the finest local businesses that the Pacific Northwest has to offer. Whether you are painting your home, looking for the highest quality cycling gear, or just yearning for a delicious beer or coffee - we’ve got you covered.'}
         buttonText={'Meet our sponsors'}
         buttonLink={'/sponsors'}
-        image={'/images/home-photo-3.png'}
+        image={homePhoto3}
         altText={'Rodda paint photo'}
       >
       </LeftContentBlock>

@@ -1,20 +1,21 @@
 import Image from "next/image"
 import Link from "next/link"
-import { exo, sneakoutRegular } from "../styles/fonts"
 import Button from "./Button"
+import heroImage from "../../../public/images/hero-image.png"
+import heroImageMobile from "../../../public/images/hero-image-mobile.png"
+import heroImageText from "../../../public/images/team-oregon-logo-year.png"
 
 export default function Hero({ text, buttonText, buttonLink }) {
     return (
         <div className="flex flex-col gap-4">
             <section className="flex relative w-full -mt-4 md:mt-6 md:pb-20">
                 <Image
-                    src="/images/hero-image.png"
+                    src={heroImage}
                     sizes="100vw"
-                    height={798}
-                    width={2800}
                     alt="Hero image"
                     priority={true}
                     className="hidden md:block"
+                    placeholder="blur"
                 >
                 </Image>
                 <div className="flex flex-row w-full h-full absolute">
@@ -24,9 +25,7 @@ export default function Hero({ text, buttonText, buttonLink }) {
                             <div className="flex flex-col gap-2">
                                 <div className="flex flex-row">
                                     <Image
-                                        src="/images/team-oregon-logo-year.png"
-                                        height={110}
-                                        width={946}
+                                        src={heroImageText}
                                         alt="Team Oregon est. 1987"
                                     >
                                     </Image>
@@ -47,12 +46,11 @@ export default function Hero({ text, buttonText, buttonLink }) {
             <div className="flex md:hidden pb-10 md:pb-0">
                 <div className="flex relative items-start gap-2 w-full">
                     <Image
-                        src="/images/hero-image-mobile.png"
+                        src={heroImageMobile}
                         sizes="100vw"
-                        height={798}
-                        width={543}
                         alt="Hero image"
                         priority={true}
+                        placeholder="blur"
                         className="w-full"
                     >
                     </Image>
@@ -60,9 +58,7 @@ export default function Hero({ text, buttonText, buttonLink }) {
                         <div className="flex flex-col gap-2 mb-4">
                             <div className="flex flex-row">
                                 <Image
-                                    src="/images/team-oregon-logo-year.png"
-                                    height={55}
-                                    width={473}
+                                    src={heroImageText}
                                     alt="Team Oregon est. 1987"
                                 >
                                 </Image>

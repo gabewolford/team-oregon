@@ -15,10 +15,9 @@ export default function LeftContentBlock({ header, text, buttonText, buttonLink,
       <Image
         src={image}
         alt={altText}
-        width={543}
-        height={518}
         className="order-0 md:order-1 md:w-1/2 w-full"
         priority={true}
+        placeholder="blur"
       ></Image>
     </section>
   )
