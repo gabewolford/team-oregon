@@ -44,10 +44,10 @@ export default function Footer() {
 
             </div>
             <div className="flex justify-center lg:justify-end w-full mt-4">
-                <h6 className="text-xs text-lightblue-500 text-center">© 2023 Team Oregon. All Rights Reserved.</h6>
+                <p className="text-xs text-white-500 text-center">© 2023 Team Oregon. All Rights Reserved.</p>
             </div>
             <div className="flex justify-center lg:justify-end w-full mt-2">
-                <h6 className="text-xs text-lightblue-500 text-center">Designed and developed by <a href="https://biiigstretch.studio" target="_blank">Biiig Stretch Studio.</a></h6>
+                <p className="text-xs text-white-500 text-center">Designed and developed by <a href="https://biiigstretch.studio" target="_blank" className="hover:text-yellow-500">Biiig Stretch Studio.</a></p>
             </div>
         </footer>
     )
