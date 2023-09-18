@@ -15,7 +15,6 @@ export default function Hero({ text, buttonText, buttonLink }) {
                     alt="Hero image"
                     priority={true}
                     className="hidden md:block"
-                    placeholder="blur"
                 >
                 </Image>
                 <div className="flex flex-row w-full h-full absolute">
@@ -50,7 +49,6 @@ export default function Hero({ text, buttonText, buttonLink }) {
                         sizes="100vw"
                         alt="Hero image"
                         priority={true}
-                        placeholder="blur"
                         className="w-full"
                     >
                     </Image>
