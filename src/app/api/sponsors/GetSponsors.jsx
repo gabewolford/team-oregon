@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import { createClient } from "next-sanity";
 import { projectId, dataset, apiVersion, useCdn } from "../../../../sanity/env";
@@ -15,7 +15,7 @@ const client = createClient({
 
 async function fetchSponsors() {
   try {
-    const sponsorsQuery = `*[_type == "sponsor"]{name, "imageUrl": image.asset->url, website, facebook, instagram, description} | order(name asc)`;
+    const sponsorsQuery = `*[_type == "sponsor"]{name, "imageUrl": image.asset->url, order, website, facebook, instagram, description} | order(order asc)`;
     const data = await client.fetch(sponsorsQuery);
     return data;
   } catch (error) {
@@ -25,12 +25,12 @@ async function fetchSponsors() {
 }
 
 export default function GetSponsors() {
-  const [sponsors, setSponsors] = useState([]); 
+  const [sponsors, setSponsors] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
       const sponsorData = await fetchSponsors();
-      setSponsors(sponsorData); 
+      setSponsors(sponsorData);
     }
     fetchData();
   }, []);
@@ -51,5 +51,5 @@ export default function GetSponsors() {
         </div>
       )}
     </>
-  )
+  );
 }
