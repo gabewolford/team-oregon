@@ -1,11 +1,12 @@
-import LoginForm from "../components/LoginForm"
-import Image from "next/image"
-import sideAngle from "../../../public/images/side-angle.png"
+import LoginForm from "../components/LoginForm";
+import Image from "next/image";
+import sideAngle from "../../../public/images/side-angle.png";
 
 export const metadata = {
-    title: 'Team Oregon | Log In',
-    description: 'Helping our members achieve their cycling goals and developing the sport of competive cycling in the Pacific Northwest for over three decades.',
-  }
+  title: "Team Oregon | Log In",
+  description:
+    "Helping our members achieve their cycling goals and developing the sport of competive cycling in the Pacific Northwest for over three decades.",
+};
 
 export default function LogInPage() {
   return (
@@ -17,13 +18,12 @@ export default function LogInPage() {
             src={sideAngle}
             className="hidden lg:block w-auto h-full object-cover flex-1"
             placeholder="blur"
-          >
-          </Image>
+          ></Image>
         </div>
         <div className="lg:w-2/5 h-full">
           <LoginForm />
         </div>
       </div>
     </main>
-  )
+  );
 }
