@@ -32,7 +32,7 @@ export default function ContactPage() {
           className="w-auto h-full object-cover"
         />
         <h6 className="absolute bottom-2 right-2 text-xs text-white-500/60">
-          Photo by Bertrand Morin / Bike Tires Direct
+          Photo by Bertrand Mejia-Morin / Bike Tires Direct
         </h6>
       </div>
     </section>

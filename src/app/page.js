@@ -31,7 +31,7 @@ export default function HomePage() {
         buttonLink={"/team"}
         image={homePhoto1}
         altText={"Tabor photo"}
-        photoCredit={"Photo by Betrand Morin / Bike Tires Direct"}
+        photoCredit={"Photo by Bertrand Mejia-Morin / Bike Tires Direct"}
       ></LeftContentBlock>
 
       <RightContentBlock
@@ -54,7 +54,7 @@ export default function HomePage() {
         buttonLink={"/sponsors"}
         image={homePhoto3}
         altText={"Rodda paint photo"}
-        photoCredit={"Photo by Betrand Morin / Bike Tires Direct"}
+        photoCredit={"Photo by Bertrand Mejia-Morin / Bike Tires Direct"}
       ></LeftContentBlock>
     </main>
   );
