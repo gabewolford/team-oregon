@@ -4,6 +4,8 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { AuthProvider } from "./utils/providers/Providers";
 import PayPalConfig from "./components/PayPal/paypal.config";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata = {
   title: "Team Oregon | PNW Bike Racing",
@@ -20,6 +22,8 @@ export default function RootLayout({ children }) {
             <Navbar />
             <div className="pb-[375px] md:pb-[275px] lg:pb-[250px]">
               {children}
+              <SpeedInsights />
+              <Analytics />
             </div>
             <Footer />
           </PayPalConfig>
