@@ -1,5 +1,5 @@
 import Hero from "./components/Hero";
-import PresentedBy from "./components/PresentedBy";
+import CTA from "./components/CTA";
 import LeftContentBlock from "./components/LeftContentBlock";
 import RightContentBlock from "./components/RightContentBlock";
 import homePhoto1 from "../../public/images/home-photo-1.png";
@@ -9,11 +9,6 @@ import homePhoto3 from "../../public/images/home-photo-3.png";
 export default function HomePage() {
   return (
     <main className="pt-[55px] md:pt-[68px]">
-      <PresentedBy
-        color={"text-brown-500"}
-        display={"hidden md:flex md:flex-row"}
-      />
-
       <Hero
         text={
           "Helping our members achieve their cycling goals and developing the sport of competive cycling in the Pacific Northwest for over three decades."
@@ -56,6 +51,14 @@ export default function HomePage() {
         altText={"Rodda paint photo"}
         photoCredit={"Photo by Bertrand Mejia-Morin / Bike Tires Direct"}
       ></LeftContentBlock>
+
+      <section className="mt-10">
+        <CTA
+          header={"Ride with us today!"}
+          buttonText={"Join now"}
+          linkTo={"/join"}
+        ></CTA>
+      </section>
     </main>
   );
 }

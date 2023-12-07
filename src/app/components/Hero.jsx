@@ -8,7 +8,7 @@ import heroImageText from "../../../public/images/team-oregon-logo-year.png";
 export default function Hero({ text, buttonText, buttonLink }) {
   return (
     <div className="flex flex-col gap-4">
-      <section className="flex relative w-full -mt-4 md:mt-6 md:pb-20">
+      <section className="flex relative w-full md:pb-20">
         <Image
           src={heroImage}
           sizes="100vw"
