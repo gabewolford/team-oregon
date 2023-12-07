@@ -10,7 +10,7 @@ export const metadata = {
 
 export default function LogInPage() {
   return (
-    <main className="flex flex-col">
+    <main className="flex flex-col pt-[55px] md:pt-[68px]">
       <div className="mx-auto md:mx-auto md:max-w-[80vw] mt-4 mb-16 md:mt-10 md:mb-0 lg:mb-8 flex flex-row items-center">
         <div className="lg:w-3/5 h-fit">
           <Image

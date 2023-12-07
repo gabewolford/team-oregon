@@ -18,8 +18,8 @@ export default async function JoinPage() {
   if (session) redirect("/account");
 
   return (
-    <section className="flex flex-col mx-6 md:mx-auto md:max-w-[80vw] mt-4 mb-16 md:mt-10 md:mb-0 lg:mb-8 ">
-      <div className="flex flex-row">
+    <section className="flex flex-col mx-6 md:mx-auto md:max-w-[80vw] mb-16 md:mb-0 lg:mb-8 pt-[55px] md:pt-[68px]">
+      <div className="flex flex-row pt-6">
         <div className="lg:w-1/2">
           <Image
             alt="thumbs up photo"
