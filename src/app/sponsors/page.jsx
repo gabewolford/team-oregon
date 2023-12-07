@@ -23,7 +23,7 @@ export default function SponsorsPage() {
         </h3>
         <GetSponsors />
       </section>
-      <section className="mt-10 mb-20">
+      <section className="mt-10">
         <CTA
           header={"Interested in becoming a team sponsor?"}
           buttonText={"Get in touch"}

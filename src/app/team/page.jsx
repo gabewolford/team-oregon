@@ -20,7 +20,7 @@ export default function TeamPage() {
         </h3>
         <GetBoardmembers />
       </section>
-      <section className="mt-10 mb-20">
+      <section className="mt-10">
         <CTA
           header={"We'd love to meet you!"}
           subtext={"Feel free to contact us with any questions."}
