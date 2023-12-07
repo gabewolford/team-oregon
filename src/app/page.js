@@ -8,7 +8,7 @@ import homePhoto3 from "../../public/images/home-photo-3.png";
 
 export default function HomePage() {
   return (
-    <main>
+    <main className="pt-[55px] md:pt-[68px]">
       <PresentedBy
         color={"text-brown-500"}
         display={"hidden md:flex md:flex-row"}

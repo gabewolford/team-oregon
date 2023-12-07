@@ -2,26 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  color: #32221E;
-}
-
 body {
   position: relative;
   min-height: 100dvh;
-  background-color: #CAD9E0;
+  background-color: #cad9e0;
+  box-sizing: border-box;
+  color: #32221e;
 }
 
-th, td {
-  border: 1px solid #FFFFFF;
-  color: #FFFFFF;
+th,
+td {
+  border: 1px solid #ffffff;
+  color: #ffffff;
 }
 
 tr:nth-child(odd) {
-  background-color: #32221E;
+  background-color: #32221e;
 }
 
 tr:nth-child(even) {
