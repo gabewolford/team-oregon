@@ -1,11 +1,10 @@
-'use client'
+"use client";
 
 import { createClient } from "next-sanity";
 import { projectId, dataset, apiVersion, useCdn } from "../../../../sanity/env";
 import { useState, useEffect } from "react";
 import BoardmemberCard from "@/app/components/BoardmemberCard";
 import Spinner from "../../components/Spinner";
-import boardmember from "../../../../schemas/boardmember";
 
 const client = createClient({
   projectId: projectId,
@@ -26,12 +25,12 @@ async function fetchBoardmembers() {
 }
 
 export default function GetBoardmembers() {
-  const [boardmembers, setBoardmembers] = useState([]); 
+  const [boardmembers, setBoardmembers] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
       const boardmemberData = await fetchBoardmembers();
-      setBoardmembers(boardmemberData); 
+      setBoardmembers(boardmemberData);
     }
     fetchData();
   }, []);
@@ -52,5 +51,5 @@ export default function GetBoardmembers() {
         </div>
       )}
     </>
-  )
+  );
 }
