@@ -16,7 +16,7 @@ export default function LogInPage() {
           <Image
             alt="side angle photo"
             src={sideAngle}
-            className="hidden lg:block w-auto h-full object-cover flex-1"
+            className="hidden lg:block"
             placeholder="blur"
           ></Image>
         </div>

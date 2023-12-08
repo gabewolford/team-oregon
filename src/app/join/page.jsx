@@ -37,6 +37,7 @@ export default async function JoinPage() {
           alt="Team photo"
           src={teamPhoto}
           className="w-auto h-full object-cover"
+          placeholder="blur"
         />
       </div>
     </section>
