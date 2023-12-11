@@ -15,7 +15,7 @@ export default function Hero({ text, buttonText, buttonLink }) {
           alt="Hero image"
           priority={true}
           className="hidden md:block"
-        ></Image>
+        />
         <div className="flex flex-row w-full h-full absolute">
           <div className="w-1/2 h-full"></div>
           <div className="flex items-center w-1/2 pr-2">
@@ -48,8 +48,13 @@ export default function Hero({ text, buttonText, buttonLink }) {
             alt="Hero image"
             priority={true}
             className="w-full"
-          ></Image>
-          <div className="absolute bottom-0 py-4 flex-col px-4 gap-4 backdrop-blur-sm">
+          />
+          <div
+            data-aos="fade-up"
+            data-aos-duration="800"
+            data-aos-once="true"
+            className="absolute bottom-0 py-4 flex-col px-4 gap-4 backdrop-blur-sm"
+          >
             <div className="flex flex-col gap-2 mb-4">
               <div className="flex flex-row">
                 <Image src={heroImageText} alt="Team Oregon est. 1987"></Image>
