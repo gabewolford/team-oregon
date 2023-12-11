@@ -6,6 +6,12 @@ import homePhoto1 from "../../public/images/home-photo-1.png";
 import homePhoto2 from "../../public/images/home-photo-2.png";
 import homePhoto3 from "../../public/images/home-photo-3.png";
 
+export const metadata = {
+  title: "Team Oregon | PNW Bike Racing",
+  description:
+    "Helping our members achieve their cycling goals and developing the sport of competitive cycling in the Pacific Northwest for over three decades.",
+};
+
 export default function HomePage() {
   return (
     <main className="pt-[55px] md:pt-[68px]">

@@ -1,12 +1,20 @@
 "use client";
 
-import { useState } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Button from "./Button";
 import Image from "next/image";
 
 export default function JoinForm() {
+  useEffect(() => {
+    AOS.init({
+      // add options if needed
+    });
+  }, []);
+
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -211,7 +219,13 @@ export default function JoinForm() {
         <h4 className="font-semibold text-lg lg:text-2xl text-darkbrown-500">
           Membership benefits
         </h4>
-        <div className="flex flex-col gap-2">
+        <div
+          data-aos="fade-left"
+          data-aos-duration="800"
+          data-aos-once="true"
+          data-aos-offset="50"
+          className="flex flex-col gap-2"
+        >
           <div className="flex flex-row gap-4 h-fit w-auto items-center">
             <Image
               height={24}

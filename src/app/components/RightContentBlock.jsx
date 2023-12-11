@@ -1,3 +1,8 @@
+"use client";
+
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Button from "./Button";
@@ -11,8 +16,17 @@ export default function RightContentBlock({
   altText,
   photoCredit,
 }) {
+  useEffect(() => {
+    AOS.init({});
+  }, []);
+
   return (
-    <section className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-10 mx-auto px-10 mb-10 md:mb-20 lg:max-w-[90vw]">
+    <section
+      data-aos="fade-left"
+      data-aos-duration="800"
+      data-aos-once="true"
+      className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-10 mx-auto px-10 mb-10 md:mb-20 lg:max-w-[90vw]"
+    >
       <div className="md:w-1/2 w-full relative">
         <Image
           src={image}
