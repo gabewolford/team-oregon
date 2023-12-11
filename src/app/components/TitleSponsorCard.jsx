@@ -17,7 +17,7 @@ export default function TitleSponsorCard() {
 
   return (
     <section
-      data-aos="fade-down"
+      data-aos="fade-up"
       data-aos-duration="800"
       data-aos-once="true"
       className="flex flex-col mt-6 md:mt-10 gap-6 md:gap-10"
