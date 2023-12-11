@@ -11,6 +11,8 @@ export const metadata = {
   title: "Team Oregon | PNW Bike Racing",
   description:
     "Helping our members achieve their cycling goals and developing the sport of competive cycling in the Pacific Northwest for over three decades.",
+  keywords:
+    "Cycling team, Road cycling, Mountain biking, Bicycle racing, Bike racing, Cycling events, Bike enthusiasts, Team rides, Cycling community, Competitive cycling, Cycling club, Cycling races, Bike events, Team jerseys, Cycling challenges, Bike training",
 };
 
 export default function RootLayout({ children }) {
