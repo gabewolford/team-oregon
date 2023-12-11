@@ -19,7 +19,12 @@ export default function Hero({ text, buttonText, buttonLink }) {
         <div className="flex flex-row w-full h-full absolute">
           <div className="w-1/2 h-full"></div>
           <div className="flex items-center w-1/2 pr-2">
-            <div className="hidden md:flex md:flex-col items-start gap-4 w-[543px]">
+            <div
+              data-aos="fade-up"
+              data-aos-duration="800"
+              data-aos-once="true"
+              className="hidden md:flex md:flex-col items-start gap-4 w-[543px]"
+            >
               <div className="flex flex-col gap-2">
                 <div className="flex flex-row">
                   <Image
