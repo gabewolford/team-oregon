@@ -22,7 +22,7 @@ export default function RightContentBlock({
 
   return (
     <section
-      data-aos="fade-left"
+      data-aos="fade-up"
       data-aos-duration="800"
       data-aos-once="true"
       className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-10 mx-auto px-10 mb-10 md:mb-20 lg:max-w-[90vw]"
