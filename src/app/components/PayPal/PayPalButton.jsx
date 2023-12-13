@@ -2,7 +2,7 @@
 
 import { PayPalButtons } from "@paypal/react-paypal-js";
 
-export default function PayPalButton({ amount }) {
+export default function PayPalButton({ amount, onApprove }) {
     return (
       <PayPalButtons
         style={{ layout: 'vertical' }}
@@ -11,11 +11,12 @@ export default function PayPalButton({ amount }) {
             purchase_units: [{
               amount: {
                 value: amount,
-                currency_code: 'USD',
+                currency_code: 'USD',          
               },
             }],
           });
         }}
+        onApprove={onApprove}
       />
     );
   };

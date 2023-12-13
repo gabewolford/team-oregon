@@ -10,7 +10,6 @@ export default function AccountInfo() {
     const [showMembershipSelection, setShowMembershipSelection] = useState(false); 
     const [selectedAmount, setSelectedAmount] = useState(65);
     const [showPaypalButtons, setShowPaypalButtons] = useState(false);
-    
 
     const handleShowMembershipAmounts = () => {
         setShowMembershipSelection(true);
@@ -53,6 +52,45 @@ export default function AccountInfo() {
             : 
             <span className="bg-red-500 text-white-500 px-3 py-1 rounded-full ">Expired</span>;
     }
+
+    const expiryDate = (timestamp) => {
+        const expiry = new Date(timestamp.getFullYear, 11, 31);
+        console.log("Timestamp year" + timestamp.getFullYear)
+
+        // Membership will expire on December 31 of the next calendar year if purchased after September 31
+        if (timestamp && timestamp.getUTCMonth > 9) {
+            console.log("Timestamp year:")
+            console.log(timestamp.getFullYear + 1)
+            expiry.setFullYear(timestamp.getFullYear + 1)
+        }
+        // Membership will expire on December 31 of the current year if purchased before September 31
+        else{
+            expiry.setFullYear(timestamp.getFullYear)
+        }
+        console.log("Expiry date:")
+        console.log(expiry)
+        return expiry
+    }
+
+    const handlePayPalApproval = () => {
+
+        try{
+            fetch("api/updateUser", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                     email, activeMember: true, 
+                     membershipPurchaseDate: Date.now, 
+                     membershipExpirationDate: expiryDate(Date.now)
+                    }),
+            })
+        }
+        catch (error) {
+            console.log("Error occurred while updating user: ", error);
+        }
+    }; 
 
     return (
         <div className="flex flex-col gap-4 md:w-1/2 mx-auto my-4 md:my-10">
@@ -151,7 +189,7 @@ export default function AccountInfo() {
                             {showPaypalButtons ? (
                                 <div className="flex flex-col gap-4">
                                     <h3 className="text-xl">Please complete payment through PayPal:</h3>
-                                    <PayPalButton amount={selectedAmount} />
+                                    <PayPalButton amount={selectedAmount} onApprove={handlePayPalApproval}/>
                                 </div>
                             ) : (
                                 <Button
