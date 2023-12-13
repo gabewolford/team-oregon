@@ -53,28 +53,24 @@ export default function AccountInfo() {
             <span className="bg-red-500 text-white-500 px-3 py-1 rounded-full ">Expired</span>;
     }
 
-    const expiryDate = (timestamp) => {
-        const expiry = new Date(timestamp.getFullYear, 11, 31);
-        console.log("Timestamp year" + timestamp.getFullYear)
+    const expiryDate = (dateString) => {
 
-        // Membership will expire on December 31 of the next calendar year if purchased after September 31
-        if (timestamp && timestamp.getUTCMonth > 9) {
-            console.log("Timestamp year:")
-            console.log(timestamp.getFullYear + 1)
-            expiry.setFullYear(timestamp.getFullYear + 1)
+        const parsedDate = new Date(dateString);
+        var year = parsedDate.getUTCFullYear();
+
+        // Membership will expire on December 31 of the NEXT calendar year if purchased after September 31
+        if (parsedDate.getUTCMonth > 8) {
+            year += 1;
         }
-        // Membership will expire on December 31 of the current year if purchased before September 31
-        else{
-            expiry.setFullYear(timestamp.getFullYear)
-        }
-        console.log("Expiry date:")
-        console.log(expiry)
-        return expiry
+        
+        console.log(`December 31, ${year}`)
+        return new Date(`December 31, ${year}`)
     }
 
     const handlePayPalApproval = () => {
 
         try{
+            const currentDate = new Date().toISOString();
             fetch("api/updateUser", {
                 method: "POST",
                 headers: {
@@ -82,8 +78,8 @@ export default function AccountInfo() {
                 },
                 body: JSON.stringify({
                      email, activeMember: true, 
-                     membershipPurchaseDate: Date.now, 
-                     membershipExpirationDate: expiryDate(Date.now)
+                     membershipPurchaseDate: currentDate, 
+                     membershipExpirationDate: expiryDate(currentDate).toISOString
                     }),
             })
         }
