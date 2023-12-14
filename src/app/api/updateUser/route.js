@@ -6,11 +6,8 @@ export async function POST(req) {
   try {
     await connectMongoDB();
     const { email, activeMember, membershipPurchaseDate, membershipExpirationDate } = await req.json();
-    const user = await User.findOneAndUpdate({ email }, { activeMember, membershipPurchaseDate, membershipExpirationDate })
-    return NextResponse.json(
-        { message: 'User updated.' },
-        { status: 201 }
-    )
+    const user = await User.updateOne({ email }, { activeMember, membershipPurchaseDate, membershipExpirationDate })
+    return NextResponse.json({ user });
   } catch (error) {
     console.log(error);
   }

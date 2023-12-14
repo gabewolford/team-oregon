@@ -79,11 +79,17 @@ export default function AccountInfo() {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
-                     email, activeMember: true, 
+                     email, 
+                     activeMember: true, 
                      membershipPurchaseDate: currentDate, 
                      membershipExpirationDate: expiryDate(currentDate)
-                    }),
+                }),
+            }).then((res) => {
+                if (res.status === 200){
+                    // TO DO: Refresh the user object within the session
+                }
             })
+
         }
         catch (error) {
             console.log("Error occurred while updating user: ", error);
