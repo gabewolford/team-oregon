@@ -59,12 +59,14 @@ export default function AccountInfo() {
         var year = parsedDate.getUTCFullYear();
 
         // Membership will expire on December 31 of the NEXT calendar year if purchased after September 31
-        if (parsedDate.getUTCMonth > 8) {
+        if (parsedDate.getUTCMonth() > 8) {
             year += 1;
         }
+
+        const expiryString = "December 31, " + year.toString();
+        const expiryDate = new Date(expiryString);
         
-        console.log(`December 31, ${year}`)
-        return new Date(`December 31, ${year}`)
+        return new Date(expiryDate).toISOString();
     }
 
     const handlePayPalApproval = () => {
@@ -79,7 +81,7 @@ export default function AccountInfo() {
                 body: JSON.stringify({
                      email, activeMember: true, 
                      membershipPurchaseDate: currentDate, 
-                     membershipExpirationDate: expiryDate(currentDate).toISOString
+                     membershipExpirationDate: expiryDate(currentDate)
                     }),
             })
         }

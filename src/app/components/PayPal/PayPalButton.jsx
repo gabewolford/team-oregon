@@ -11,7 +11,7 @@ export default function PayPalButton({ amount, onApprove }) {
             purchase_units: [{
               amount: {
                 value: amount,
-                currency_code: 'USD',          
+                currency_code: 'USD', 
               },
             }],
           });
