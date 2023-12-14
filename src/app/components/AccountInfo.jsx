@@ -3,13 +3,22 @@
 import { signOut } from "next-auth/react";
 import { useSession } from "next-auth/react"
 import Button from "./Button";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import PayPalButton from "./PayPal/PayPalButton";
 
 export default function AccountInfo() {
     const [showMembershipSelection, setShowMembershipSelection] = useState(false); 
     const [selectedAmount, setSelectedAmount] = useState(65);
     const [showPaypalButtons, setShowPaypalButtons] = useState(false);
+    const [userData, setUserData] = useState({
+        firstName: '',
+        lastName: '',
+        email: '',
+        accountCreatedDate: null,
+        membershipPurchaseDate: null,
+        membershipExpirationDate: null,
+        memberStatus: false,
+    });
 
     const handleShowMembershipAmounts = () => {
         setShowMembershipSelection(true);
@@ -24,8 +33,6 @@ export default function AccountInfo() {
         setShowMembershipSelection(false);
     }
 
-    let firstName, lastName, email, accountCreatedDate, memberStatus, memberStatusBadge, membershipPurchaseDate, membershipExpirationDate
-
     const { data: session } = useSession();
 
     const formatDate = (dateString) => {
@@ -38,20 +45,20 @@ export default function AccountInfo() {
         return `${month}-${day}-${year}`;
     };
 
-    if (session) {
-        const { user } = session;
-        firstName = user.firstName;
-        lastName = user.lastName;
-        email = user.email;
-        accountCreatedDate = formatDate(user.createdAt);
-        membershipPurchaseDate = formatDate(user.membershipPurchaseDate);
-        membershipExpirationDate = formatDate(user.membershipExpirationDate);
-        memberStatus = user.activeMember
-        memberStatusBadge = user.activeMember ? 
-            <span className="bg-green-600 text-white-500 px-3 py-1 rounded-full">Current</span> 
-            : 
-            <span className="bg-red-500 text-white-500 px-3 py-1 rounded-full ">Expired</span>;
-    }
+    useEffect(() => {
+        if (session) {
+          const { user } = session;
+          setUserData({
+            firstName: user.firstName,
+            lastName: user.lastName,
+            email: user.email,
+            accountCreatedDate: formatDate(user.createdAt),
+            membershipPurchaseDate: formatDate(user.membershipPurchaseDate),
+            membershipExpirationDate: formatDate(user.membershipExpirationDate),
+            memberStatus: user.activeMember,
+          });
+        }
+      }, [session]);
 
     const expiryDate = (dateString) => {
 
@@ -79,17 +86,16 @@ export default function AccountInfo() {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
-                     email, 
+                     email: userData.email, 
                      activeMember: true, 
                      membershipPurchaseDate: currentDate, 
                      membershipExpirationDate: expiryDate(currentDate)
                 }),
             }).then((res) => {
                 if (res.status === 200){
-                    // TO DO: Refresh the user object within the session
+                    setUserData({ ... userData, memberStatus: true })
                 }
             })
-
         }
         catch (error) {
             console.log("Error occurred while updating user: ", error);
@@ -101,38 +107,49 @@ export default function AccountInfo() {
             <table>
                 <tr>
                     <td className="text-sm md:text-base font-semibold">First name</td>
-                    <td className="text-sm md:text-base">{firstName}</td>
+                    <td className="text-sm md:text-base">{userData.firstName}</td>
                 </tr>
                 <tr>
                     <td className="text-sm md:text-base font-semibold">Last name</td>
-                    <td className="text-sm md:text-base">{lastName}</td>
+                    <td className="text-sm md:text-base">{userData.lastName}</td>
                 </tr>
                 <tr>
                     <td className="text-sm md:text-base font-semibold">Email</td>
-                    <td className="text-sm md:text-base">{email}</td>
+                    <td className="text-sm md:text-base">{userData.email}</td>
                 </tr>
                 <tr>
                     <td className="text-sm md:text-base font-semibold">Account created</td>
-                    <td className="text-sm md:text-base">{accountCreatedDate}</td>
+                    <td className="text-sm md:text-base">{userData.accountCreatedDate}</td>
                 </tr>
                 <tr>
                     <td className="text-sm md:text-base font-semibold">Account status</td>
-                    <td className="text-sm md:text-base">{memberStatusBadge}</td>
+                    <td className="text-sm md:text-base">{ userData.memberStatus 
+                        ? (
+                            <span className="bg-green-600 text-white-500 px-3 py-1 rounded-full">
+                                Current
+                            </span>
+                          ) 
+                        : (
+                            <span className="bg-red-500 text-white-500 px-3 py-1 rounded-full ">
+                                Expired
+                            </span>
+                          )}
+                    </td>
                 </tr>
-                {membershipPurchaseDate && 
+                {userData.membershipPurchaseDate && 
                     <tr>
                         <td className="text-sm md:text-base font-semibold">Membership start</td>
-                        <td className="text-sm md:text-base">{membershipPurchaseDate}</td>
+                        <td className="text-sm md:text-base">{userData.membershipPurchaseDate}</td>
                     </tr>}
-                {membershipExpirationDate &&
+                {userData.membershipExpirationDate &&
                     <tr>
                         <td className="text-sm md:text-base font-semibold">Membership expiration</td>
-                        <td className="text-sm md:text-base">{membershipExpirationDate}</td>
+                        <td className="text-sm md:text-base">{userData.membershipExpirationDate}</td>
                     </tr>
                 }
             </table>
 
-            {memberStatus ? (
+            {userData.memberStatus ? (
                 <div className="flex flex-col gap-4">
                 <p className="text-sm md:text-base">
                     Looking to order a new kit? Visit the official{' '}
