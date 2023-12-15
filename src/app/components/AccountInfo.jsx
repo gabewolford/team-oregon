@@ -3,7 +3,7 @@
 import { signOut } from "next-auth/react";
 import { useSession } from "next-auth/react"
 import Button from "./Button";
-import { useState, useEffect } from "react";
+import { useState, useEffect, use } from "react";
 import PayPalButton from "./PayPal/PayPalButton";
 
 export default function AccountInfo() {
@@ -46,19 +46,32 @@ export default function AccountInfo() {
     };
 
     useEffect(() => {
-        if (session) {
-          const { user } = session;
-          setUserData({
-            firstName: user.firstName,
-            lastName: user.lastName,
-            email: user.email,
-            accountCreatedDate: formatDate(user.createdAt),
-            membershipPurchaseDate: formatDate(user.membershipPurchaseDate),
-            membershipExpirationDate: formatDate(user.membershipExpirationDate),
-            memberStatus: user.activeMember,
-          });
+        const fetchData = async () => {
+            const { user } = session;
+
+            const result = await fetch("api/getUser", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ email: user.email }),
+            })
+            const response = await result.json();
+            const userInfo = response.user || user;
+
+            setUserData({
+                firstName: userInfo.firstName,
+                lastName: userInfo.lastName,
+                email: userInfo.email,
+                accountCreatedDate: formatDate(userInfo.createdAt),
+                membershipPurchaseDate: formatDate(userInfo.membershipPurchaseDate),
+                membershipExpirationDate: formatDate(userInfo.membershipExpirationDate),
+                memberStatus: userInfo.activeMember,
+              });
         }
-      }, [session]);
+      
+        fetchData().catch(console.error);
+      }, [])
 
     const expiryDate = (dateString) => {
 
@@ -149,28 +162,7 @@ export default function AccountInfo() {
                 }
             </table>
 
-            {userData.memberStatus ? (
-                <div className="flex flex-col gap-4">
-                <p className="text-sm md:text-base">
-                    Looking to order a new kit? Visit the official{' '}
-                    <span>
-                    <a className="font-semibold" href="https://biciclista.us/collections/team-oregon" target="_blank">
-                        Team Store
-                    </a>
-                    </span>{' '}
-                    by Biciclista!
-                </p>
-                <p className="text-sm md:text-base">
-                    Members-only deals from our sponsors{' '}
-                    <span>
-                    <a className="font-semibold" href="/account/sponsor-deals">
-                        HERE
-                    </a>
-                    </span>
-                    !
-                </p>
-                </div>
-            ) : (
+            {userData.memberStatus ? null : (
                 <div>
                     {showMembershipSelection && !showPaypalButtons ? (
                         <div className="flex flex-col gap-4">
@@ -195,7 +187,7 @@ export default function AccountInfo() {
                                     onClick={() => handleAmountSelection(10)}
                                 >
                                     <div>
-                                        <p className="text-white-500 text-base md:text-xl pb-1 font-medium">Discounted</p>
+                                        <p className="text-white-500 text-base md:text-xl pb-1 font-medium">Student</p>
                                         <p className="text-white-500 text-xl md:text-4xl font-bold">$10</p>
                                     </div>
                                 </label>
