@@ -1,9 +1,9 @@
 'use client'
 
 import { signOut } from "next-auth/react";
-import { useSession } from "next-auth/react"
+import { getSession } from "next-auth/react"
 import Button from "./Button";
-import { useState, useEffect, use } from "react";
+import { useState, useEffect } from "react";
 import PayPalButton from "./PayPal/PayPalButton";
 
 export default function AccountInfo() {
@@ -33,8 +33,6 @@ export default function AccountInfo() {
         setShowMembershipSelection(false);
     }
 
-    const { data: session } = useSession();
-
     const formatDate = (dateString) => {
         if (!dateString) return '';
     
@@ -45,8 +43,9 @@ export default function AccountInfo() {
         return `${month}-${day}-${year}`;
     };
 
-    useEffect(() => {
-        const fetchData = async () => {
+    const refreshUserData = async () => {      
+        const session = await getSession();  
+        if (session) {
             const { user } = session;
 
             const result = await fetch("api/getUser", {
@@ -58,7 +57,7 @@ export default function AccountInfo() {
             })
             const response = await result.json();
             const userInfo = response.user || user;
-
+    
             setUserData({
                 firstName: userInfo.firstName,
                 lastName: userInfo.lastName,
@@ -67,10 +66,12 @@ export default function AccountInfo() {
                 membershipPurchaseDate: formatDate(userInfo.membershipPurchaseDate),
                 membershipExpirationDate: formatDate(userInfo.membershipExpirationDate),
                 memberStatus: userInfo.activeMember,
-              });
+            });
         }
-      
-        fetchData().catch(console.error);
+    }
+
+    useEffect(() => {
+        refreshUserData().catch(console.error);
       }, [])
 
     const expiryDate = (dateString) => {
@@ -103,10 +104,10 @@ export default function AccountInfo() {
                      activeMember: true, 
                      membershipPurchaseDate: currentDate, 
                      membershipExpirationDate: expiryDate(currentDate)
-                }),
+                })
             }).then((res) => {
                 if (res.status === 200){
-                    setUserData({ ... userData, memberStatus: true })
+                    refreshUserData();
                 }
             })
         }
