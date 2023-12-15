@@ -226,6 +226,14 @@ export default function AccountInfo() {
                 </label>
               </div>
 
+            { selectedAmount === 10 ? 
+                <div class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4" role="alert">
+                    <p class="font-bold">Student Membership Selected</p>
+                    <p>Please continue only if you are a current student, or have communicated with the Team Oregon Board about a need-based membership fee adjustment.</p>
+                </div> :
+                null
+            }
+
               <div className="flex justify-end">
                 <Button
                   text="Continue to payment"
