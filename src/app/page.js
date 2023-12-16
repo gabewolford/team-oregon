@@ -14,7 +14,7 @@ export const metadata = {
 
 export default function HomePage() {
   return (
-    <main className="pt-[55px] md:pt-[68px]">
+    <main className="pt-[44px] md:pt-[68px]">
       <Hero
         text={
           "Helping our members achieve their cycling goals and developing the sport of competive cycling in the Pacific Northwest for over three decades."
