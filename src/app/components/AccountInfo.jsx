@@ -66,7 +66,7 @@ export default function AccountInfo() {
         accountCreatedDate: formatDate(userInfo.createdAt),
         membershipPurchaseDate: formatDate(userInfo.membershipPurchaseDate),
         membershipExpirationDate: formatDate(userInfo.membershipExpirationDate),
-        memberStatus: userInfo.activeMember,
+        memberStatus: userInfo.activeMember
       });
     }
   };

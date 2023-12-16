@@ -275,6 +275,25 @@ export default function Navbar() {
                 >
                   My Account
                 </Link>
+
+                { session?.user.isAdmin ? 
+                  <Link
+                    className={`hover:text-blue-500 sm:py-6 text-xl md:text-xs lg:text-sm ${
+                      location !== "/portal" &&
+                      location !== "/" &&
+                      inactiveColorClass
+                    }`}
+                    href="/portal"
+                    {...(isSmallScreen && {
+                      "data-hs-collapse": "#navbar-collapse-with-animation",
+                      "aria-controls": "navbar-collapse-with-animation",
+                      "aria-label": "Toggle navigation",
+                    })}
+                  >
+                    Admin Portal
+                  </Link> :
+                  null
+                }
               </>
             )}
           </div>

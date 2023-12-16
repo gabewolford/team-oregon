@@ -21,6 +21,9 @@ const userSchema = new Schema({
         activeMember: {
             type: Boolean,
         },
+        isAdmin: {
+            type: Boolean
+        },
         membershipPurchaseDate: {
             type: Date
         },
