@@ -98,7 +98,7 @@ export default function Navbar() {
         >
           <div className="flex flex-col gap-y-4 gap-x-0 mt-5 sm:flex-row sm:items-center sm:gap-y-0 sm:gap-x-7 md:gap-x-5 lg:gap-x-7 sm:mt-0">
             <Link
-              className={`hover:text-blue-500 text-xl md:text-xs lg:text-sm ${
+              className={`hover:text-blue-500 text-sm md:text-xs lg:text-sm ${
                 location !== "/" && inactiveColorClass
               }`}
               href="/"
@@ -112,7 +112,7 @@ export default function Navbar() {
             </Link>
 
             <Link
-              className={`hover:text-blue-500 sm:py-6 text-xl md:text-xs lg:text-sm ${
+              className={`hover:text-blue-500 sm:py-6 text-sm md:text-xs lg:text-sm ${
                 location !== "/sponsors" &&
                 location !== "/" &&
                 inactiveColorClass
@@ -128,7 +128,7 @@ export default function Navbar() {
             </Link>
 
             <Link
-              className={`hover:text-blue-500 sm:py-6 text-xl md:text-xs lg:text-sm ${
+              className={`hover:text-blue-500 sm:py-6 text-sm md:text-xs lg:text-sm ${
                 location !== "/team" && location !== "/" && inactiveColorClass
               }`}
               href="/team"
@@ -197,7 +197,7 @@ export default function Navbar() {
             {!isAuthenticated ? (
               <>
                 <Link
-                  className={`hover:text-blue-500 sm:py-6 text-xl md:text-xs lg:text-sm ${
+                  className={`hover:text-blue-500 sm:py-6 text-sm md:text-xs lg:text-sm ${
                     location !== "/join" &&
                     location !== "/" &&
                     inactiveColorClass
@@ -213,7 +213,7 @@ export default function Navbar() {
                 </Link>
 
                 <Link
-                  className={`hover:text-blue-500 sm:py-6 text-xl md:text-xs lg:text-sm ${
+                  className={`hover:text-blue-500 sm:py-6 text-sm md:text-xs lg:text-sm ${
                     !contactExcludedPaths.includes(location) &&
                     inactiveColorClass
                   }`}
@@ -228,7 +228,7 @@ export default function Navbar() {
                 </Link>
 
                 <Link
-                  className={`hover:text-blue-500 sm:py-6 text-xl md:text-xs lg:text-sm ${
+                  className={`hover:text-blue-500 sm:py-6 text-sm md:text-xs lg:text-sm ${
                     location !== "/login" &&
                     location !== "/" &&
                     inactiveColorClass
@@ -246,7 +246,7 @@ export default function Navbar() {
             ) : (
               <>
                 <Link
-                  className={`hover:text-blue-500 sm:py-6 text-xl md:text-xs lg:text-sm ${
+                  className={`hover:text-blue-500 sm:py-6 text-sm md:text-xs lg:text-sm ${
                     !contactExcludedPaths.includes(location) &&
                     inactiveColorClass
                   }`}
@@ -261,7 +261,7 @@ export default function Navbar() {
                 </Link>
 
                 <Link
-                  className={`hover:text-blue-500 sm:py-6 text-xl md:text-xs lg:text-sm ${
+                  className={`hover:text-blue-500 sm:py-6 text-sm md:text-xs lg:text-sm ${
                     location !== "/account" &&
                     location !== "/" &&
                     inactiveColorClass
@@ -276,9 +276,9 @@ export default function Navbar() {
                   My Account
                 </Link>
 
-                { session?.user.isAdmin ? 
+                {session?.user.isAdmin ? (
                   <Link
-                    className={`hover:text-blue-500 sm:py-6 text-xl md:text-xs lg:text-sm ${
+                    className={`hover:text-blue-500 sm:py-6 text-sm md:text-xs lg:text-sm ${
                       location !== "/portal" &&
                       location !== "/" &&
                       inactiveColorClass
@@ -291,9 +291,8 @@ export default function Navbar() {
                     })}
                   >
                     Admin Portal
-                  </Link> :
-                  null
-                }
+                  </Link>
+                ) : null}
               </>
             )}
           </div>
