@@ -21,6 +21,7 @@ export default function JoinForm() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [activeMember, setActiveMember] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
   const [membershipPurchaseDate, setMembershipPurchaseDate] = useState(null);
   const [membershipExpirationDate, setMembershipExpirationDate] =
     useState(null);
@@ -79,6 +80,7 @@ export default function JoinForm() {
           password,
           confirmPassword,
           activeMember,
+          isAdmin,
           membershipPurchaseDate,
           membershipExpirationDate,
         }),

@@ -50,6 +50,7 @@ export const authOptions = {
         session.user.lastName = token.lastName
         session.user.createdAt = token.createdAt 
         session.user.activeMember = token.activeMember
+        session.user.isAdmin = token.isAdmin
         session.user.membershipPurchaseDate = token.membershipPurchaseDate
         session.user.membershipExpirationDate = token.membershipExpirationDate
         return Promise.resolve(session);
@@ -62,6 +63,7 @@ export const authOptions = {
             token.lastName = user.lastName 
             token.createdAt = user.createdAt 
             token.activeMember = user.activeMember
+            token.isAdmin = user.isAdmin
             token.membershipPurchaseDate = user.membershipPurchaseDate
             token.membershipExpirationDate = user.membershipExpirationDate
         }

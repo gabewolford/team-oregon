@@ -11,6 +11,7 @@ export async function POST(req) {
       email,
       password,
       activeMember,
+      isAdmin,
       membershipPurchaseDate,
       membershipExpirationDate,
     } = await req.json();
@@ -22,6 +23,7 @@ export async function POST(req) {
       email,
       password: hashedPassword,
       activeMember,
+      isAdmin,
       membershipPurchaseDate,
       membershipExpirationDate,
     });
