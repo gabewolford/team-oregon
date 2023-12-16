@@ -126,20 +126,6 @@ export default function Navbar() {
             >
               Sponsors
             </Link>
-
-            <Link
-              className={`hover:text-blue-500 sm:py-6 text-xl md:text-xs lg:text-sm ${
-                location !== "/team" && location !== "/" && inactiveColorClass
-              }`}
-              href="/team"
-              {...(isSmallScreen && {
-                "data-hs-collapse": "#navbar-collapse-with-animation",
-                "aria-controls": "navbar-collapse-with-animation",
-                "aria-label": "Toggle navigation",
-              })}
-            >
-              Team
-            </Link>
           </div>
         </div>
 
