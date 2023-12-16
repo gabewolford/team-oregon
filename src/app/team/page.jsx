@@ -16,9 +16,17 @@ export default function TeamPage() {
             "text-center text-xl md:text-3xl text-blue-500 font-semibold uppercase"
           }
         >
-          2023 Team Leadership
+          2024 Team Leadership
         </h3>
-        <GetBoardmembers />
+        <h4
+          className={
+            "text-center text-lg md:text-2xl text-blue-500 font-semibold py-12"
+          }
+        >
+          Coming soon...
+        </h4>
+
+        {/* <GetBoardmembers /> */}
       </section>
       <section className="mt-10">
         <CTA
