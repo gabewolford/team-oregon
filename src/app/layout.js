@@ -10,9 +10,26 @@ import { Analytics } from "@vercel/analytics/react";
 export const metadata = {
   title: "Team Oregon | PNW Bike Racing",
   description:
-    "Helping our members achieve their cycling goals and developing the sport of competive cycling in the Pacific Northwest for over three decades.",
+    "Official website for Team Oregon. Helping our members achieve their cycling goals and developing the sport of competive cycling in the Pacific Northwest for over three decades.",
   keywords:
     "Cycling team, Road cycling, Mountain biking, Bicycle racing, Bike racing, Cycling events, Bike enthusiasts, Team rides, Cycling community, Competitive cycling, Cycling club, Cycling races, Bike events, Team jerseys, Cycling challenges, Bike training",
+  openGraph: {
+    title: "Team Oregon",
+    description:
+      "Official website for Team Oregon. Helping our members achieve their cycling goals and developing the sport of competive cycling in the Pacific Northwest for over three decades.",
+    siteName: "Team Oregon",
+    type: "website",
+    locale: "en_US",
+    url: "https://teamoregon.cc",
+  },
+  images: [
+    {
+      url: "https://teamoregon.cc/images/og-photo.png",
+      width: 1200,
+      height: 630,
+      alt: "Team Oregon Cycling",
+    },
+  ],
 };
 
 export default function RootLayout({ children }) {
