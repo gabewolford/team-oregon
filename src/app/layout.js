@@ -24,7 +24,7 @@ export const metadata = {
   },
   images: [
     {
-      url: "https://teamoregon.cc/images/og-photo.png",
+      url: "https://team-oregon.vercel.app/images/og-photo.png",
       width: 1200,
       height: 630,
       alt: "Team Oregon Cycling",
