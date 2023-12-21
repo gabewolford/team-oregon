@@ -90,24 +90,29 @@ export default function AccountInfo() {
     return new Date(expiryDate).toISOString();
   };
 
-  const handlePayPalApproval = () => {
+  const handlePayPalApproval = (actions) => {
     try {
-      const currentDate = new Date().toISOString();
-      fetch("api/updateUser", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email: userData.email,
-          activeMember: true,
-          membershipPurchaseDate: currentDate,
-          membershipExpirationDate: expiryDate(currentDate),
-        }),
-      }).then((res) => {
-        if (res.status === 200) {
-          refreshUserData();
-        }
+      actions.order.capture().then((details) => {
+        const name = details.payer.name.given_name;
+        console.log(`Transaction completed by ${name}`);
+
+        const currentDate = new Date().toISOString();
+        fetch("api/updateUser", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: userData.email,
+            activeMember: true,
+            membershipPurchaseDate: currentDate,
+            membershipExpirationDate: expiryDate(currentDate),
+          }),
+        }).then((res) => {
+          if (res.status === 200) {
+            refreshUserData();
+          }
+        });   
       });
     } catch (error) {
       console.log("Error occurred while updating user: ", error);
@@ -227,8 +232,8 @@ export default function AccountInfo() {
               </div>
 
             { selectedAmount === 10 ? 
-                <div class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4" role="alert">
-                    <p class="font-bold">Student Membership Selected</p>
+                <div className="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4" role="alert">
+                    <p className="font-bold">Student Membership Selected</p>
                     <p>Please continue only if you are a current student, or have communicated with the Team Oregon Board about a need-based membership fee adjustment.</p>
                 </div> :
                 null
