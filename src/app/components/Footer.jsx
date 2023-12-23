@@ -54,7 +54,7 @@ export default function Footer() {
       </div>
       <div className="flex justify-center lg:justify-end w-full mt-2">
         <p className="text-xs text-white-500 text-center">
-          Designed and developed by{" "}
+          Website by{" "}
           <a
             href="https://biiigstretch.studio"
             target="_blank"
