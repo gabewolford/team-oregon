@@ -6,6 +6,7 @@ import Button from "./Button";
 
 export default function AdminPortal() {
   const [userListData, setUserListData] = useState([]);
+  const [totalUsers, setTotalUsers] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage ] = useState(10);
   const [filterName, setFilterName] = useState('');
@@ -27,10 +28,11 @@ export default function AdminPortal() {
           }),
         });
         const response = await result.json();
-        setUserListData(response.user);
+        setUserListData(response.users);
+        setTotalUsers(response.totalUsers);
       }
     }
-  };
+  };  
 
   const generateTable = () => {
     return (
@@ -89,6 +91,7 @@ export default function AdminPortal() {
          className={"border-2 border-blue-500 rounded-lg p-1 w-full"}
         />
       </div>
+      <label className="max-w-fit">Total Members: {totalUsers}</label>
       {generateTable()}
       <div className="flex flex-row justify-end items-end">
         <Button

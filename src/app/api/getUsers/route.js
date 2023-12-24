@@ -19,10 +19,11 @@ export async function POST(request) {
     const totalUsers = await User.countDocuments(query);
 
     const users = await User.find(query)
+      .sort({ membershipPurchaseDate: -1 })
       .skip((page - 1) * itemsPerPage)
       .limit(itemsPerPage);
 
-    return NextResponse.json({ user: users, totalUsers });
+    return NextResponse.json({ users, totalUsers });
   } catch (error) {
     console.error(error);
   }
