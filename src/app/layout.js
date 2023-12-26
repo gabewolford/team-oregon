@@ -6,7 +6,6 @@ import { AuthProvider } from "./utils/providers/Providers";
 import PayPalConfig from "./components/PayPal/paypal.config";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
-import { GoogleAnalytics } from "@next/third-parties/google";
 
 export const metadata = {
   title: "Team Oregon | PNW Bike Racing",
