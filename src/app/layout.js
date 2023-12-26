@@ -69,7 +69,6 @@ export default function RootLayout({ children }) {
           </PayPalConfig>
         </AuthProvider>
       </body>
-      <GoogleAnalytics gaId="G-X6472GGN98" />
     </html>
   );
 }
