@@ -108,7 +108,7 @@ export default function AdminPortal() {
           disabled={currentPage === 1}
           text="Previous"
         />
-        <div className="m-1" />
+        <div className="m-0.5" />
         <Button
           onClick={() => handlePageChange(currentPage + 1)}
           disabled={userListData.length < itemsPerPage}
