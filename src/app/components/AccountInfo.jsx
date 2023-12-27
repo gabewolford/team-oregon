@@ -6,6 +6,7 @@ import Button from "./Button";
 import { useState, useEffect } from "react";
 import Spinner from "./Spinner";
 import PayPalButton from "./PayPal/PayPalButton";
+import UserStatus from "./UserStatus";
 
 export default function AccountInfo() {
   const [showMembershipSelection, setShowMembershipSelection] = useState(false);
@@ -144,15 +145,7 @@ export default function AccountInfo() {
                 Account status
               </td>
               <td className="text-sm md:text-base">
-                {userData.memberStatus ? (
-                  <span className="bg-green-600 text-white-500 px-3 py-1 rounded-full">
-                    Current
-                  </span>
-                ) : (
-                  <span className="bg-red-500 text-white-500 px-3 py-1 rounded-full ">
-                    Expired
-                  </span>
-                )}
+                <UserStatus activeMember={userData.memberStatus} />
               </td>
             </tr>
             {userData.membershipPurchaseDate && (

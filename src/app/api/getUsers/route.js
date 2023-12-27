@@ -6,14 +6,19 @@ export async function POST(request) {
   try {
     await connectMongoDB();
 
-    const { page = 1, itemsPerPage = 10, filterName } = await request.json();
+    const { page = 1, itemsPerPage = 10, filterName, activeMember } = await request.json();
 
     const query = {};
+
     if (filterName) {
       query.$or = [
         { firstName: { $regex: filterName, $options: "i" } },
         { lastName: { $regex: filterName, $options: "i" } },
       ];
+    }
+
+    if (activeMember !== undefined) {
+      query.activeMember = activeMember;
     }
 
     const totalUsers = await User.countDocuments(query);
