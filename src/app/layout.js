@@ -21,16 +21,30 @@ export const metadata = {
     type: "website",
     locale: "en_US",
     url: "https://teamoregon.cc",
+    images: [
+      {
+        url: "https://teamoregon.cc/images/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Team Oregon Cycling",
+      },
+      {
+        url: "https://teamoregon.cc/images/og-photo-alt.png",
+        width: 800,
+        height: 315,
+        alt: "Team Oregon Cycling",
+      },
+    ],
   },
   images: [
     {
-      url: "https://team-oregon.vercel.app/images/og-image.png",
+      url: "https://teamoregon.cc/images/og-image.png",
       width: 1200,
       height: 630,
       alt: "Team Oregon Cycling",
     },
     {
-      url: "https://team-oregon.vercel.app/images/og-photo-alt.png",
+      url: "https://teamoregon.cc/images/og-photo-alt.png",
       width: 800,
       height: 315,
       alt: "Team Oregon Cycling",

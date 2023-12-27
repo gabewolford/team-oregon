@@ -4,13 +4,13 @@ import { getSession } from "next-auth/react";
 import { useState, useEffect } from "react";
 import Button from "./Button";
 import UserStatus from "./UserStatus";
+import Spinner from "./Spinner";
 
 export default function AdminPortal() {
   const [userListData, setUserListData] = useState([]);
   const [totalUsers, setTotalUsers] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(10);
-  const [filterName, setFilterName] = useState('');
   const [activeMemberFilter, setActiveMemberFilter] = useState(true);
 
   const getUsers = async () => {
@@ -33,9 +33,6 @@ export default function AdminPortal() {
         const response = await result.json();
         setUserListData(response.users);
         setTotalUsers(response.totalUsers);
-      }
-    }
-  };
 
     const generateTable = () => {
       return (
@@ -87,7 +84,7 @@ export default function AdminPortal() {
           id="filter"
           value={filterName}
           onChange={handleFilterChange}
-         className={"border-2 border-blue-500 rounded-lg p-1 w-full"}
+          className={"border-2 border-blue-500 rounded-lg p-1 w-full"}
         />
       </div>
       <div className="flex justify-between items-center">
@@ -102,6 +99,7 @@ export default function AdminPortal() {
         </div>
       </div>
       {generateTable()}
+
       <div className="flex flex-row justify-end items-end">
         <Button
           onClick={() => handlePageChange(currentPage - 1)}

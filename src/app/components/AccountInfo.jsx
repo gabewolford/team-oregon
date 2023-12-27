@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import Spinner from "./Spinner";
 import PayPalButton from "./PayPal/PayPalButton";
 import UserStatus from "./UserStatus";
+import Slack from "./Socials/Slack";
 
 export default function AccountInfo() {
   const [showMembershipSelection, setShowMembershipSelection] = useState(false);
@@ -91,32 +92,52 @@ export default function AccountInfo() {
     return new Date(expiryDate).toISOString();
   };
 
-  const handlePayPalApproval = () => {
+  const handlePayPalApproval = (actions) => {
     try {
-      const currentDate = new Date().toISOString();
-      fetch("api/updateUser", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email: userData.email,
-          activeMember: true,
-          membershipPurchaseDate: currentDate,
-          membershipExpirationDate: expiryDate(currentDate),
-        }),
-      }).then((res) => {
-        if (res.status === 200) {
-          refreshUserData();
-        }
+      actions.order.capture().then((details) => {
+        const name = details.payer.name.given_name;
+        console.log(`Transaction completed by ${name}`);
+
+        const currentDate = new Date().toISOString();
+        fetch("api/updateUser", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: userData.email,
+            activeMember: true,
+            membershipPurchaseDate: currentDate,
+            membershipExpirationDate: expiryDate(currentDate),
+          }),
+        }).then((res) => {
+          if (res.status === 200) {
+            refreshUserData();
+          }
+        });   
       });
     } catch (error) {
       console.log("Error occurred while updating user: ", error);
     }
   };
 
+  const slackLink = "https://join.slack.com/t/team-oregon-racing/shared_invite/zt-29k1i9psh-XaraIMX~QC0Fbyx2MWyJyw";
+
   return (
     <div className="flex flex-col gap-4 md:w-1/2 mx-auto my-4 md:my-10">
+      {
+        userData.memberStatus ? (
+          <div class="text-center py-4 lg:px-4">
+            <a href={slackLink} target="_blank">
+              <div class="p-2 bg-blue-500 hover:bg-blue-hover items-center text-indigo-100 leading-none lg:rounded-full flex lg:inline-flex" role="button">
+                <Slack color={"#e0e7ff"} />
+                <span class="font-semibold mr-2 ml-4 text-left flex-auto">Join us on Slack</span>
+                  <svg class="fill-current opacity-75 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M12.95 10.707l.707-.707L8 4.343 6.586 5.757 10.828 10l-4.242 4.243L8 15.657l4.95-4.95z"/></svg>
+              </div>
+            </a>
+          </div>
+          ) : null
+      }
       {userData.firstName ? (
         <table>
           <tbody>
@@ -176,7 +197,8 @@ export default function AccountInfo() {
         </div>
       )}
 
-      {userData.memberStatus ? null : (
+      {userData.memberStatus ? null 
+      : (
         <div>
           {showMembershipSelection && !showPaypalButtons ? (
             <div className="flex flex-col gap-4">
@@ -220,8 +242,8 @@ export default function AccountInfo() {
               </div>
 
             { selectedAmount === 10 ? 
-                <div class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4" role="alert">
-                    <p class="font-bold">Student Membership Selected</p>
+                <div className="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4" role="alert">
+                    <p className="font-bold">Student Membership Selected</p>
                     <p>Please continue only if you are a current student, or have communicated with the Team Oregon Board about a need-based membership fee adjustment.</p>
                 </div> :
                 null
