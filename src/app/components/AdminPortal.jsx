@@ -4,13 +4,13 @@ import { getSession } from "next-auth/react";
 import { useState, useEffect } from "react";
 import Button from "./Button";
 import UserStatus from "./UserStatus";
-import Spinner from "./Spinner";
 
 export default function AdminPortal() {
   const [userListData, setUserListData] = useState([]);
   const [totalUsers, setTotalUsers] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(10);
+  const [filterName, setFilterName] = useState("");
   const [activeMemberFilter, setActiveMemberFilter] = useState(true);
 
   const getUsers = async () => {
@@ -33,31 +33,34 @@ export default function AdminPortal() {
         const response = await result.json();
         setUserListData(response.users);
         setTotalUsers(response.totalUsers);
+      }
+    }
+  };
 
-    const generateTable = () => {
-      return (
-        <table className="table-auto">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Status</th>
+  const generateTable = () => {
+    return (
+      <table className="table-auto">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {userListData.map((user, index) => (
+            <tr key={index}>
+              <td>{`${user.firstName} ${user.lastName}`}</td>
+              <td>{user.email}</td>
+              <td>
+                <UserStatus activeMember={user.activeMember} />
+              </td>
             </tr>
-          </thead>
-          <tbody>
-            {userListData.map((user, index) => (
-              <tr key={index}>
-                <td>{`${user.firstName} ${user.lastName}`}</td>
-                <td>{user.email}</td>
-                <td className="flex justify-center">
-                  <UserStatus activeMember={user.activeMember} />
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      );
-    };
+          ))}
+        </tbody>
+      </table>
+    );
+  };
 
   const handlePageChange = (newPage) => {
     setCurrentPage(newPage);
@@ -90,11 +93,20 @@ export default function AdminPortal() {
       <div className="flex justify-between items-center">
         <label className="max-w-fit">Count: {totalUsers}</label>
         <div className="flex">
-          <button className="mr-1" onClick={() => handleActiveMemberFilter(true)}>
-            <UserStatus activeMember={true} currentSelected={activeMemberFilter}/>
+          <button
+            className="mr-1"
+            onClick={() => handleActiveMemberFilter(true)}
+          >
+            <UserStatus
+              activeMember={true}
+              currentSelected={activeMemberFilter}
+            />
           </button>
           <button onClick={() => handleActiveMemberFilter(false)}>
-            <UserStatus activeMember={false} currentSelected={!activeMemberFilter}/>
+            <UserStatus
+              activeMember={false}
+              currentSelected={!activeMemberFilter}
+            />
           </button>
         </div>
       </div>
