@@ -6,9 +6,10 @@ export async function POST(request) {
   try {
     await connectMongoDB();
 
-    const { page = 1, itemsPerPage = 10, filterName } = await request.json();
+    const { page = 1, itemsPerPage = 10, filterName, activeMember } = await request.json();
 
     const query = {};
+
     if (filterName) {
       query.$or = [
         { firstName: { $regex: filterName, $options: "i" } },
@@ -16,13 +17,18 @@ export async function POST(request) {
       ];
     }
 
+    if (activeMember !== undefined) {
+      query.activeMember = activeMember;
+    }
+
     const totalUsers = await User.countDocuments(query);
 
     const users = await User.find(query)
+      .sort({ membershipPurchaseDate: -1 })
       .skip((page - 1) * itemsPerPage)
       .limit(itemsPerPage);
 
-    return NextResponse.json({ user: users, totalUsers });
+    return NextResponse.json({ users, totalUsers });
   } catch (error) {
     console.error(error);
   }
