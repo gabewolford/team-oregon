@@ -2,13 +2,16 @@
 
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Button from "./Button";
 import Image from "next/image";
+import emailjs from "@emailjs/browser";
 
 export default function JoinForm() {
+
+  const form = useRef();
   useEffect(() => {
     AOS.init({
       // add options if needed
@@ -20,11 +23,12 @@ export default function JoinForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [activeMember, setActiveMember] = useState(false);
-  const [isAdmin, setIsAdmin] = useState(false);
-  const [membershipPurchaseDate, setMembershipPurchaseDate] = useState(null);
-  const [membershipExpirationDate, setMembershipExpirationDate] =
+  const [activeMember] = useState(false);
+  const [isAdmin] = useState(false);
+  const [membershipPurchaseDate] = useState(null);
+  const [membershipExpirationDate] =
     useState(null);
+  const [isNewMember, setNewMember] = useState(false);
 
   const [error, setError] = useState("");
   const [isLoading, setLoading] = useState(false);
@@ -36,6 +40,57 @@ export default function JoinForm() {
     const confirmPasswordValue = e.target.value;
     setConfirmPassword(confirmPasswordValue);
     setPasswordMatch(password === confirmPasswordValue);
+  };
+
+  const sendWelcomeEmail = (userEmail) => {
+
+    if (!isNewMember) return;
+
+    const templateParams = {
+      to_email: userEmail
+    };
+  
+    emailjs
+      .send(
+        "service_0o01dto",
+        "team_o_new_member_welcome",
+        templateParams,
+        "GLjJJKxGwW-an5Tep"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          setLoading(false);
+        },
+        (error) => {
+          console.log(error.text);
+          setLoading(false);
+        }
+      );
+  };
+
+  const sendAdminEmail = (e) => {
+    e.preventDefault();
+
+    if (!isNewMember) return;
+
+    emailjs
+      .sendForm(
+        "service_0o01dto",
+        "team_o_new_member_form",
+        form.current,
+        "GLjJJKxGwW-an5Tep"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          setLoading(false);
+        },
+        (error) => {
+          console.log(error.text);
+          setLoading(false);
+        }
+      );
   };
 
   const handleSubmit = async (e) => {
@@ -87,8 +142,9 @@ export default function JoinForm() {
       });
 
       if (res.ok) {
-        const form = e.target;
-        form.reset();
+        sendAdminEmail();
+        sendWelcomeEmail(email); 
+        form.current.reset();
         setError("");
         router.push("/login");
       } else {
@@ -121,6 +177,7 @@ export default function JoinForm() {
         </div>
 
         <form
+          ref={form}
           className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:pl-10"
           onSubmit={handleSubmit}
         >
@@ -184,6 +241,19 @@ export default function JoinForm() {
               }`}
               onChange={handleConfirmPasswordChange}
             />
+          </div>
+
+          <div className="col-span-2 md:col-span-1">
+            <label className="text-xs">
+              New to Team Oregon? <span>*</span>
+            </label>
+            <select
+              className="border-2 border-blue-500 rounded-lg p-1 w-full focus:outline-none focus:border-blue-500"
+              onChange={(e) => setNewMember(e.target.value === "new")}
+            >
+              <option value="new">Returning Member</option>
+              <option value="returning">New Member</option>
+            </select>
           </div>
 
           <div className="col-span-2 relative mt-6 items-center flex">
