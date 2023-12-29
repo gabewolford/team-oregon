@@ -72,8 +72,6 @@ export default function JoinForm() {
   const sendAdminEmail = (e) => {
     e.preventDefault();
 
-    if (!isNewMember) return;
-
     emailjs
       .sendForm(
         "service_0o01dto",
@@ -244,30 +242,20 @@ export default function JoinForm() {
           </div>
 
           <div className="col-span-2 md:col-span-1">
-            <label className="text-xs">
-              New to Team Oregon? <span>*</span>
-            </label>
-            <select
-              className="border-2 border-blue-500 rounded-lg p-1 w-full focus:outline-none focus:border-blue-500"
-              onChange={(e) => setNewMember(e.target.value === "new")}
-            >
-              <option value="new">Returning Member</option>
-              <option value="returning">New Member</option>
-            </select>
-          </div>
-
-          <div className="col-span-2 relative mt-6 items-center flex">
-            {error && (
-              <div className="bg-red-500 text-white-500 text-xs px-2 py-1 flex justify-start items-center rounded-lg font-medium absolute left-0">
-                {error}
-              </div>
-            )}
-            <div className="absolute right-0 col-span-2">
-              <Button
-                text={isLoading ? "Loading..." : "Continue"}
-                type="submit"
-                disabled={isLoading || !passwordMatch}
+            <div className="flex items-center gap-4">
+              <input
+                id="new-member-checkbox"
+                type="checkbox"
+                className="w-4 h-4 border-blue-500 rounded-md focus:ring-blue-500"
+                checked={isNewMember}
+                onChange={() => setNewMember(!isNewMember)}
               />
+              <label
+                htmlFor="new-member-checkbox"
+                className="text-sm"
+              >
+                First time joining Team Oregon?
+              </label>
             </div>
           </div>
 
