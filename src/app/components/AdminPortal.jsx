@@ -80,6 +80,7 @@ export default function AdminPortal() {
 
   const handleActiveMemberFilter = (isActiveMember) => {
     setActiveMemberFilter(isActiveMember);
+    setCurrentPage(1);
   };
 
   useEffect(() => {
