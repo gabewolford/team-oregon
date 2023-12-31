@@ -16,6 +16,10 @@ td {
   color: #ffffff;
 }
 
+th {
+  background-color: #433936;
+}
+
 tr:nth-child(odd) {
   background-color: #32221e;
 }
