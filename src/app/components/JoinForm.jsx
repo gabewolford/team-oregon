@@ -2,13 +2,16 @@
 
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Button from "./Button";
 import Image from "next/image";
+import emailjs from "@emailjs/browser";
 
 export default function JoinForm() {
+
+  const form = useRef();
   useEffect(() => {
     AOS.init({
       // add options if needed
@@ -20,11 +23,12 @@ export default function JoinForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [activeMember, setActiveMember] = useState(false);
-  const [isAdmin, setIsAdmin] = useState(false);
-  const [membershipPurchaseDate, setMembershipPurchaseDate] = useState(null);
-  const [membershipExpirationDate, setMembershipExpirationDate] =
+  const [activeMember] = useState(false);
+  const [isAdmin] = useState(false);
+  const [membershipPurchaseDate] = useState(null);
+  const [membershipExpirationDate] =
     useState(null);
+  const [isNewMember, setNewMember] = useState(false);
 
   const [error, setError] = useState("");
   const [isLoading, setLoading] = useState(false);
@@ -36,6 +40,61 @@ export default function JoinForm() {
     const confirmPasswordValue = e.target.value;
     setConfirmPassword(confirmPasswordValue);
     setPasswordMatch(password === confirmPasswordValue);
+  };
+
+  const sendWelcomeEmail = () => {
+
+    if (!isNewMember) return;
+
+    const templateParams = {
+      to_email: email,
+      to_name: firstName,
+      reply_to: "team-oregon-board@googlegroups.com"
+    };
+  
+    emailjs
+      .send(
+        "service_0o01dto",
+        "teamo_welcome_email",
+        templateParams,
+        "GLjJJKxGwW-an5Tep"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          setLoading(false);
+        },
+        (error) => {
+          console.log(error.text);
+          setLoading(false);
+        }
+      );
+  };
+
+  const sendAdminEmail = () => {
+
+    const templateParams = {
+      user_email: email,
+      user_name: `${firstName} ${lastName}`
+    };
+
+    emailjs
+      .send(
+        "service_0o01dto",
+        "team_o_new_member_alert",
+        templateParams,
+        "GLjJJKxGwW-an5Tep"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          setLoading(false);
+        },
+        (error) => {
+          console.log(error.text);
+          setLoading(false);
+        }
+      );
   };
 
   const handleSubmit = async (e) => {
@@ -87,8 +146,9 @@ export default function JoinForm() {
       });
 
       if (res.ok) {
-        const form = e.target;
-        form.reset();
+        sendAdminEmail();
+        sendWelcomeEmail(); 
+        form.current.reset();
         setError("");
         router.push("/login");
       } else {
@@ -121,6 +181,7 @@ export default function JoinForm() {
         </div>
 
         <form
+          ref={form}
           className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:pl-10"
           onSubmit={handleSubmit}
         >
@@ -184,6 +245,24 @@ export default function JoinForm() {
               }`}
               onChange={handleConfirmPasswordChange}
             />
+          </div>
+
+          <div className="col-span-2 md:col-span-1">
+            <div className="flex items-center gap-4">
+              <input
+                id="new-member-checkbox"
+                type="checkbox"
+                className="w-4 h-4 border-blue-500 rounded-md focus:ring-blue-500"
+                checked={isNewMember}
+                onChange={() => setNewMember(!isNewMember)}
+              />
+              <label
+                htmlFor="new-member-checkbox"
+                className="text-sm"
+              >
+                First time joining Team Oregon?
+              </label>
+            </div>
           </div>
 
           <div className="col-span-2 relative mt-6 items-center flex">
