@@ -42,18 +42,20 @@ export default function JoinForm() {
     setPasswordMatch(password === confirmPasswordValue);
   };
 
-  const sendWelcomeEmail = (userEmail) => {
+  const sendWelcomeEmail = () => {
 
     if (!isNewMember) return;
 
     const templateParams = {
-      to_email: userEmail
+      to_email: email,
+      to_name: firstName,
+      reply_to: "team-oregon-board@googlegroups.com"
     };
   
     emailjs
       .send(
         "service_0o01dto",
-        "team_o_new_member_welcome",
+        "teamo_welcome_email",
         templateParams,
         "GLjJJKxGwW-an5Tep"
       )
@@ -72,11 +74,16 @@ export default function JoinForm() {
   const sendAdminEmail = (e) => {
     e.preventDefault();
 
+    const templateParams = {
+      user_email: email,
+      user_name: `${firstName} ${lastName}`
+    };
+
     emailjs
       .sendForm(
         "service_0o01dto",
-        "team_o_new_member_form",
-        form.current,
+        "team_o_new_member_alert",
+        templateParams,
         "GLjJJKxGwW-an5Tep"
       )
       .then(
@@ -141,7 +148,7 @@ export default function JoinForm() {
 
       if (res.ok) {
         sendAdminEmail();
-        sendWelcomeEmail(email); 
+        sendWelcomeEmail(); 
         form.current.reset();
         setError("");
         router.push("/login");
@@ -256,6 +263,21 @@ export default function JoinForm() {
               >
                 First time joining Team Oregon?
               </label>
+            </div>
+          </div>
+
+          <div className="col-span-2 relative mt-6 items-center flex">
+            {error && (
+              <div className="bg-red-500 text-white-500 text-xs px-2 py-1 flex justify-start items-center rounded-lg font-medium absolute left-0">
+                {error}
+              </div>
+            )}
+            <div className="absolute right-0 col-span-2">
+              <Button
+                text={isLoading ? "Loading..." : "Continue"}
+                type="submit"
+                disabled={isLoading || !passwordMatch}
+              />
             </div>
           </div>
 
