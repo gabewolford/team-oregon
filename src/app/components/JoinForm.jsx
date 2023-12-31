@@ -71,8 +71,7 @@ export default function JoinForm() {
       );
   };
 
-  const sendAdminEmail = (e) => {
-    e.preventDefault();
+  const sendAdminEmail = () => {
 
     const templateParams = {
       user_email: email,
@@ -80,7 +79,7 @@ export default function JoinForm() {
     };
 
     emailjs
-      .sendForm(
+      .send(
         "service_0o01dto",
         "team_o_new_member_alert",
         templateParams,
