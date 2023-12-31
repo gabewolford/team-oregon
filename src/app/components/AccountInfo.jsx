@@ -69,7 +69,7 @@ export default function AccountInfo() {
         accountCreatedDate: formatDate(userInfo.createdAt),
         membershipPurchaseDate: formatDate(userInfo.membershipPurchaseDate),
         membershipExpirationDate: formatDate(userInfo.membershipExpirationDate),
-        memberStatus: userInfo.activeMember
+        memberStatus: userInfo.activeMember,
       });
     }
   };
@@ -115,14 +115,15 @@ export default function AccountInfo() {
           if (res.status === 200) {
             refreshUserData();
           }
-        });   
+        });
       });
     } catch (error) {
       console.log("Error occurred while updating user: ", error);
     }
   };
 
-  const slackLink = "https://join.slack.com/t/team-oregon-racing/shared_invite/zt-29k1i9psh-XaraIMX~QC0Fbyx2MWyJyw";
+  const slackLink =
+    "https://join.slack.com/t/team-oregon-racing/shared_invite/zt-29k1i9psh-XaraIMX~QC0Fbyx2MWyJyw";
   const googleLink = "https://groups.google.com/g/teamoregoncycling";
 
   return (
@@ -131,26 +132,47 @@ export default function AccountInfo() {
         <div className="flex flex-row justify-evenly">
           <div className="text-center py-4 lg:px-4">
             <a href={slackLink} target="_blank">
-              <div className="p-2 bg-blue-500 hover:bg-blue-hover items-center text-indigo-100 leading-none lg:rounded-full flex lg:inline-flex" role="button">
+              <div
+                className="p-2 bg-blue-500 hover:bg-blue-hover items-center text-indigo-100 leading-none lg:rounded-full flex lg:inline-flex"
+                role="button"
+              >
                 <Slack color={"#e0e7ff"} />
-                <span className="font-semibold mr-2 ml-4 text-left flex-auto">Join Slack</span>
-                <svg className="fill-current opacity-75 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M12.95 10.707l.707-.707L8 4.343 6.586 5.757 10.828 10l-4.242 4.243L8 15.657l4.95-4.95z"/></svg>
+                <span className="font-semibold mr-2 ml-4 text-left flex-auto">
+                  Join Slack
+                </span>
+                <svg
+                  className="fill-current opacity-75 h-4 w-4"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M12.95 10.707l.707-.707L8 4.343 6.586 5.757 10.828 10l-4.242 4.243L8 15.657l4.95-4.95z" />
+                </svg>
               </div>
             </a>
           </div>
 
           <div className="text-center py-4 lg:px-4">
             <a href={googleLink} target="_blank">
-              <div className="p-2 bg-blue-500 hover:bg-blue-hover items-center text-indigo-100 leading-none lg:rounded-full flex lg:inline-flex" role="button">
+              <div
+                className="p-2 bg-blue-500 hover:bg-blue-hover items-center text-indigo-100 leading-none lg:rounded-full flex lg:inline-flex"
+                role="button"
+              >
                 <Google color={"#e0e7ff"} />
-                <span className="font-semibold mr-2 ml-4 text-left flex-auto">Google Group</span>
-                <svg className="fill-current opacity-75 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M12.95 10.707l.707-.707L8 4.343 6.586 5.757 10.828 10l-4.242 4.243L8 15.657l4.95-4.95z"/></svg>
+                <span className="font-semibold mr-2 ml-4 text-left flex-auto">
+                  Google Group
+                </span>
+                <svg
+                  className="fill-current opacity-75 h-4 w-4"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M12.95 10.707l.707-.707L8 4.343 6.586 5.757 10.828 10l-4.242 4.243L8 15.657l4.95-4.95z" />
+                </svg>
               </div>
             </a>
           </div>
         </div>
-          ) : null
-      }
+      ) : null}
       {userData.firstName ? (
         <table>
           <tbody>
@@ -179,7 +201,9 @@ export default function AccountInfo() {
                 Account status
               </td>
               <td className="text-sm md:text-base">
-                <UserStatus activeMember={userData.memberStatus} />
+                <div className="flex mr-auto">
+                  <UserStatus activeMember={userData.memberStatus} />
+                </div>
               </td>
             </tr>
             {userData.membershipPurchaseDate && (
@@ -210,8 +234,7 @@ export default function AccountInfo() {
         </div>
       )}
 
-      {userData.memberStatus ? null 
-      : (
+      {userData.memberStatus ? null : (
         <div>
           {showMembershipSelection && !showPaypalButtons ? (
             <div className="flex flex-col gap-4">
@@ -254,13 +277,19 @@ export default function AccountInfo() {
                 </label>
               </div>
 
-            { selectedAmount === 10 ? 
-                <div className="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4" role="alert">
-                    <p className="font-bold">Student Membership Selected</p>
-                    <p>Please continue only if you are a current student, or have communicated with the Team Oregon Board about a need-based membership fee adjustment.</p>
-                </div> :
-                null
-            }
+              {selectedAmount === 10 ? (
+                <div
+                  className="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4"
+                  role="alert"
+                >
+                  <p className="font-bold">Student Membership Selected</p>
+                  <p>
+                    Please continue only if you are a current student, or have
+                    communicated with the Team Oregon Board about a need-based
+                    membership fee adjustment.
+                  </p>
+                </div>
+              ) : null}
 
               <div className="flex justify-end">
                 <Button
