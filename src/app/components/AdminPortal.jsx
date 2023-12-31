@@ -47,7 +47,7 @@ export default function AdminPortal() {
       );
     }
     return (
-      <table className="sm:max-w-[300px] text-sm md:text-base overflow-x-scroll">
+      <table className="text-sm md:text-base">
         <thead>
           <tr>
             <th>Name</th>
