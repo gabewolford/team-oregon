@@ -49,7 +49,7 @@ export default function Footer() {
       </div>
       <div className="flex justify-center lg:justify-end w-full mt-4">
         <p className="text-xs text-white-500 text-center">
-          © 2023 Team Oregon. All Rights Reserved.
+          © 2024 Team Oregon. All Rights Reserved.
         </p>
       </div>
       <div className="flex justify-center lg:justify-end w-full mt-2">
