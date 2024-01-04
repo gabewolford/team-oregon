@@ -20,7 +20,7 @@ export default function TeamPage() {
         </h3>
         <h4
           className={
-            "text-center text-lg md:text-2xl text-blue-500 font-semibold py-12"
+            "text-center text-lg md:text-2xl text-blue-500 font-semibold py-12 h-[600px]"
           }
         >
           Coming soon...
