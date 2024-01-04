@@ -24,7 +24,7 @@ export default function TitleSponsorCard() {
     >
       <div className="px-10">
         <h2 className="text-center text-xl md:text-3xl text-blue-500 font-semibold uppercase">
-          2023 Presenting Sponsor
+          2024 Presenting Sponsor
         </h2>
         <Image
           src={"/images/rodda-paint-logo-large.png"}
