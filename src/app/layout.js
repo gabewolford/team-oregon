@@ -12,7 +12,7 @@ export const metadata = {
   description:
     "Official website for Team Oregon. Helping our members achieve their cycling goals and developing the sport of competive cycling in the Pacific Northwest for over three decades.",
   keywords:
-    "Cycling team, Road cycling, Mountain biking, Bicycle racing, Bike racing, Cycling events, Bike enthusiasts, Team rides, Cycling community, Competitive cycling, Cycling club, Cycling races, Bike events, Team jerseys, Cycling challenges, Bike training",
+    "Cycling team, Road cycling, Mountain biking, Bicycle racing, Bike racing, Cycling events, Bike enthusiasts, Team rides, Cycling community, Competitive cycling, Cycling club, Cycling races, Bike events, Team jerseys, Cycling challenges, Bike training, Portland cycling, portland bike racing, portland cycling club, portland bicycle racing",
   openGraph: {
     title: "Team Oregon",
     description:
@@ -28,12 +28,6 @@ export const metadata = {
         height: 630,
         alt: "Team Oregon Cycling",
       },
-      {
-        url: "https://teamoregon.cc/images/og-photo-alt.png",
-        width: 800,
-        height: 315,
-        alt: "Team Oregon Cycling",
-      },
     ],
   },
   images: [
@@ -41,12 +35,6 @@ export const metadata = {
       url: "https://teamoregon.cc/images/og-image.png",
       width: 1200,
       height: 630,
-      alt: "Team Oregon Cycling",
-    },
-    {
-      url: "https://teamoregon.cc/images/og-photo-alt.png",
-      width: 800,
-      height: 315,
       alt: "Team Oregon Cycling",
     },
   ],
