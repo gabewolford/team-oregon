@@ -9,6 +9,7 @@ import PayPalButton from "./PayPal/PayPalButton";
 import UserStatus from "./UserStatus";
 import Slack from "./Socials/Slack";
 import Google from "./Socials/Google";
+import emailjs from "@emailjs/browser";
 
 export default function AccountInfo() {
   const [showMembershipSelection, setShowMembershipSelection] = useState(false);
@@ -35,6 +36,61 @@ export default function AccountInfo() {
   const handleshowPaypalButtons = () => {
     setShowPaypalButtons(true);
     setShowMembershipSelection(false);
+  };
+
+  const sendWelcomeEmail = () => {
+    //Users with accounts created over 3 months ago will not get a new member email
+    const accountCreatedDate = new Date(userData.accountCreatedDate);
+    const differenceInMonths = (new Date() - accountCreatedDate) / (30 * 24 * 60 * 60 * 1000);
+    const isGreaterThanThreeMonths = differenceInMonths > 3;
+
+    if (isGreaterThanThreeMonths) return;
+
+    const templateParams = {
+      to_email: userData.email,
+      to_name: userData.firstName,
+      reply_to: "team-oregon-board@googlegroups.com"
+    };
+  
+    emailjs
+      .send(
+        "service_0o01dto",
+        "teamo_welcome_email",
+        templateParams,
+        "GLjJJKxGwW-an5Tep"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+  };
+
+  const sendAdminEmail = () => {
+
+    const templateParams = {
+      user_email: userData.email,
+      user_name: `${userData.firstName} ${userData.lastName}`
+    };
+
+    emailjs
+      .send(
+        "service_0o01dto",
+        "team_o_new_member_alert",
+        templateParams,
+        "GLjJJKxGwW-an5Tep"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
   };
 
   const formatDate = (dateString) => {
@@ -114,6 +170,8 @@ export default function AccountInfo() {
         }).then((res) => {
           if (res.status === 200) {
             refreshUserData();
+            sendAdminEmail();
+            sendWelcomeEmail();
           }
         });
       });
