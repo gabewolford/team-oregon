@@ -1,5 +1,6 @@
 import CTA from "../components/CTA";
-import GetBoardmembers from "../api/boardmembers/GetBoardmembers";
+import BoardmemberCard from "../components/BoardmemberCard";
+import { client } from "../../../sanity/lib/client";
 
 export const metadata = {
   title: "Team Oregon | Meet The Team",
@@ -7,7 +8,18 @@ export const metadata = {
     "Helping our members achieve their cycling goals and developing the sport of competive cycling in the Pacific Northwest for over three decades.",
 };
 
-export default function TeamPage() {
+export default async function TeamPage() {
+  const data = await client.fetch(`
+  *[_type == "boardmember"]{
+    firstname, 
+    lastname, 
+    "imageUrl": image.asset->url, 
+    position, bio} 
+    | order(lastname asc)
+  `);
+
+  const boardmembers = data;
+
   return (
     <main className="flex flex-col gap-10 md:gap-20 pt-[55px] md:pt-[68px]">
       <section className="flex flex-col gap-6 mx-auto pt-6">
@@ -26,7 +38,19 @@ export default function TeamPage() {
           Coming soon...
         </h4>
 
-        {/* <GetBoardmembers /> */}
+        {/* {boardmembers.length > 0 ? (
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 mx-10">
+            {boardmembers.map((boardmember, i) => (
+              <div key={i}>
+                <BoardmemberCard key={i} boardmemberData={boardmember} />
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="flex flex-row justify-around">
+            <Spinner />
+          </div>
+        )} */}
       </section>
       <section className="mt-10">
         <CTA
