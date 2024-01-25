@@ -1,20 +1,9 @@
-"use client";
-
-import AOS from "aos";
-import "aos/dist/aos.css";
-import { useEffect } from "react";
 import Image from "next/image";
 import Website from "./Socials/Website";
 import Instagram from "./Socials/Instagram";
 import Facebook from "./Socials/Facebook";
 
 export default function SponsorCard({ sponsorData }) {
-  useEffect(() => {
-    AOS.init({
-      // add options if needed
-    });
-  }, []);
-
   let sponsorName,
     sponsorImage,
     website,

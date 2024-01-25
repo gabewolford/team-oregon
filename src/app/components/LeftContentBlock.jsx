@@ -1,8 +1,3 @@
-"use client";
-
-import AOS from "aos";
-import "aos/dist/aos.css";
-import { useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Button from "./Button";
@@ -16,12 +11,6 @@ export default function LeftContentBlock({
   altText,
   photoCredit,
 }) {
-  useEffect(() => {
-    AOS.init({
-      // add options if needed
-    });
-  }, []);
-
   return (
     <section
       data-aos="fade-up"
