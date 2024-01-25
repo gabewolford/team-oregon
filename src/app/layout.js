@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { AuthProvider } from "./utils/providers/Providers";
 import PayPalConfig from "./components/PayPal/paypal.config";
+import AOS from "./utils/providers/AOS";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
 
@@ -53,6 +54,7 @@ export default function RootLayout({ children }) {
               <Analytics />
             </div>
             <Footer />
+            <AOS />
           </PayPalConfig>
         </AuthProvider>
       </body>

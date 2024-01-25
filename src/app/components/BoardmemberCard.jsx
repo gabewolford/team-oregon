@@ -1,15 +1,6 @@
-"use client";
-
-import AOS from "aos";
-import "aos/dist/aos.css";
-import { useEffect } from "react";
 import Image from "next/image";
 
 export default function BoardmemberCard({ boardmemberData }) {
-  useEffect(() => {
-    AOS.init({});
-  }, []);
-
   let boardmemberName, boardmemberImage, position, bio;
 
   if (boardmemberData) {

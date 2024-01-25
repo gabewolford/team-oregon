@@ -1,16 +1,7 @@
-"use client";
-
-import AOS from "aos";
-import "aos/dist/aos.css";
-import { useEffect } from "react";
 import Button from "./Button";
 import Link from "next/link";
 
 export default function CTA({ header, subtext, buttonText, linkTo }) {
-  useEffect(() => {
-    AOS.init({});
-  }, []);
-
   return (
     <section className="gradient-background">
       <div

@@ -1,20 +1,9 @@
-"use client";
-
-import AOS from "aos";
-import "aos/dist/aos.css";
-import { useEffect } from "react";
 import Image from "next/image";
 import Instagram from "../components/Socials/Instagram";
 import Website from "../components/Socials/Website";
 import Facebook from "../components/Socials/Facebook";
 
 export default function TitleSponsorCard() {
-  useEffect(() => {
-    AOS.init({
-      // add options if needed
-    });
-  }, []);
-
   return (
     <section
       data-aos="fade-up"
