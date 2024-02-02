@@ -30,15 +30,14 @@ export default async function TeamPage() {
         >
           2024 Team Leadership
         </h3>
-        <h4
+        {/* <h4
           className={
             "text-center text-lg md:text-2xl text-blue-500 font-semibold py-12 h-[600px]"
           }
         >
           Coming soon...
-        </h4>
-
-        {/* {boardmembers.length > 0 ? (
+        </h4> */}
+        {boardmembers.length > 0 ? (
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 mx-10">
             {boardmembers.map((boardmember, i) => (
               <div key={i}>
@@ -50,7 +49,7 @@ export default async function TeamPage() {
           <div className="flex flex-row justify-around">
             <Spinner />
           </div>
-        )} */}
+        )}
       </section>
       <section className="mt-10">
         <CTA
