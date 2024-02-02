@@ -14,6 +14,7 @@ export default function Hero({ text, buttonText, buttonLink }) {
           sizes="100vw"
           alt="Hero image"
           priority={true}
+          quality={100}
           className="hidden md:block"
         />
         <div className="flex flex-row w-full h-full absolute">
