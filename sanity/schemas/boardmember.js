@@ -36,7 +36,7 @@ export default {
       title: "Bio",
       type: "text",
       description: "A short biography of the boardmember.",
-      validation: (Rule) => Rule.required().min(25).max(350),
+      validation: (Rule) => Rule.required().min(25).max(500),
     },
     {
       name: "order",
