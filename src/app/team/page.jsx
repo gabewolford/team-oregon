@@ -10,12 +10,13 @@ export const metadata = {
 
 export default async function TeamPage() {
   const data = await client.fetch(`
-  *[_type == "boardmember"]{
-    firstname, 
-    lastname, 
-    "imageUrl": image.asset->url, 
-    position, bio} 
-    | order(lastname asc)
+    *[_type == "boardmember"]{
+      firstname, 
+      lastname, 
+      "imageUrl": image.asset->url, 
+      position, bio,
+      "placeholder": image.asset->metadata.lqip
+    } | order(lastname asc)
   `);
 
   const boardmembers = data;

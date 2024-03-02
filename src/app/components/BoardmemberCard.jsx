@@ -12,11 +12,13 @@ export default function BoardmemberCard({ boardmemberData }) {
     boardmemberImage = (
       <Image
         src={boardmemberData.imageUrl}
-        height={193}
-        width={193}
+        height={250}
+        width={250}
         alt={boardmemberData.firstname + " " + boardmemberData.lastname}
         className="w-full md:w-fit md:h-fit"
-      ></Image>
+        placeholder="blur"
+        blurDataURL={boardmemberData.placeholder}
+      />
     );
 
     position = (
