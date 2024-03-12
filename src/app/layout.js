@@ -7,6 +7,7 @@ import PayPalConfig from "./components/PayPal/paypal.config";
 import AOS from "./utils/providers/AOS";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 export const metadata = {
   title: "Team Oregon | PNW Bike Racing",
@@ -52,6 +53,7 @@ export default function RootLayout({ children }) {
               {children}
               <SpeedInsights />
               <Analytics />
+              <GoogleAnalytics gaId="G-FMFV6Z9Y0C" />
             </div>
             <Footer />
             <AOS />
