@@ -188,11 +188,11 @@ export default function AccountInfo() {
   return (
     <div className="flex flex-col gap-4 md:w-1/2 mx-auto my-4 md:my-10">
       {userData.memberStatus ? (
-        <div className="flex flex-row justify-between">
-          <div className="text-center py-4 lg:px-0">
+        <div className="flex flex-col gap-2 md:flex-row justify-between">
+          <div className="text-center lg:px-0">
             <a href={slackLink} target="_blank">
               <div
-                className="p-2 bg-blue-500 hover:bg-blue-hover items-center text-indigo-100 leading-none lg:rounded-full flex lg:inline-flex"
+                className="p-2 h-[50px] bg-blue-500 hover:bg-blue-hover items-center text-indigo-100 leading-none lg:rounded-full flex lg:inline-flex"
                 role="button"
               >
                 <Slack color={"#e0e7ff"} />
@@ -210,10 +210,10 @@ export default function AccountInfo() {
             </a>
           </div>
 
-          <div className="text-center py-4 lg:px-0">
+          <div className="text-center lg:px-0">
             <a href={googleLink} target="_blank">
               <div
-                className="p-2 bg-blue-500 hover:bg-blue-hover items-center text-indigo-100 leading-none lg:rounded-full flex lg:inline-flex"
+                className="p-2 h-[50px] bg-blue-500 hover:bg-blue-hover items-center text-indigo-100 leading-none lg:rounded-full flex lg:inline-flex"
                 role="button"
               >
                 <Google color={"#e0e7ff"} />
@@ -230,13 +230,13 @@ export default function AccountInfo() {
               </div>
             </a>
           </div>
-          <div className="text-center py-4 lg:px-0">
+          <div className="text-center lg:px-0">
             <a
               href="/documents/2024-Team-Oregon-Membership-Packet.pdf"
               target="_blank"
             >
               <div
-                className="p-2 bg-blue-500 hover:bg-blue-hover items-center text-indigo-100 leading-none lg:rounded-full flex lg:inline-flex"
+                className="p-2 h-[50px] bg-blue-500 hover:bg-blue-hover items-center text-indigo-100 leading-none lg:rounded-full flex lg:inline-flex"
                 role="button"
               >
                 <FileIcon />
